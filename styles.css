@@ -1279,6 +1279,10 @@ nav {
     overflow: hidden;
 }
 
+.contact-item .fas.fa-phone {
+    transform: rotate(90deg);
+}
+
 .cta-button::after {
     content: '';
     position: absolute;
@@ -1293,6 +1297,15 @@ nav {
 
 .cta-button:active::after {
     transform: translate(-50%, -50%) scale(1);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+}
+
+/* Add the new code right here */
+.contact-item i.bx-phone {
+    transform: scaleX(-1);
 }
 
 /* Mejora del scroll */
