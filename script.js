@@ -38,6 +38,7 @@ const translations = {
         "consultant4-area": "Corporate Negotiation & Applied Neuroscience",
         "consultant5-area": "Business Administration Specialist in Management",
         "consultant6-area": "Strategic Litigation in the Inter-American Court & Commission on Human Rights"
+        
     },
     es: {
         "nav-home": "Inicio",
@@ -118,6 +119,7 @@ const translations = {
         "consultant4-area": "Negociação Corporativa e Neurociência Aplicada",
         "consultant5-area": "Especialista em Administração de Empresas em Gestão",
         "consultant6-area": "Litigância Estratégica na Corte e Comissão Interamericana de Direitos Humanos"
+        
     }
 };
 
@@ -139,8 +141,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Event listener para el menú móvil
-document.querySelector('.hamburger')?.addEventListener('click', () => {
-    document.querySelector('.nav-items').classList.toggle('active');
+// Seleccionar los elementos una sola vez
+const hamburger = document.querySelector('.hamburger');
+const navItems = document.querySelector('.nav-items');
+
+// Event listener para el menú móvil
+hamburger?.addEventListener('click', () => {
+    navItems.classList.toggle('active');
+    hamburger.classList.toggle('active');
 });
 
 // Cerrar menú móvil al hacer click en un enlace
@@ -284,3 +292,5 @@ function closeOnClickOutside(event) {
 document.querySelector('.language-selector').addEventListener('touchmove', function(e) {
   e.preventDefault();
 }, { passive: false });
+
+
