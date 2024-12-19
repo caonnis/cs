@@ -574,7 +574,7 @@ nav {
 .card-back {
     background-color: #AC53A5;
     color: #1F063C;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) scale(-1, 1);
 }
 
 .card-front i {
