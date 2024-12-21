@@ -1783,10 +1783,10 @@ html {
     border: none;
 }
 
-/* Estilos para móvil */
+/* Estilos para móvil - inicio */
 @media (max-width: 768px) {
     .globe-dropdown {
-        display: none;
+        display: none; /* Asegúrate de que el globo no se muestre en móvil */
     }
 
     nav {
@@ -1795,8 +1795,7 @@ html {
 
     .mobile-language-options {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center; /* Cambiar la dirección a horizontal */
         margin-top: 20px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 20px;
@@ -1804,24 +1803,29 @@ html {
     }
 
     .mobile-language-options .language-option {
+        display: inline-block; /* Mostrar las banderas horizontalmente */
+        margin: 0 0.5rem; /* Espaciado horizontal entre banderas */
         padding: 10px;
-        display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
         cursor: pointer;
-        width: 100%;
         color: var(--white);
     }
 
     .mobile-language-options .language-option span {
-        min-width: 80px;
-        text-align: left;
-        color: var(--white);
+        display: none; /* Ocultar el texto de los idiomas */
+    }
+
+    .nav-items a {
+        font-size: 1.2rem;
+        margin: 0.5rem 0; /* Reducir el margen vertical */
     }
 }
 
-/* Estilos para desktop */
+/* Estilos para móvil - Fin  */
+
+/* Estilos para desktop - inicio*/
 @media (min-width: 769px) {
     .mobile-language-options {
         display: none;
@@ -1961,5 +1965,4 @@ html {
 .feature-card:hover p {
     color: #fff;
 }
-
-/*Chevron fondo*/
+/* Estilos para desktop - inicio*/
