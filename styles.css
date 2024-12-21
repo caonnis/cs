@@ -520,6 +520,7 @@ nav {
     display: inline;
 }
 
+/* Estilos para los botones en la sección del home */
 .cta-button {
     display: inline-block;
     margin-top: 1rem;
@@ -539,6 +540,47 @@ nav {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
+.cta-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 10px 65px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1 1 auto;
+    max-width: 500px; /* Ajusta este valor según sea necesario */
+}
+
+.transparent-button {
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+/* Hacer los botones responsivos */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 2px; /* Ajusta el espacio vertical entre los botones */
+    }
+
+    .cta-button {
+        max-width: none;
+        width: 100%;
+        margin: 5px 0; /* Reduce el margen vertical entre los botones */
+    }
+} 
+/* Estilos para los botones en la sección del home - Fin */
 
 /* Services Section */
 #services {
