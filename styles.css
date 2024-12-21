@@ -488,20 +488,6 @@ nav {
     margin-right: 0.5rem;
 }
 
-.hero-map {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 0.5rem;
-}
-
-.hero-map img {
-    max-width: 80%;
-    height: auto;
-    object-fit: contain;
-}
-
 .hero h1 {
     font-size: 4.5rem;
     font-weight: 500;
@@ -567,8 +553,16 @@ nav {
     background-color: transparent;
 }
 
-/* Hacer los botones responsivos */
+/* Hacer los botones y el texto más cercanos al borde superior en mobile */
 @media (max-width: 768px) {
+    #home {
+        padding-top: 50px; /* Reduce el espacio superior en pantallas pequeñas */
+    }
+
+    .hero {
+        margin-top: -20px; /* Mueve todo el contenido hacia arriba */
+    }
+
     .cta-buttons {
         flex-direction: column;
         gap: 2px; /* Ajusta el espacio vertical entre los botones */
@@ -579,7 +573,13 @@ nav {
         width: 100%;
         margin: 5px 0; /* Reduce el margen vertical entre los botones */
     }
-} 
+
+    .hero h1 {
+        font-size: 3rem; /* Ajusta el tamaño del texto para pantallas más pequeñas */
+        margin-bottom: 0.5rem; /* Reduce el margen inferior */
+    }
+}
+
 /* Estilos para los botones en la sección del home - Fin */
 
 /* Services Section */
