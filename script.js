@@ -6,7 +6,8 @@ const translations = {
         "hero-line1": "CLARITY &",
         "hero-line2": "CERTAINTY IN",
         "hero-line3": "COMPLIANCE",
-        "get-started": "Get Started",
+        "explore-services": "Explore Services",
+        "be-compliant": "Be Compliant",
         "services-title": "Our Services",
         "service1-title": "Data Compliance & Quality Audits",
         "service1-desc": "Elevate your data integrity with our comprehensive audits. We ensure your information meets and exceeds legal standards, fortifying your decision-making process.",
@@ -37,7 +38,10 @@ const translations = {
         "consultant3-area": "Labor & Relations Law",
         "consultant4-area": "Corporate Negotiation & Applied Neuroscience",
         "consultant5-area": "Business Administration Specialist in Management",
-        "consultant6-area": "Strategic Litigation in the Inter-American Court & Commission on Human Rights"
+        "consultant6-area": "Strategic Litigation in the Inter-American Court & Commission on Human Rights",
+        
+
+
         
     },
     es: {
@@ -47,7 +51,8 @@ const translations = {
         "hero-line1": "CLARIDAD Y",
         "hero-line2": "CERTEZA EN",
         "hero-line3": "COMPLIANCE",
-        "get-started": "Comenzar",
+        "explore-services": "Explorar Servicios",
+        "be-compliant": "Sea Compliance",
         "services-title": "Nuestros Servicios",
         "service1-title": "Auditorías de Cumplimiento y Calidad de Datos",
         "service1-desc": "Eleve la integridad de sus datos con nuestras auditorías integrales. Aseguramos que su información cumpla y supere los estándares legales, fortaleciendo su proceso de toma de decisiones.",
@@ -87,8 +92,9 @@ const translations = {
         "hero-line1": "CLAREZA E",
         "hero-line2": "CERTEZA EM",
         "hero-line3": "COMPLIANCE",
-        "get-started": "Começar",
+        "explore-services": "Explorar Serviços",
         "services-title": "Nossos Serviços",
+        "be-compliant": "Seja Conformidade",
         "service1-title": "Auditorias de Conformidade e Qualidade de Dados",
         "service1-desc": "Eleve a integridade dos seus dados com nossas auditorias abrangentes. Garantimos que suas informações atendam e superem os padrões legais, fortalecendo seu processo de tomada de decisão.",
         "service2-title": "Auditorias de Direitos Humanos e Compliance",
@@ -293,4 +299,28 @@ document.querySelector('.language-selector').addEventListener('touchmove', funct
   e.preventDefault();
 }, { passive: false });
 
+//  Card Back - Ver Mas - Inicio
+// script.js
+function DataComplianceService() {
+    window.location.href = 'services/DataCompliance.html';
+}
 
+function HumanRightsService() {
+    window.location.href = 'HumanRights.html';
+}
+
+function ContractsLicensingService() {
+    window.location.href = 'ContractsLicensing.html';
+}
+
+function DataComplianceService() {
+    window.location.href = 'DataCompliance.html';
+}
+
+function DataComplianceService() {
+    window.location.href = 'DataCompliance.html';
+}
+
+function DataComplianceService() {
+    window.location.href = 'DataCompliance.html';
+}
