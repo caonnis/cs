@@ -17,22 +17,17 @@ body {
     background-color: #f0f0f0;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--white);
-    display: flex;
-    align-items: center;
+/* Estilos generales para el logo */
+.logo-img {
+    height: 100px;
+    width: auto;
 }
 
-.logo .dot {
-    color: #9B4A99;
-    font-size: 2rem; /* Ligeramente más grande que el texto */
-    font-weight: 900; /* Extra bold */
-    margin-left: 1px;
-    line-height: 1; /* Para mejor alineación vertical */
-    position: relative;
-    top: -2px; /* Ajuste fino de la posición vertical */
+/* Mover el logo un poco a la izquierda en dispositivos móviles */
+@media (max-width: 768px) {
+    .logo {
+        margin-left: -50px; /* Ajusta este valor según sea necesario */
+    }
 }
 
 /* Navbar Styles */
@@ -51,11 +46,7 @@ nav {
     height: 80px;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--white);
-}
+
 
 .nav-items {
     display: flex;
