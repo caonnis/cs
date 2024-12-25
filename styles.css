@@ -1956,4 +1956,13 @@ html {
 .feature-card:hover p {
     color: #fff;
 }
+
 /* Estilos para desktop - inicio*/
+
+.hidden-sitemap {
+    display: none;
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}

@@ -309,25 +309,9 @@
         <div class="footer-copyright">
             <p class="lang" key="footer-copyright">© 2024 Certainty Solutions. All rights reserved.</p>
         </div>
-    </div>
-</footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Indicador de scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.querySelector('.scroll-indicator').style.setProperty('--scroll-width', `${scrolled}%`);
-        });
-    </script>
-
-    <!-- Agregar el overlay -->
-    <div class="language-overlay"></div>
-    
-</body>
-</html>
-
-<?xml version="1.0" encoding="UTF-8"?>
+        <!-- Move sitemap URLs to hidden div -->
+        <div class="hidden-sitemap" aria-hidden="true">
+            <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.certainty.solutions/</loc>
@@ -348,3 +332,22 @@
       <priority>0.7</priority>
    </url>
 </urlset>
+
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Indicador de scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-indicator').style.setProperty('--scroll-width', `${scrolled}%`);
+        });
+    </script>
+
+    <!-- Agregar el overlay -->
+    <div class="language-overlay"></div>
+    
+</body>
+</html>
+
