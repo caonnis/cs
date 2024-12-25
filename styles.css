@@ -19,14 +19,14 @@ body {
 
 /* Estilos generales para el logo */
 .logo-img {
-    height: 100px;
+    height: 69px;
     width: auto;
 }
 
 /* Mover el logo un poco a la izquierda en dispositivos móviles */
 @media (max-width: 768px) {
     .logo {
-        margin-left: -50px; /* Ajusta este valor según sea necesario */
+        margin-left: -35px; /* Ajusta este valor según sea necesario */
     }
 }
 
