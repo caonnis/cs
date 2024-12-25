@@ -23,10 +23,6 @@
 
         gtag('config', 'G-5BHYFR8TT1');  // Sustituye con tu propio ID de seguimiento
     </script>
-
-    <!-- Agregar archivo robots.txt y sitemap.xml -->
-    <link rel="robots" href="robots.txt">
-    <link rel="sitemap" href="sitemap.xml">
 </head>
 <body>
     <!-- Agregar justo después del opening body tag -->
@@ -113,7 +109,9 @@
                 <div class="line"><span class="lang" key="hero-line3"><span class="highlight">C</span>OMPLIANCE</span></div>
             </h1>
             <div class="cta-buttons">
+                <!-- Update existing button text -->
                 <a href="#services" class="cta-button lang" key="explore-services">Explore Services</a>
+                <!-- Add new button -->
                 <a href="#about" class="cta-button lang transparent-button" key="be-compliant">Be Compliant</a>
             </div>
         </div>
@@ -209,25 +207,144 @@
     <section id="about" class="team-section">
         <div class="container">
             <div class="photos">
-                <img src="images/foto1.jpg" alt="Team photo">
-                <img src="images/foto2.jpg" alt="Team photo">
+                <div class="photo-container">
+                    <div class="photo-overlay"></div>
+                    <img src="https://i.ibb.co/mRH9mkR/EstefiOK.jpg" alt="Dra. Estefanía Cuello">
+                    <div class="info">
+                        <h3 class="lang" key="team1-name">Dra. Estefanía Cuello</h3>
+                        <p class="lang" key="team1-position">Geopolitical & Legal Compliance Advisor</p>
+                    </div>
+                </div>
+                
+                <div class="photo-container">
+                    <div class="photo-overlay"></div>
+                    <img src="https://i.ibb.co/d2wv4Nm/Ariel-ULTIMA.png" alt="Dr. Ariel Onnis">
+                    <div class="info">
+                        <h3 class="lang" key="team2-name">Dr. Ariel Onnis</h3>
+                        <p class="lang" key="team2-position">Legal Tech & Data Protection</p>
+                    </div>
+                </div>
+                
+                <div class="photo-container">
+                    <div class="photo-overlay"></div>
+                    <img src="https://i.ibb.co/DL010Kg/Screenshot-1.jpg" alt="Mg. Flor Vargas">
+                    <div class="info">
+                        <h3 class="lang" key="team3-name">Mg. Flor Vargas</h3>
+                        <p class="lang" key="team3-position">Parliamentary Law & Legislative Technique</p>
+                    </div>
+                </div>
             </div>
-            <div class="text">
-                <h2 class="lang" key="about-title">About Us</h2>
-                <p class="lang" key="about-desc">At Certainty Solutions, we are dedicated to empowering businesses with cutting-edge solutions for data protection, compliance, and human rights. Our team of experts offers the support you need to navigate complex regulations and stay ahead of legal and ethical standards. With a firm focus on integrity and transparency, we are committed to delivering results that foster long-term trust and success for your business.</p>
+
+            <button class="accordion lang" key="collaborators-title">
+                <span>We collaborate with third-party consultants to provide comprehensive solutions tailored to our clients' needs</span>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
+                            <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
+                            <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant3-name">Mg. José Ignacio Agostini</div>
+                            <div class="consultant-area lang" key="consultant3-area">Labor & Relations Law</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant4-name">Mg. Jhonatan S. Peña Carlos</div>
+                            <div class="consultant-area lang" key="consultant4-area">Corporate Negotiation & Applied Neuroscience</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant5-name">Lic. Dulce Alejandra Hernández Vargas</div>
+                            <div class="consultant-area lang" key="consultant5-area">Business Administration Specialist in Management</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant6-name">Mg. María Carolina Estepa Becerra</div>
+                            <div class="consultant-area lang" key="consultant6-area">Strategic Litigation in the Inter-American Court & Commission on Human Rights</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="social-icons">
-            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    </section><br><br>
+ 
+<!-- Footer -->
+<footer class="dark-footer">
+    <div class="footer-content">
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/company/certainty-solutions/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/certainty.consulting/m" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@CertaintySolutions" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
         </div>
-    </footer>
+        <div class="footer-contact">
+            <a href="tel:+5491161179711" class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span class="lang" key="footer-phone">+54 911 6117 9711</span>
+            </a>
+            <a href="mailto:info@certainty.solutions.com" class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span class="lang" key="footer-email">info@certainty.solutions.com</span>
+            </a>
+        </div>
+        <div class="footer-copyright">
+            <p class="lang" key="footer-copyright">© 2024 Certainty Solutions. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Indicador de scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.querySelector('.scroll-indicator').style.setProperty('--scroll-width', `${scrolled}%`);
+        });
+    </script>
+
+    <!-- Agregar el overlay -->
+    <div class="language-overlay"></div>
+    
 </body>
 </html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://www.certainty.solutions/</loc>
+      <lastmod>2024-03-14</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://www.certainty.solutions/#services</loc>
+      <lastmod>2024-03-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.certainty.solutions/#about</loc>
+      <lastmod>2024-03-14</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+</urlset>
