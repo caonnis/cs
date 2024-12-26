@@ -443,6 +443,45 @@ function DataComplianceService() {
     window.location.href = 'DataCompliance.html';
 }
 
+function LegalAdvisoryService() {
+    window.location.href = 'LegalAdvisory.html';
+}
+
+function DataPrivacyService() {
+    window.location.href = 'DataPrivacy.html';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all necessary elements
+    const overlay = document.querySelector('.overlay');
+    const dropdown = document.querySelector('.dropdown');
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.menu');
+
+    // Initialize UI elements with error handling
+    function initializeUI() {
+        if (overlay && dropdown && menuBtn && menu) {
+            // Menu toggle
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('active');
+                overlay.classList.toggle('active');
+            });
+
+            // Overlay click handler
+            overlay.addEventListener('click', () => {
+                menu.classList.remove('active');
+                dropdown.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        } else {
+            console.warn('Required UI elements not found');
+        }
+    }
+
+    // Initialize the UI
+    initializeUI();
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.querySelector('.overlay'); // Select overlay element
     
