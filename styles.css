@@ -492,11 +492,6 @@ nav {
     color: var(--white);
 }
 
-.hero h1 .highlight {
-    color: var(--primary-accent);
-    display: inline;
-}
-
 /* Estilos para los botones en la sección del home */
 .cta-button {
     display: inline-block;
