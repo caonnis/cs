@@ -442,3 +442,16 @@ function DataComplianceService() {
 function DataComplianceService() {
     window.location.href = 'DataCompliance.html';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.querySelector('.overlay'); // Select overlay element
+    
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            // Add your click handling code here
+            overlay.classList.remove('active'); // or whatever you need to do
+        });
+    } else {
+        console.warn('Overlay element not found');
+    }
+});
