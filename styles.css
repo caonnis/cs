@@ -781,7 +781,11 @@ nav {
 .social-links a:hover {
 	color: var(--primary-accent);
 	opacity: 1;
-	transform: translateY(-2px);
+	transform: translateX(-2px);
+}
+
+.footer-content .fas.fa-phone {
+	transform: rotate(90deg);
 }
 
 @media screen and (max-width: 1200px) {
@@ -1884,3 +1888,14 @@ html {
 	width: 0;
 	overflow: hidden;
 }
+
+.custom-link {
+	color: #FFFFFF; /* Cambia a rosa */
+	font-weight: bold; /* Negrita */
+	text-decoration: none; /* Quita la línea */
+  }
+  
+  .custom-link:hover {
+	text-decoration: underline; /* Opcional: Agrega subrayado al pasar el mouse */
+  }
+
