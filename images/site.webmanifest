@@ -1,6 +1,12 @@
 {
-  "name": "Nombre de tu aplicación o sitio web",
-  "short_name": "Nombre corto",
+  "name": "Certainty Solutions",
+  "short_name": "Certainty",
+  "description": "Experts in Data Compliance & Legal Protection",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/images/android-chrome-192x192.png",
@@ -11,9 +17,11 @@
       "src": "/images/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  ]
 }
