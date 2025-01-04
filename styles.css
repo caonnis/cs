@@ -20,6 +20,8 @@ body {
 .logo-img {
 	height: 69px;
 	width: auto;
+	margin-left: 150px;
+
 }
 
 @media (max-width: 768px) {
@@ -62,7 +64,7 @@ nav {
 
 .globe-dropdown {
 	position: relative;
-	margin-right: 10px;
+	margin-right: 180px;
 }
 
 .globe-icon {
