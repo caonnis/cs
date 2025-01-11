@@ -2,381 +2,622 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#1F063D">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Conduct expert audits to ensure compliance with data protection, human rights, and legal standards.">
-  <meta name="keywords" content="data compliance, AI compliance audits, human rights audits, legal tech solutions, data protection consulting, privacy policy creation, legal advisory services, software contract review, compliance training, risk management consulting">
-  <meta name="robots" content="index, follow">
-  <!-- Icono para dispositivos Apple -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <!-- Icono para navegador (32x32) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <!-- Icono para navegador (16x16) -->
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <!-- Manifiesto para Progressive Web App -->
-  <link rel="manifest" href="images/site.webmanifest">
-  <!-- Icono para dispositivos Android (192x192) -->
-  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-  <!-- Icono para dispositivos Android (512x512) -->
-  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-  <title>Certainty | Compliance & Risk Management Experts</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Código de seguimiento de Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BHYFR8TT1"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1F063D">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Meta tags en inglés -->
+    <meta name="description" content="Experts in compliance audits, human rights, and risk management. Ensure your business is safe and compliant today!">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta tags en español -->
+    <meta name="description-es" content="Expertos en auditorías de cumplimiento, derechos humanos y gestión de riesgos. ¡Asegura hoy mismo el cumplimiento de tu negocio!">
+    <meta name="robots-es" content="index, follow">
+    
+    <!-- Favicon e iconos -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+    
+    <!-- Título -->
+    <title>Certainty | Compliance & Risk Management Experts</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+    <!-- JSON-LD para datos estructurados -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Certainty Solutions",
+            "description": "Experts in compliance audits, human rights, and risk management.",
+            "url": "https://www.certainty.solutions",
+            "sameAs": [
+              "https://www.linkedin.com/company/certainty-solutions",
+              "https://www.instagram.com/certainty.solutions/"
+            ],
+            "address": [
+                {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Buenos Aires",
+                  "addressRegion": "Argentina",
+                  "addressCountry": "AR"
+                },
+                {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Ciudad de México",
+                  "addressRegion": "CDMX",
+                  "addressCountry": "MX"
+                }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+54-11-1234-5678",
+              "contactType": "customer service"
+            }
+        }
+    </script>
+
+    <!-- Código de seguimiento de Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BHYFR8TT1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5BHYFR8TT1');
+    </script>
+</head>
+
+    
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
   
-          gtag('config', 'G-5BHYFR8TT1');  // Sustituye con tu propio ID de seguimiento
-  </script>
+    .hero-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4A1259 0%, #8E3A9D 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.1;
+      animation: move 20s linear infinite;
+    }
+  
+    @keyframes move {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-50%) rotate(10deg); }
+    }
+  
+    .hero-content {
+      max-width: 1200px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+  
+    .hero-title {
+      font-family:  sans-serif;
+      font-size: 5rem;
+      font-weight: 100;
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+  
+    .highlight-word {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .underline {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      animation: drawUnderline 1.5s ease forwards;
+    }
+  
+    @keyframes drawUnderline {
+      from {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+      }
+      to {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 0;
+      }
+    }
+  
+    .hero-subtitle {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+  
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: lef;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .cta-button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      width: 220px; /* Fixed width for buttons */
+    }
+  
+    .cta-button:first-child {
+      background: #AC53A5;
+      color: white;
+      box-shadow: 0 4px 15px rgba(184, 102, 198, 0.4);
+    }
+  
+    .cta-button:first-child:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 102, 198, 0.6);
+      background: #C977D7;
+    }
+  
+    .cta-button.transparent-button {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+  
+    .cta-button.transparent-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      transform: translateY(-2px);
+    }
+  
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+  
+      .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+  
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+  
+      .cta-button {
+        width: 200px; /* Slightly smaller width for mobile */
+      }
+    }
+  </style>
+
 </head>
 
 <body>
-  <!-- Agregar justo después del opening body tag -->
-  <div class="scroll-indicator">
-  </div>
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">
-      <a href="#home">
-        <img src="images/Logo.png" alt="Certainty Solutions Logo" class="logo-img">
-      </a>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-bar"></div>
     </div>
-    <div class="nav-items">
-      <a href="#home" class="lang" key="nav-home">Home</a>
-      <a href="#services" class="lang" key="nav-services">Services</a>
-      <a href="#about" class="lang" key="nav-about">About</a>
-      <!--<a href="blog.html" class="lang" key="nav-blog" style="color: #AC53A5;">Blog</a>-->
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Logo.png" alt="Certainty Solutions Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-items">
+            <a href="index.html" class="lang" key="nav-home">Home</a>
+            <a href="#services" class="lang" key="nav-services">Services</a>
+            <a href="#about" class="lang" key="nav-about">About</a>
+          <!--    <a href="blog.html" class="lang" key="nav-blog" style="color: #AC53A5;">Blog</a> -->
 
-      <!-- Selector de idioma para móvil -->
-      <div class="mobile-language-options">
-        <div class="language-option" onclick="changeLanguage('en')">
-          <img src="flags/us.svg" alt="English">
+            <!-- Selector de idioma para móvil -->
+            <div class="mobile-language-options">
+                <div class="language-option" onclick="changeLanguage('en')">
+                    <img src="flags/us.svg" alt="English">
+                </div>
+                <div class="language-option" onclick="changeLanguage('es')">
+                    <img src="flags/es.svg" alt="Español">
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt')">
+                    <img src="flags/br.svg" alt="Português">
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr')">
+                    <img src="flags/fr.svg" alt="Français">
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru')">
+                    <img src="flags/ru.svg" alt="Русский">
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh')">
+                    <img src="flags/zh.svg" alt="中文">
+                </div>
+            </div>
         </div>
-        <div class="language-option" onclick="changeLanguage('es')">
-          <img src="flags/es.svg" alt="Español">
+        <!-- Globe icon solo visible en desktop -->
+        <div class="globe-dropdown">
+            <div class="globe-icon" onclick="toggleLanguageMenu(event)">
+              <img src="globe.svg" alt="Select Language">
+            </div>
+            <div class="language-selector">
+                <div class="language-option" onclick="changeLanguage('en')">
+                   <img src="flags/us.svg" alt="English">
+                   <span>English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es')">
+                   <img src="flags/es.svg" alt="Español">
+                    <span>Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt')">
+                    <img src="flags/br.svg" alt="Português">
+                    <span>Português</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr')">
+                    <img src="flags/fr.svg" alt="Français">
+                    <span>Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru')">
+                    <img src="flags/ru.svg" alt="Русский">
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh')">
+                    <img src="flags/zh.svg" alt="中文">
+                   <span>中文</span>
+                </div>
+            </div>
         </div>
-        <div class="language-option" onclick="changeLanguage('pt')">
-          <img src="flags/br.svg" alt="Português">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="language-option" onclick="changeLanguage('fr')">
-          <img src="flags/fr.svg" alt="Français">
-        </div>
-        <div class="language-option" onclick="changeLanguage('ru')">
-          <img src="flags/ru.svg" alt="Русский">
-        </div>
-        <div class="language-option" onclick="changeLanguage('zh')">
-          <img src="flags/zh.svg" alt="中文">
-        </div>
-      </div>
-    </div>
-    <!-- Globe icon solo visible en desktop -->
-    <div class="globe-dropdown">
-      
-      <div class="globe-icon" onclick="toggleLanguageMenu(event)">
-        <img src="globe.svg" alt="Select Language">
-      </div>
-      <div class="language-selector">
-        <div class="language-option" onclick="changeLanguage('en')">
-          <img src="flags/us.svg" alt="English">
-          <span>English</span>
-        </div>
-        <div class="language-option" onclick="changeLanguage('es')">
-          <img src="flags/es.svg" alt="Español">
-          <span>Español</span>
-        </div>
-        <div class="language-option" onclick="changeLanguage('pt')">
-          <img src="flags/br.svg" alt="Português">
-          <span>Português</span>
-        </div>
-        <div class="language-option" onclick="changeLanguage('fr')">
-          <img src="flags/fr.svg" alt="Français">
-          <span>Français</span>
-        </div>
-        <div class="language-option" onclick="changeLanguage('ru')">
-          <img src="flags/ru.svg" alt="Русский">
-          <span>Русский</span>
-        </div>
-        <div class="language-option" onclick="changeLanguage('zh')">
-          <img src="flags/zh.svg" alt="中文">
-          <span>中文</span>
-        </div>
-      </div>
-    </div>
-    <div class="hamburger">
-      <span>
-      </span>
-      <span>
-      </span>
-      <span>
-      </span>
-    </div>
-  </nav>
-  <!-- Hero Section -->
-  <section id="home">
-    <div class="hero fade-in-up">
-      <h1>
-        <div class="line">
-          <span class="lang" key="hero-line1">CLARITY &</span>
-        </div>
-        <div class="line">
-          <span class="lang" key="hero-line2">CERTAINTY IN</span>
-        </div>
-        <div class="line">
-          <span class="lang" key="hero-line3">COMPLIANCE</span>
-        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="highlight-word">
+            High Value in <br>
+            Privacy & Compliance
+            <svg class="underline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" role="presentation">
+                <rect x="0" y="8" width="200" height="2" fill="#FFFFFF">
+                  <animate attributeName="x" from="-200" to="200" dur="3s" keyTimes="0;1" keySplines="0.4 0 0.2 1" repeatCount="indefinite" />
+                </rect>
+              </svg>
+        </span>
       </h1>
+  
+      </h2>
       <div class="cta-buttons">
-        <!-- Update existing button text -->
-        <a href="#services" class="cta-button lang" key="explore-services">Explore Services</a>
-        <!-- Add new button -->
-        <a href="#about" class="cta-button lang transparent-button" key="be-compliant">Be Compliant</a>
+        <a href="#services" class="cta-button lang" data-key="explore-services">Explore Services</a>
+        <a href="#about" class="cta-button transparent-button lang" data-key="be-compliant">Be Compliant</a>
+        
       </div>
     </div>
   </section>
-  <!-- Services Section -->
-  <section id="services">
-    <div class="services-grid">
-      <!-- Service 1 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-clipboard-check"></i>
-            <h3 class="lang" key="service1-title">Data Compliance & Quality Audits</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service1-desc">Elevate your data integrity with our comprehensive audits. We ensure your information meets and exceeds legal standards, fortifying your decision-making process.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-balance-scale"></i>
-            <h3 class="lang" key="service2-title">Human Rights & Compliance Audits</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service2-desc">Champion ethical business practices with our human rights compliance audits. We help you navigate complex regulations, ensuring respect for human rights.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Service 3 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-file-contract"></i>
-            <h3 class="lang" key="service3-title">Software Contracts & Licensing</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service3-desc">Safeguard your digital assets with our expert contract crafting. We create robust software agreements that protect your intellectual property.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Service 4 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-gavel"></i>
-            <h3 class="lang" key="service4-title">Legal Advisory in Tech & Data</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service4-desc">Navigate the complex intersection of technology and law with our specialized legal advisory. Keep your tech innovations compliant and competitive.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Service 5 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-shield-alt"></i>
-            <h3 class="lang" key="service5-title">Data Privacy & Privacy Policies</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service5-desc">Build trust with ironclad privacy protection. Our tailored policies ensure you stay ahead of regulations while fostering customer confidence.</p>
-          </div>
-        </div>
-      </div>
-      <!-- Service 6 -->
-      <div class="service-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <h3 class="lang" key="service6-title">Training & Awareness Initiatives</h3>
-          </div>
-          <div class="card-back">
-            <p class="lang" key="service6-desc">Empower your team with knowledge. Our training programs transform compliance from a checklist to a culture, ensuring best practices.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="services-cta">
-      <a href="https://wa.me/5491161179711" class="cta-button inverse lang" key="contact-us" target="_blank">Contact Us</a>
-    </div>
-  </section>
-  <!-- About Section -->
-  <section id="about" class="team-section">
-    <div class="container">
-      <div class="photos">
-        <div class="photo-container">
-          <div class="photo-overlay">
-          </div>
-          <img src="images/Estefania.png" alt="Dra. Estefanía Cuello">
-          <div class="info">
-            <h3 class="lang" key="team1-name">Dra. Estefanía Cuello</h3>
-            <p class="lang" key="team1-position">Geopolitical & Legal Compliance Advisor</p>
-          </div>
-        </div>
-        <div class="photo-container">
-          <div class="photo-overlay">
-          </div>
-          <img src="images/Ariel.png" alt="Dr. Ariel Onnis">
-          <div class="info">
-            <h3 class="lang" key="team2-name">Dr. Ariel Onnis</h3>
-            <p class="lang" key="team2-position">Legal Tech & Data Protection</p>
-          </div>
-        </div>
-        <div class="photo-container">
-          <div class="photo-overlay">
-          </div>
-          <img src="images/Flor.png" alt="Mg. Flor Vargas">
-          <div class="info">
-            <h3 class="lang" key="team3-name">Mg. Flor Vargas</h3>
-            <p class="lang" key="team3-position">Parliamentary Law & Legislative Technique</p>
-          </div>
-        </div>
-      </div>
-      <button class="accordion lang" key="collaborators-title">
-        <span>We collaborate with third-party consultants to provide comprehensive solutions tailored to our clients' needs</span>
-        <i class="fas fa-chevron-down accordion-icon"></i>
-      </button>
-      <div class="panel">
-        <div class="panel-content">
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
-              <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                         <i class="fas fa-clipboard-check"></i>
+                        <h3 class="lang" key="service1-title">Data Compliance & Quality Audits</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service1-desc">Elevate your data integrity with our comprehensive audits. We ensure your information meets and exceeds legal standards, fortifying your decision-making process.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
-              <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3 class="lang" key="service2-title">Human Rights & Compliance Audits</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service2-desc">Champion ethical business practices with our human rights compliance audits. We help you navigate complex regulations, ensuring respect for human rights.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant3-name">Mg. José Ignacio Agostini</div>
-              <div class="consultant-area lang" key="consultant3-area">Labor & Relations Law</div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-file-contract"></i>
+                        <h3 class="lang" key="service3-title">Software Contracts & Licensing</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service3-desc">Safeguard your digital assets with our expert contract crafting. We create robust software agreements that protect your intellectual property.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant4-name">Mg. Jhonatan S. Peña Carlos</div>
-              <div class="consultant-area lang" key="consultant4-area">Corporate Negotiation & Applied Neuroscience</div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-gavel"></i>
+                        <h3 class="lang" key="service4-title">Legal Advisory in Tech & Data</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service4-desc">Navigate the complex intersection of technology and law with our specialized legal advisory. Keep your tech innovations compliant and competitive.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant5-name">Lic. Dulce Alejandra Hernández Vargas</div>
-              <div class="consultant-area lang" key="consultant5-area">Business Administration Specialist in Management</div>
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 class="lang" key="service5-title">Data Privacy & Privacy Policies</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service5-desc">Build trust with ironclad privacy protection. Our tailored policies ensure you stay ahead of regulations while fostering customer confidence.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="consultant-card">
-            <div class="consultant-info">
-              <div class="consultant-name lang" key="consultant6-name">Mg. María Carolina Estepa Becerra</div>
-              <div class="consultant-area lang" key="consultant6-area">Strategic Litigation in the Inter-American Court & Commission on Human Rights</div>
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                         <i class="fas fa-chalkboard-teacher"></i>
+                        <h3 class="lang" key="service6-title">Training & Awareness Initiatives</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service6-desc">Empower your team with knowledge. Our training programs transform compliance from a checklist to a culture, ensuring best practices.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <br>
-  <footer class="dark-footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4 class="footer-title">Certainty<span style="font-weight: bold; color: #AC53A5">.</span></h4>
-        <div class="footer-description">
-          <p>We are your legal and data compliance advisor, ensuring your business stays protected and aligned with regulations.</p>
+        <div class="services-cta">
+            <a href="https://wa.me/5491161179711" class="cta-button inverse lang" key="contact-us" target="_blank">Contact Us</a>
         </div>
-      </div>
-  
-      <div class="footer-section">
-        <h4 class="footer-title">Useful links</h4>
-        <ul class="footer-links">
-          <li><a href="#about" class="footer-link">About</a></li>
-          <li><a href="#services" class="footer-link">Services</a></li>
-        </ul>
-      </div>
-  
-      <div class="footer-section">
-        <h4 class="footer-title">Terms</h4>
-        <ul class="footer-links">
-          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-          <li><a href="terms-and-condition.html" class="footer-link">Terms & Conditions</a></li>
-        </ul>
-      </div>
-  
-      <div class="footer-section">
-        <h4 class="footer-title">Contact Us</h4>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/certainty.solutions" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/certainty-solutions/" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:info@certainty.solutions" class="social-icon"><i class="fas fa-envelope"></i></a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="team-section">
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Estefania.png" alt="Dra. Estefanía Cuello">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/estefan%C3%ADa-p-cuello-060755343/" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team1-name">Dra. Estefanía Cuello</h3>
+                        <p class="lang" key="team1-position">Geopolitical & Legal Compliance Advisor</p>
+                    </div>
+                </div>
+    
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Ariel.png" alt="Dr. Ariel Onnis">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/onnis/"" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team2-name">Dr. Ariel Onnis</h3>
+                        <p class="lang" key="team2-position">Legal Tech & Data Protection</p>
+                    </div>
+                </div>
+    
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Flor.png" alt="Mg. Flor Vargas">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/flor-de-magdalena-vargas-ortiz-0a7161345/" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team3-name">Mg. Flor Vargas</h3>
+                        <p class="lang" key="team3-position">Human Rights Audits Specialist</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="footer-locations">
-          <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Argentina, Buenos Aires</p>
-          <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Mexico, CDMX</p>
-          
+           <button class="accordion lang" key="collaborators-title">
+              <span>We collaborate with third-party consultants to provide comprehensive solutions tailored to our clients' needs</span>
+               <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
+                            <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
+                            <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
+                            <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
+                            <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant3-name">Mg. José Ignacio Agostini</div>
+                            <div class="consultant-area lang" key="consultant3-area">Labor & Relations Law</div>
+                        </div>
+                    </div>
+                     <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant4-name">Mg. Jhonatan S. Peña Carlos</div>
+                            <div class="consultant-area lang" key="consultant4-area">Corporate Negotiation & Applied Neuroscience</div>
+                         </div>
+                     </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant5-name">Lic. Dulce Alejandra Hernández Vargas</div>
+                            <div class="consultant-area lang" key="consultant5-area">Business Administration Specialist in Management</div>
+                       </div>
+                   </div>
+                    <div class="consultant-card">
+                       <div class="consultant-info">
+                           <div class="consultant-name lang" key="consultant6-name">Mg. María Carolina Estepa Becerra</div>
+                           <div class="consultant-area lang" key="consultant6-area">Strategic Litigation in the Inter-American Court & Commission on Human Rights</div>
+                       </div>
+                   </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p style="color: #AFAFAF;">&copy; 2025 Certainty. All rights reserved.</p>
-    </div>
-  </footer>
-  
-      <!-- Move sitemap URLs to hidden div -->
-      <div class="hidden-sitemap" aria-hidden="true">
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          <url>
+    </section>
+    <br>
+    <footer class="dark-footer">
+        <div class="footer-content">
+           <div class="footer-section">
+               <h4 class="footer-title">Certainty<span style="font-weight: bold; color: #AC53A5">.</span></h4>
+               <div class="footer-description">
+                    <p>Your legal and data compliance advisor, ensuring your business stays protected and aligned with regulations.</p>
+               </div>
+           </div>
+
+           <div class="footer-section">
+              
+               <h4 class="footer-title">Useful links</h4>
+                <ul class="footer-links">
+                     <li><a href="#about" class="footer-link">About</a></li>
+                     <li><a href="#services" class="footer-link">Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+              <h4 class="footer-title">Terms</h4>
+              <ul class="footer-links">
+                  <li><a href="terms-and-condition.html" class="footer-link">Terms and Conditions</a></li>
+                  <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+              </ul>
+            </div>
+        
+             <div class="footer-section">
+                <h4 class="footer-title">Contact Us</h4>
+                  <div class="footer-social">
+                     <a href="https://www.instagram.com/certainty.solutions" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/certainty-solutions/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:info@certainty.solutions" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/5491161179711" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-locations">
+                   <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Argentina, Buenos Aires</p>
+                     <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Mexico, CDMX</p>
+                 </div>
+             </div>
+        </div>
+         <div class="footer-bottom">
+           <p style="color: #AFAFAF;">© 2025 Certainty. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Move sitemap URLs to hidden div -->
+    <div class="hidden-sitemap" aria-hidden="true">
+      <?xml version="1.0" encoding="UTF-8" ?>
+       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
             <loc>https://www.certainty.solutions/</loc>
-            <lastmod>2024-03-14</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>1.0</priority>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>weekly</changefreq>
+             <priority>1.0</priority>
           </url>
           <url>
-            <loc>https://www.certainty.solutions/#services</loc>
-            <lastmod>2024-03-14</lastmod>
-            <changefreq>monthly</changefreq>
-            <priority>0.8</priority>
-          </url>
+             <loc>https://www.certainty.solutions/#services</loc>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>monthly</changefreq>
+             <priority>0.8</priority>
+        </url>
           <url>
-            <loc>https://www.certainty.solutions/#about</loc>
-            <lastmod>2024-03-14</lastmod>
-            <changefreq>monthly</changefreq>
+           <loc>https://www.certainty.solutions/#about</loc>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>monthly</changefreq>
             <priority>0.7</priority>
           </url>
         </urlset>
+    </div>
+   <script src="script.js"></script>
+    <script>
+        // Indicador de scroll
+        window.addEventListener('scroll', () => {
+             const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+             document.querySelector('.scroll-bar').style.width = `${scrolled}%`;
+         });
+        </script>
+    <!-- Agregar el overlay -->
+      <div class="language-overlay">
       </div>
-  </footer>
-  <script src="script.js"></script>
-  <script>
-  // Indicador de scroll
-          window.addEventListener('scroll', () => {
-              const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-              document.querySelector('.scroll-indicator').style.setProperty('--scroll-width', `${scrolled}%`);
-          });
-  </script>
-  <!-- Agregar el overlay -->
-  <div class="language-overlay">
-  </div>
 </body>
 </html>
