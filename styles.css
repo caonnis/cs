@@ -822,7 +822,6 @@ nav {
 	}
 }
 
-.
 .contact-item {
 	display: flex;
 	align-items: left;
@@ -1312,27 +1311,26 @@ html {
 }
 
 .accordion {
-	background: linear-gradient(135deg, var(--primary-dark) 0%, #3d1a57 100%);
-	color: var(--white);
-	cursor: pointer;
-	padding: 25px 35px;
-	padding-right: 60px;
-	width: 100%;
-	border: none;
-	text-align: center;
-	line-height: 1.4;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	outline: none;
-	font-size: 18px;
-	transition: all .3s ease;
-	border-radius: 15px;
-	margin-bottom: 15px;
-	position: relative;
-	font-weight: 500;
-	box-shadow: 0 4px 15px rgba(31, 7, 60, .2);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #3d1a57 100%);
+    color: var(--white);
+    cursor: pointer;
+    padding: 25px 40px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    font-size: 18px;
+    transition: all .3s ease;
+    border-radius: 15px;
+    margin-top: 40px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(31, 7, 60, .2);
 }
+
 
 .accordion:hover {
 	transform: translateY(-2px);
@@ -1357,15 +1355,20 @@ html {
 
 .accordion.active .accordion-icon {
 	transform: translateY(-50%) rotate(180deg);
+	max-width: 1200px
+	
 }
 
 .panel {
-	background-color: var(--light-gray);
+	background-color: #F0F0F0;
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height .3s ease-out;
 	border-radius: 15px;
 	margin-bottom: 15px;
+	max-width: 1200px; /* Ancho máximo para coincidir con el grid del equipo */
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
 }
 
 .panel-content {
@@ -1984,3 +1987,114 @@ html {
 	  gap: 1.5rem;
 	}
   }
+/* Estilos para la sección del equipo */
+.team-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+	margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+.team-member {
+    position: relative;
+    background: #E6E4E7;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.member-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, rgba(31, 6, 61, 0.7), rgba(31, 6, 61, 0.9));
+	opacity: 0;
+	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Centrado vertical */
+	align-items: center; /* Centrado horizontal */
+	padding: 1rem;
+	border-radius: 12px;
+ }
+.member-info {
+    position: absolute;
+    bottom: 8rem;
+    left: 1rem;
+    right: 1rem;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+.team-member:hover .member-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+.member-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+.member-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+.team-member:hover .member-overlay {
+    opacity: 1;
+}
+
+.team-member:hover .member-image img {
+    transform: scale(1.05);
+}
+
+.linkedin-link {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	backdrop-filter: blur(2px);
+ }
