@@ -1345,7 +1345,7 @@ html {
 
 .accordion-icon {
 	font-size: 24px;
-	position: absolute;
+	position: relative;
 	right: 30px;
 	top: 50%;
 	transform: translateY(-50%);
