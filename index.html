@@ -1,2100 +1,623 @@
-:root {
-	--primary-dark: #1f063d;
-	--primary-accent: #ac53a5;
-	--light-gray: #e6e4e7;
-	--white: #fff;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body {
-	font-family: "Arial", sans-serif;
-	line-height: 1.6;
-	background-color: #f0f0f0;
-}
-
-.logo-img {
-	height: 69px;
-	width: auto;
-}
-
-@media (max-width: 768px) {
-	.logo {
-		margin-left: -35px;
-	}
-}
-
-nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 1.2rem 5%;
-	background-color: rgba(31, 6, 61, .85);
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-	position: fixed;
-	width: 100%;
-	top: 0;
-	z-index: 1000;
-	height: 80px;
-}
-
-.nav-items {
-	display: flex;
-	gap: 2rem;
-	margin-left: auto;
-	margin-right: 2rem;
-}
-
-.nav-items a {
-	color: var(--white);
-	text-decoration: none;
-	transition: color .3s ease;
-}
-
-.nav-items a:hover {
-	color: var(--primary-accent);
-}
-
-.globe-dropdown {
-	position: relative;
-	margin-right: 10px;
-}
-
-.globe-icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	padding: 8px;
-	transition: opacity .2s ease;
-}
-
-.globe-icon:hover {
-	opacity: .8;
-	color: var(--primary-accent);
-}
-
-.globe-icon img {
-	width: 24px;
-	height: 24px;
-}
-
-.language-selector {
-	position: absolute;
-	top: 60px;
-	right: 0;
-	background: white;
-	border-radius: 12px;
-	box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
-	min-width: 200px;
-	padding: 8px 0;
-	opacity: 0;
-	visibility: hidden;
-	transform: translateY(-10px);
-	transition: all .3s ease;
-	z-index: 1000;
-}
-
-.language-selector.active {
-	opacity: 1;
-	visibility: visible;
-	transform: translateY(0);
-}
-
-.language-option {
-	display: flex;
-	align-items: center;
-	padding: 12px 16px;
-	cursor: pointer;
-	transition: background-color .2s ease;
-}
-
-.language-option:hover {
-	background-color: rgba(172, 83, 165, .1);
-}
-
-.language-option img {
-	width: 20px;
-	height: 20px;
-	margin-right: 12px;
-	border-radius: 50%;
-}
-
-.language-option span {
-	color: #1f063d;
-	font-size: 14px;
-	font-weight: 500;
-}
-
-@media screen and (max-width: 768px) {
-	.globe-icon {
-		padding: 12px;
-	}
-	
-	.globe-icon img {
-		width: 28px;
-		height: 28px;
-	}
-	
-	.language-selector {
-		position: absolute;
-		top: 100%;
-		left: 0%;
-		transform: translateX(-50%);
-		width: 200px;
-		border-radius: 12px;
-		padding: 16px 0;
-		background: white;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, .15);
-		z-index: 2000;
-		transition: all .3s ease;
-	}
-	
-	.language-selector.active {
-		bottom: 1000;
-	}
-	
-	.language-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: var(--primary-dark);
-		opacity: 0;
-		visibility: hidden;
-		transition: all .3s ease;
-		z-index: 1999;
-	}
-	
-	.language-overlay.active {
-		opacity: .5;
-		visibility: visible;
-	}
-	
-	.language-option {
-		padding: 16px 24px;
-		min-height: 56px;
-	}
-	
-	.language-option span {
-		font-size: 16px;
-	}
-}
-
-@media screen and (min-height: 700px) and (max-width: 768px) {
-	.language-selector {
-		max-height: 300px;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.language-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(31, 7, 60, .5);
-		backdrop-filter: blur(4px);
-		z-index: 1090;
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		transition: all .3s ease;
-	}
-	
-	.language-options {
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: -100%;
-		background: #500335;
-		padding: 20px;
-		border-radius: 20px 20px 0 0;
-		z-index: 2100;
-		transition: bottom .3s ease;
-	}
-	
-	.globe-dropdown.active .language-overlay {
-		opacity: 1;
-		visibility: visible;
-	}
-	
-	.globe-dropdown.active .language-options {
-		bottom: 0;
-	}
-	
-	.language-options button {
-		display: flex;
-		align-items: center;
-		width: 100%;
-		padding: 15px;
-		border: none;
-		background: none;
-		font-size: 16px;
-		gap: 10px;
-		color: white;
-	}
-	
-	.language-options button:active {
-		background-color: rgba(255, 255, 255, .1);
-	}
-}
-
-@media screen and (min-width: 769px) {
-	.language-options {
-		position: absolute;
-		top: 100%;
-		right: 0;
-		background: white;
-		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-		min-width: 150px;
-		display: none;
-	}
-	
-	.globe-dropdown:hover .language-options {
-		display: block;
-	}
-	
-	.language-overlay {
-		display: none;
-	}
-}
-
-.language-options {
-	background: var(--white);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
-}
-
-.language-options button {
-	display: flex;
-	align-items: center;
-	border: none;
-	background: none;
-	cursor: pointer;
-	width: 100%;
-	color: var(--primary-dark);
-	transition: background-color .3s ease;
-}
-
-.language-options button img {
-	border-radius: 50%;
-	margin-right: 12px;
-}
-
-@media screen and (min-width: 769px) {
-	.language-options {
-		position: absolute;
-		top: 100%;
-		right: 0;
-		min-width: 180px;
-		border-radius: 8px;
-		padding: .5rem 0;
-		margin-top: .5rem;
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(10px);
-		transition: all .3s ease;
-		z-index: 1100;
-	}
-	
-	.globe-dropdown:hover .language-options {
-		opacity: 1;
-		visibility: visible;
-		transform: translateY(0);
-	}
-	
-	.language-options button {
-		padding: .8rem 1.2rem;
-		font-size: .95rem;
-	}
-	
-	.language-options button:hover {
-		background-color: rgba(172, 83, 165, .1);
-	}
-	
-	.language-options button img {
-		width: 20px;
-		height: 20px;
-	}
-	
-	.language-overlay {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.globe-dropdown {
-		margin-right: 3rem;
-		position: relative;
-	}
-	
-	.language-overlay {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(31, 7, 60, .5);
-		backdrop-filter: blur(4px);
-		z-index: 1090;
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		transition: all .3s ease;
-	}
-	
-	.globe-dropdown.active .language-overlay {
-		opacity: 1;
-		visibility: visible;
-		pointer-events: auto;
-	}
-	
-	.language-options {
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: -100%;
-		width: 100%;
-		padding: 1.5rem 0;
-		border-radius: 20px 20px 0 0;
-		z-index: 1100;
-		background: var(--white);
-		transform: translateY(100%);
-		transition: all .3s ease;
-		box-shadow: 0 -5px 25px rgba(31, 7, 60, .2);
-	}
-	
-	.globe-dropdown.active .language-options {
-		transform: translateY(0);
-		bottom: 0;
-	}
-	
-	.language-options button {
-		padding: 1rem 2rem;
-		font-size: 1.1rem;
-		text-align: left;
-		background: transparent;
-	}
-	
-	.language-options button:active {
-		background-color: rgba(172, 83, 165, .1);
-	}
-	
-	.language-options button img {
-		width: 24px;
-		height: 24px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.language-options {
-		padding: 1rem 0;
-	}
-	
-	.language-options button {
-		padding: .8rem 1.5rem;
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.language-options button {
-		padding: 15px 20px;
-	}
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.language-options button:focus {
-	outline: 2px solid var(--primary-accent);
-	outline-offset: -2px;
-}
-
-.language-options button.active {
-	background-color: var(--light-gray);
-	font-weight: 500;
-}
-
-#home {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	background: linear-gradient(135deg, var(--primary-dark), var(--primary-accent));
-	perspective: 1000px;
-	padding-top: 100px;
-}
-
-.hero {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: center;
-	text-align: left;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 1rem;
-	transform-style: preserve-3d;
-	animation: float 6s ease-in-out infinite;
-}
-
-.hero-content {
-	flex: 1;
-	margin-right: .5rem;
-}
-
-.hero h1 {
-	font-size: 4.5rem;
-	font-weight: 500;
-	line-height: 1.2;
-	margin-bottom: 1rem;
-	text-align: left;
-}
-
-.hero h1 span {
-	display: inline;
-	color: var(--white);
-}
-
-.cta-button {
-	display: inline-block;
-	margin-top: 1rem;
-	padding: 1rem 2.5rem;
-	background-color: var(--primary-accent);
-	color: var(--white);
-	text-decoration: none;
-	border-radius: 5px;
-	font-weight: 600;
-	transition: all .3s ease;
-	border: 2px solid var(--primary-accent);
-}
-
-.cta-button:hover {
-	background-color: #1f063d;
-	border-color: #1f063d;
-	transform: translateY(-3px);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, .3);
-}
-
-.cta-buttons {
-	display: flex;
-	gap: 10px;
-	justify-content: center;
-	flex-wrap: wrap;
-}
-
-.cta-button {
-	padding: 10px 65px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 10px 2px;
-	cursor: pointer;
-	border-radius: 5px;
-	flex: 1 1 auto;
-	max-width: 500px;
-}
-
-.transparent-button {
-	border: 2px solid white;
-	color: white;
-	background-color: transparent;
-}
-
-@media (max-width: 768px) {
-	#home {
-		padding-top: 50px;
-	}
-	
-	.hero {
-		margin-top: -20px;
-	}
-	
-	.cta-buttons {
-		flex-direction: column;
-		gap: 2px;
-	}
-	
-	.cta-button {
-		max-width: none;
-		width: 100%;
-		margin: 5px 0;
-	}
-	
-	.hero h1 {
-		font-size: 3rem;
-		margin-bottom: .5rem;
-	}
-}
-
-#services {
-	padding: 5rem 2rem;
-}
-
-.services-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 2rem;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 2rem;
-}
-
-.service-card {
-	perspective: 1000px;
-	height: 300px;
-	margin-bottom: 2rem;
-}
-
-.card-inner {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	transition: transform .8s;
-	transform-style: preserve-3d;
-}
-
-.service-card:hover .card-inner {
-	transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	backface-visibility: hidden;
-	padding: 2rem;
-	border-radius: 8px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-}
-
-.card-front {
-	background-color: #1f063c;
-	color: #fff;
-}
-
-.card-back {
-	background-color: #ac53a5;
-	color: #1f063c;
-	transform: rotateY(180deg);
-}
-
-.card-front i {
-	font-size: 3rem;
-	margin-bottom: 1.5rem;
-	color: #ac53a5;
-}
-
-.card-front h3 {
-	font-size: 1.2rem;
-	margin-bottom: 1rem;
-	color: #fff;
-}
-
-.card-back p {
-	font-size: 1rem;
-	line-height: 1.6;
-	font-weight: 500;
-	color: #1f063c;
-}
-
-.lets-talk-container {
-	width: 100%;
-	text-align: center;
-	margin: 4rem 0;
-	padding: 0 1rem;
-}
-
-.lets-talk-btn {
-	display: inline-block;
-	padding: 1rem 3rem;
-	font-size: 1.2rem;
-	font-weight: 600;
-	color: #fff;
-	background-color: #1f063c;
-	border: 2px solid #1f063c;
-	border-radius: 30px;
-	cursor: pointer;
-	transition: all .3s ease;
-	text-decoration: none;
-}
-
-.lets-talk-btn:hover {
-	background-color: #ac53a5;
-	border-color: #ac53a5;
-	transform: translateY(-3px);
-	box-shadow: 0 5px 15px rgba(172, 83, 165, .3);
-}
-
-@media screen and (max-width: 992px) {
-	.services-grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.5rem;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.service-card {
-		height: 250px;
-		perspective: none;
-	}
-	
-	.card-inner {
-		position: relative;
-		transition: transform .5s ease;
-	}
-	
-	.card-front, .card-back {
-		padding: 1.5rem;
-		height: 100%;
-		backface-visibility: visible;
-		position: absolute;
-		width: 100%;
-		transition: opacity .3s ease;
-	}
-	
-	.card-back {
-		opacity: 0;
-		transform: none;
-		transform: rotateY(180deg);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	
-	.service-card:hover .card-front, .service-card:active .card-front {
-		opacity: 0;
-	}
-	
-	.service-card:hover .card-back, .service-card:active .card-back {
-		opacity: 1;
-	}
-	
-	.card-back p {
-		font-size: 1rem;
-		line-height: 1.4;
-		padding: 1rem;
-		margin: 0;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.services-grid {
-		grid-template-columns: 1fr;
-	}
-	
-	.service-card {
-		height: 220px;
-	}
-	
-	.card-front, .card-back {
-		padding: 1rem;
-	}
-	
-	.card-back p {
-		font-size: .95rem;
-		padding: .5rem;
-	}
-}
-
-.team-grid {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 4rem;
-	max-width: 1200px;
-	margin: 6rem auto;
-	padding: 0 2rem;
-}
-
-.team-member {
-	text-align: center;
-	position: relative;
-	padding: 1rem;
-}
-
-.team-member img {
-	width: 280px;
-	height: 320px;
-	border-radius: 24px;
-	object-fit: cover;
-	margin-bottom: 1.2rem;
-	transition: all .5s cubic-bezier(.165, .84, .44, 1);
-	filter: grayscale(30%);
-}
-
-.team-member:hover img {
-	filter: grayscale(0%);
-	transform: translateY(-10px);
-	box-shadow: 0 25px 50px -12px rgba(31, 6, 61, .25);
-}
-
-.team-member h3 {
-	color: var(--primary-dark);
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin: .5rem 0;
-	letter-spacing: -.5px;
-}
-
-.member-title {
-	color: var(--primary-accent);
-	font-size: .9rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	margin-bottom: 1rem;
-}
-
-.social-links {
-	margin-top: .8rem;
-}
-
-.social-links a {
-	color: var(--primary-dark);
-	font-size: 1.2rem;
-	opacity: .7;
-	transition: all .3s ease;
-}
-
-.social-links a:hover {
-	color: var(--primary-accent);
-	opacity: 1;
-	transform: translateX(-2px);
-}
-
-
-@media screen and (max-width: 1200px) {
-	.team-grid {
-		gap: 3rem;
-	}
-	
-	.team-member img {
-		width: 240px;
-		height: 280px;
-	}
-}
-
-@media screen and (max-width: 992px) {
-	.team-grid {
-		grid-template-columns: repeat(2, 1fr);
-		gap: 2.5rem;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.team-grid {
-		grid-template-columns: 1fr;
-		max-width: 400px;
-		gap: 3rem;
-	}
-	
-	.team-member img {
-		width: 100%;
-		height: 400px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.team-member img {
-		height: 350px;
-	}
-}
-
-.contact-item {
-	display: flex;
-	align-items: left;
-	gap: .5rem;
-	color: var(--white);
-	text-decoration: none;
-	transition: all .3s ease;
-	opacity: .8;
-}
-
-.contact-item:hover {
-	opacity: 1;
-	color: var(--primary-accent);
-}
-
-.contact-item i {
-	font-size: 1.2rem;
-}
-
-
-
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.services-cta {
-	text-align: center;
-	margin-top: 4rem;
-}
-
-.cta-button.inverse {
-	background-color: #1f063d;
-	color: white;
-	transition: all .3s ease;
-	border: 2px solid #1f063d;
-}
-
-.cta-button.inverse:hover {
-	background-color: #ac53a5;
-	border-color: #ac53a5;
-	color: white;
-}
-
-.about-cta {
-	text-align: center;
-	margin: 4rem auto;
-	padding: 0 2rem;
-	background-color: var(--light-gray);
-}
-
-@media screen and (max-width: 1200px) {
-	.services-grid, .team-grid {
-		padding: 0 1rem;
-		gap: 1.5rem;
-	}
-	
-	.hero h1 {
-		font-size: 4rem;
-	}
-}
-
-@media screen and (max-width: 992px) {
-	.services-grid, .team-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	
-	.hero h1 {
-		font-size: 3.5rem;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.nav-items {
-		position: fixed;
-		top: 80px;
-		left: -100%;
-		width: 100%;
-		height: calc(100vh - 80px);
-		background-color: var(--primary-dark);
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
-		padding-top: 2rem;
-		transition: left .3s ease;
-		z-index: 999;
-	}
-	
-	.nav-items.active {
-		left: 0;
-	}
-	
-	.nav-items a {
-		font-size: 1.2rem;
-		margin: 1rem 0;
-	}
-	
-	.hamburger {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		width: 30px;
-		height: 25px;
-		cursor: pointer;
-		z-index: 1000;
-		position: relative;
-	}
-	
-	.hamburger span {
-		width: 100%;
-		height: 3px;
-		background-color: var(--white);
-		transition: all .3s ease;
-		position: absolute;
-		left: 0;
-	}
-	
-	.hamburger span:nth-child(1) {
-		top: 0;
-	}
-	
-	.hamburger span:nth-child(2) {
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	.hamburger span:nth-child(3) {
-		bottom: 0;
-	}
-	
-	.hamburger.active span {
-		background-color: #a54fa0;
-	}
-	
-	.hamburger.active span:nth-child(1) {
-		transform: translateY(11px) rotate(45deg);
-	}
-	
-	.hamburger.active span:nth-child(2) {
-		opacity: 0;
-	}
-	
-	.hamburger.active span:nth-child(3) {
-		transform: translateY(-11px) rotate(-45deg);
-	}
-	
-	.hero {
-		text-align: left;
-		padding: 0 1.5rem;
-	}
-	
-	.hero h1 {
-		font-size: 2.8rem;
-		text-align: left;
-	}
-	
-	.services-grid {
-		grid-template-columns: 1fr;
-		gap: 1rem;
-	}
-	
-	.service-card {
-		height: 250px;
-	}
-	
-	.team-grid {
-		grid-template-columns: 1fr;
-	}
-	
-	.team-member {
-		max-width: 400px;
-		margin: 0 auto;
-	}
-	
-	.services-cta, .about-cta {
-		margin-top: 3rem;
-	}
-	
-	.cta-button {
-		padding: .8rem 2rem;
-		font-size: 1rem;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.hero {
-		padding: 0 1rem;
-	}
-	
-	.hero h1 {
-		font-size: 2.2rem;
-		text-align: left;
-	}
-	
-	.service-card {
-		height: 220px;
-	}
-	
-	.card-front i {
-		font-size: 2rem;
-	}
-	
-	.card-front h3 {
-		font-size: 1rem;
-	}
-	
-	.card-back p {
-		font-size: .9rem;
-		padding: .5rem;
-	}
-	
-	.team-member {
-		margin: 0 1rem;
-	}
-	
-	
-	
-	.language-options {
-		width: 90%;
-		left: 5%;
-		right: 5%;
-	}
-	
-	.language-options button {
-		padding: 1rem;
-	}
-}
-
-@media screen and (max-height: 480px) and (orientation: landscape) {
-	.hero {
-		padding-top: 80px;
-	}
-	
-	.hero h1 {
-		font-size: 2rem;
-	}
-	
-	.nav-items {
-		padding-top: 1rem;
-	}
-	
-	.nav-items a {
-		margin: .5rem 0;
-	}
-	
-	.service-card {
-		height: 200px;
-	}
-}
-
-@media screen and (min-width: 1400px) {
-	.services-grid, .team-grid {
-		max-width: 1400px;
-	}
-	
-	.hero h1 {
-		font-size: 5rem;
-	}
-}
-
-@media (hover: none) {
-	.service-card .card-inner {
-		transform-style: flat;
-	}
-	
-	.service-card:active .card-inner {
-		transform: rotateY(180deg);
-	}
-	
-	.cta-button:active {
-		transform: scale(.98);
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--light-gray: #e6e4e7;
-		--white: #fff;
-	}
-	
-	.card-front {
-		background-color: #1f063d;
-	}
-	
-	.card-back {
-		background-color: #ac53a5;
-		color: #1f063d;
-	}
-	
-	.team-member {
-		background: var(--white);
-	}
-	
-	.team-member h3, .team-member .member-desc {
-		color: var(--primary-dark);
-	}
-	
-	.social-icon:hover {
-		color: var(--primary-accent);
-	}
-}
-
-.animate-in {
-	animation: fadeInUp .6s ease forwards;
-}
-
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-nav {
-	background: rgba(31, 6, 61, .95);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-}
-
-.service-card {
-	transition: all .3s ease;
-}
-
-.service-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 10px 20px rgba(172, 83, 165, .2);
-}
-
-.cta-button {
-	position: relative;
-	overflow: hidden;
-}
-
-.contact-item .fas.fa-phone {
-	transform: rotate(90deg);
-}
-
-.cta-button::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 120%;
-	height: 120%;
-	background: radial-gradient(circle, rgba(255, 255, 255, .2) 0%, transparent 60%);
-	transform: translate(-50%, -50%) scale(0);
-	transition: transform .5s ease;
-}
-
-.cta-button:active::after {
-	transform: translate(-50%, -50%) scale(1);
-}
-
-.contact-item i {
-	font-size: 1.2rem;
-}
-
-.contact-item i.bx-phone {
-	transform: scaleX(-1);
-}
-
-html {
-	scroll-behavior: smooth;
-	scroll-padding-top: 100px;
-}
-
-.scroll-indicator {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 3px;
-	background: linear-gradient(to right, var(--primary-accent), var(--primary-dark));
-	z-index: 1001;
-	width: var(--scroll-width, 0%);
-}
-
-.container {
-	max-width: 1200px;
-	width: 100%;
-	background: var(--light-gray);
-	padding: 30px;
-	border-radius: 20px;
-	margin: 0 auto;
-}
-
-.photos {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 40px;
-	gap: 30px;
-}
-
-.photo-container {
-	position: relative;
-	width: 350px;
-	height: 400px;
-	border-radius: 15px;
-	overflow: hidden;
-	box-shadow: 0 4px 15px rgba(31, 7, 60, .2);
-	transition: all .5s cubic-bezier(.4, 0, .2, 1);
-	cursor: pointer;
-}
-
-.photo-container::before {
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: linear-gradient(to bottom, rgba(31, 7, 60, 0) 0%, rgba(31, 7, 60, .7) 100%);
-	opacity: 0;
-	transition: opacity .5s ease;
-	z-index: 1;
-}
-
-.photo-container:hover {
-	transform: translateY(-10px) scale(1.02);
-	box-shadow: 0 10px 25px rgba(31, 7, 60, .3);
-}
-
-.photo-container:hover::before {
-	opacity: 1;
-}
-
-.photo-container img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform .5s cubic-bezier(.4, 0, .2, 1);
-}
-
-.photo-container:hover img {
-	transform: scale(1.1);
-}
-
-.info {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	padding: 30px;
-	background: rgba(31, 7, 60, .85);
-	color: var(--white);
-	backdrop-filter: blur(5px);
-	transform: translateY(100%);
-	transition: transform .5s cubic-bezier(.4, 0, .2, 1);
-	z-index: 2;
-}
-
-.photo-container:hover .info {
-	transform: translateY(0);
-}
-
-.info h3 {
-	margin-bottom: 8px;
-	font-size: 22px;
-	font-weight: bold;
-	transform: translateY(20px);
-	opacity: 0;
-	transition: all .5s cubic-bezier(.4, 0, .2, 1);
-}
-
-.info p {
-	font-size: 16px;
-	margin: 0;
-	opacity: 0;
-	transform: translateY(20px);
-	transition: all .5s cubic-bezier(.4, 0, .2, 1) .1s;
-}
-
-.photo-container:hover .info h3, .photo-container:hover .info p {
-	transform: translateY(0);
-	opacity: 1;
-}
-
-.accordion {
-    background: linear-gradient(135deg, var(--primary-dark) 0%, #3d1a57 100%);
-    color: var(--white);
-    cursor: pointer;
-    padding: 25px 40px;
-    width: 100%;
-    border: none;
-    text-align: center;
-    line-height: 1.4;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    outline: none;
-    font-size: 18px;
-    transition: all .3s ease;
-    border-radius: 15px;
-    margin-top: 40px;
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(31, 7, 60, .2);
-}
-
-
-.accordion:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(31, 7, 60, .3);
-}
-
-.accordion span {
-	flex: 1;
-	text-align: center;
-	padding: 0 40px;
-}
-
-.accordion-icon {
-	font-size: 24px;
-	position: absolute;
-	right: 30px;
-	top: 50%;
-	transform: translateY(-50%);
-	transition: transform .3s ease;
-	color: var(--white);
-}
-
-.accordion.active .accordion-icon {
-	transform: translateY(-50%) rotate(180deg);
-	max-width: 1200px
-	
-}
-
-.panel {
-	background-color: #F0F0F0;
-	max-height: 0;
-	overflow: hidden;
-	transition: max-height .3s ease-out;
-	border-radius: 15px;
-	margin-bottom: 15px;
-	max-width: 1200px; /* Ancho máximo para coincidir con el grid del equipo */
-    margin-left: auto; /* Centrar horizontalmente */
-    margin-right: auto; /* Centrar horizontalmente */
-}
-
-.panel-content {
-	padding: 0 35px;
-	margin: 20px 0;
-}
-
-.consultant-card {
-	padding: 20px;
-	margin: 10px 0;
-	border-radius: 12px;
-	background-color: var(--white);
-	transition: all .3s ease;
-	border-left: 4px solid var(--primary-dark);
-	position: relative;
-}
-
-.consultant-card:hover {
-	transform: translateX(10px);
-	background-color: #f8f8f8;
-}
-
-.consultant-name {
-	color: var(--primary-dark);
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 5px;
-}
-
-.consultant-area {
-	color: var(--primary-accent);
-	font-size: 16px;
-	font-weight: 500;
-}
-
-@media screen and (max-width: 768px) {
-	.accordion {
-		padding: 20px 45px 20px 20px;
-		font-size: 16px;
-	}
-	
-	.accordion span {
-		padding: 0 25px;
-		text-align: center;
-	}
-	
-	.accordion-icon {
-		font-size: 20px;
-		right: 15px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.accordion {
-		padding: 15px 40px 15px 15px;
-		font-size: 14px;
-	}
-	
-	.accordion span {
-		padding: 0 20px;
-	}
-	
-	.accordion-icon {
-		font-size: 18px;
-		right: 12px;
-	}
-}
-
-@media screen and (max-width: 1200px) {
-	.container {
-		padding: 20px;
-		margin: 0 15px;
-	}
-	
-	.photos {
-		gap: 20px;
-	}
-	
-	.photo-container {
-		width: 300px;
-		height: 350px;
-	}
-}
-
-@media screen and (max-width: 992px) {
-	.photos {
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 30px;
-	}
-	
-	.photo-container {
-		width: 45%;
-		height: 400px;
-	}
-	
-	.accordion {
-		font-size: 16px;
-		padding: 20px 25px;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.container {
-		padding: 15px;
-	}
-	
-	.photos {
-		flex-direction: column;
-		align-items: center;
-	}
-	
-	.photo-container {
-		width: 100%;
-		max-width: 400px;
-		height: 450px;
-	}
-	
-	.info {
-		transform: translateY(0);
-		opacity: .95;
-	}
-	
-	.info h3, .info p {
-		transform: translateY(0);
-		opacity: 1;
-	}
-	
-	.consultant-card {
-		padding: 15px;
-	}
-	
-	.consultant-name {
-		font-size: 16px;
-	}
-	
-	.consultant-area {
-		font-size: 13px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 10px;
-		margin: 0 10px;
-	}
-	
-	.photo-container {
-		height: 400px;
-	}
-	
-	.info {
-		padding: 20px;
-	}
-	
-	.info h3 {
-		font-size: 18px;
-	}
-	
-	.info p {
-		font-size: 14px;
-	}
-	
-	.accordion {
-		padding: 15px 20px;
-		font-size: 14px;
-	}
-	
-	.accordion-icon {
-		font-size: 20px;
-	}
-	
-	.panel-content {
-		padding: 0 10px;
-	}
-	
-	.consultant-card {
-		margin: 8px 0;
-		padding: 12px;
-	}
-}
-
-@media (hover: none) {
-	.photo-container::before {
-		opacity: 1;
-	}
-	
-	.info {
-		transform: translateY(0);
-		opacity: .95;
-	}
-	
-	.info h3, .info p {
-		transform: translateY(0);
-		opacity: 1;
-	}
-	
-	.consultant-card:active {
-		transform: translateX(5px);
-	}
-}
-
-@media screen and (max-height: 480px) and (orientation: landscape) {
-	.photos {
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-	
-	.photo-container {
-		width: calc(50% - 15px);
-		height: 300px;
-	}
-	
-	.info {
-		padding: 15px;
-	}
-	
-	.info h3 {
-		font-size: 16px;
-		margin-bottom: 4px;
-	}
-	
-	.info p {
-		font-size: 13px;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.accordion-icon {
-		font-size: 16px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.accordion-icon {
-		font-size: 14px;
-	}
-}
-
-.close-button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	padding: 8px;
-	background: none;
-	border: none;
-}
-
-@media (max-width: 768px) {
-	.globe-dropdown {
-		display: none;
-	}
-	
-	nav {
-		justify-content: space-between;
-	}
-	
-	.mobile-language-options {
-		display: flex;
-		justify-content: center;
-		margin-top: 20px;
-		border-top: 1px solid rgba(255, 255, 255, .1);
-		padding-top: 20px;
-		width: 100%;
-	}
-	
-	.mobile-language-options .language-option {
-		display: inline-block;
-		margin: 0 .5rem;
-		padding: 10px;
-		align-items: center;
-		justify-content: center;
-		gap: 10px;
-		cursor: pointer;
-		color: var(--white);
-	}
-	
-	.mobile-language-options .language-option span {
-		display: none;
-	}
-	
-	.nav-items a {
-		font-size: 1.2rem;
-		margin: .5rem 0;
-	}
-}
-
-@media (min-width: 769px) {
-	.mobile-language-options {
-		display: none;
-	}
-}
-
-.card-back p {
-	font-weight: bold;
-}
-
-.fade-in-up {
-	opacity: 0;
-	transform: translateY(20px);
-	animation: fadeInUp 1s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.line {
-	display: block;
-}
-
-.more-button {
-	display: inline-block;
-	margin-top: 20px;
-	padding: 10px 20px;
-	background-color: #1f063d;
-	color: var(--white);
-	text-decoration: none;
-	border-radius: 5px;
-	transition: background-color .3s ease, border .3s ease;
-	font-weight: bold;
-}
-
-.more-button:hover {
-	background-color: var(--primary-accent);
-	border: 2px solid #1f063d;
-}
-
-.header {
-	background-color: var(--primary-dark);
-	color: var(--white);
-	text-align: center;
-	padding: 50px 20px;
-}
-
-.header h1 {
-	font-size: 2.5rem;
-	margin-bottom: 10px;
-	color: var(--primary-accent);
-}
-
-.header p {
-	font-size: 1.2rem;
-}
-
-.content {
-	max-width: 1000px;
-	margin: 0 auto;
-	padding: 20px;
-}
-
-.intro, .features {
-	margin-bottom: 40px;
-}
-
-.features h2 {
-	color: var(--primary-accent);
-	margin-top: 20px;
-	font-size: 1.8rem;
-}
-
-.features p {
-	font-size: 1rem;
-	line-height: 1.6;
-}
-
-
-.intro {
-	text-align: center;
-}
-
-.features {
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: wrap;
-}
-
-.feature-card {
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-	padding: 20px;
-	margin: 10px;
-	flex: 1 1 calc(33.333% - 40px);
-	max-width: calc(33.333% - 40px);
-	box-sizing: border-box;
-	transition: transform .3s ease, background-color .3s ease;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.feature-card:hover {
-	transform: translateY(-5px);
-	background-color: #1f063d;
-	color: #fff;
-}
-
-.feature-card h2 {
-	color: #1f063d;
-	font-size: 1.5rem;
-	margin-bottom: 10px;
-}
-
-.feature-card:hover h2 {
-	color: var(--primary-accent);
-}
-
-.feature-card p {
-	font-size: 1rem;
-	line-height: 1.6;
-}
-
-.feature-card:hover h2, .feature-card:hover p {
-	color: #fff;
-}
-
-.hidden-sitemap {
-	display: none;
-	visibility: hidden;
-	height: 0;
-	width: 0;
-	overflow: hidden;
-}
-
-.custom-link {
-	color: #FFFFFF; /* Cambia a rosa */
-	font-weight: bold; /* Negrita */
-	text-decoration: none; /* Quita la línea */
-  }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1F063D">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Meta tags en inglés -->
+    <meta name="description" content="Experts in compliance audits, human rights, and risk management. Ensure your business is safe and compliant today!">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta tags en español -->
+    <meta name="description-es" content="Expertos en auditorías de cumplimiento, derechos humanos y gestión de riesgos. ¡Asegura hoy mismo el cumplimiento de tu negocio!">
+    <meta name="robots-es" content="index, follow">
+    
+    <!-- Favicon e iconos -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+    
+    <!-- Título -->
+    <title>Certainty | Compliance & Risk Management Experts</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+    <!-- JSON-LD para datos estructurados -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Certainty Solutions",
+            "description": "Experts in compliance audits, human rights, and risk management.",
+            "url": "https://www.certainty.solutions",
+            "sameAs": [
+              "https://www.linkedin.com/company/certainty-solutions",
+              "https://www.instagram.com/certainty.solutions/"
+            ],
+            "address": [
+                {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Buenos Aires",
+                  "addressRegion": "Argentina",
+                  "addressCountry": "AR"
+                },
+                {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Ciudad de México",
+                  "addressRegion": "CDMX",
+                  "addressCountry": "MX"
+                }
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+54-11-1234-5678",
+              "contactType": "customer service"
+            }
+        }
+    </script>
+
+    <!-- Código de seguimiento de Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5BHYFR8TT1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5BHYFR8TT1');
+    </script>
+</head>
+
+    
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
   
-  .custom-link:hover {
-	text-decoration: underline; /* Opcional: Agrega subrayado al pasar el mouse */
-  }
+    .hero-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #4A1259 0%, #8E3A9D 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.1;
+      animation: move 20s linear infinite;
+    }
+  
+    @keyframes move {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-50%) rotate(10deg); }
+    }
+  
+    .hero-content {
+      max-width: 1200px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+    }
+  
+    .hero-title {
+      font-family:  sans-serif;
+      font-size: 5rem;
+      font-weight: 100;
+      color: white;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+  
+    .highlight-word {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .underline {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      animation: drawUnderline 1.5s ease forwards;
+    }
+  
+    @keyframes drawUnderline {
+      from {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+      }
+      to {
+        stroke-dasharray: 200;
+        stroke-dashoffset: 0;
+      }
+    }
+  
+    .hero-subtitle {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+  
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: lef;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  
+    .cta-button {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      width: 220px; /* Fixed width for buttons */
+    }
+  
+    .cta-button:first-child {
+      background: #AC53A5;
+      color: white;
+      box-shadow: 0 4px 15px rgba(184, 102, 198, 0.4);
+    }
+  
+    .cta-button:first-child:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(184, 102, 198, 0.6);
+      background: #C977D7;
+    }
+  
+    .cta-button.transparent-button {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+  
+    .cta-button.transparent-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: white;
+      transform: translateY(-2px);
+    }
+  
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+  
+      .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+  
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+  
+      .cta-button {
+        width: 200px; /* Slightly smaller width for mobile */
+      }
+    }
+  </style>
 
-/* Footer CSS */
-.dark-footer {
-	background: linear-gradient(135deg, var(--primary-dark) 0%, #2a0954 100%);
-	color: var(--white);
-	padding: 4rem 1rem 2rem;
-	position: relative;
-	overflow: hidden;
-  }
-  
-  .dark-footer::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 4px;
-	background: linear-gradient(90deg, var(--primary-accent), var(--primary-dark));
-  }
-  
-  .footer-content {
-	max-width: 1200px;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 3rem;
-	padding: 0 1rem;
-  }
-  
-  .footer-section {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-  }
-  
-  .footer-title {
-	font-size: 1.25rem;
-	font-weight: 600;
-	color: var(--white);
-	margin-bottom: 1rem;
-	position: relative;
-  }
-  
-  .footer-title::after {
-	content: '';
-	position: absolute;
-	bottom: -0.5rem;
-	left: 0;
-	width: 2rem;
-	height: 2px;
-	background: var(--primary-accent);
-  }
-  
-  .footer-description {
-	font-size: 0.95rem;
-	line-height: 1.6;
-	opacity: 0.9;
-  }
-  
-  .footer-nav {
-	margin-top: -0.5rem;
-	color: #ffffff;
-  }
-  
-  .footer-links {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	color: #ffffff;
-  }
-  
-  .footer-link {
-	color: #ffffff;
-	text-decoration: none;
-	font-size: 1rem;
-	padding: 0rem 0;
-	display: block;
-	opacity: 1;
-  }
-  
-  .footer-link:hover {
-	color: #AC53A5;
-	transform: translateX(5px);
-  }
-  
-  .footer-social {
-	display: flex;
-	gap: 1.5rem;
-	margin-top: 0.5rem;
-  }
-  
-  .social-icon {
-	color: var(--white);
-	font-size: 1.5rem;
-	transition: all 0.3s ease;
-	opacity: 0.8;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.1);
-  }
-  
-  .social-icon:hover {
-	color: var(--primary-accent);
-	opacity: 1;
-	transform: translateY(-3px);
-	background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .footer-locations {
-	margin-top: 1rem;
-  }
-  
-  .location {
-	font-size: 0.95rem;
-	margin: 0.5rem 0;
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	opacity: 0.9;
-  }
-  
-  .location i {
-	color: var(--primary-accent);
-  }
-  
-  .footer-bottom {
-	text-align: center;
-	margin-top: 3rem;
-	padding-top: 2rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-  }
-  
-  @media (max-width: 768px) {
-	.footer-content {
-	  grid-template-columns: 1fr;
-	  gap: 2rem;
-	  text-align: center;
-	}
-  
-	.footer-title::after {
-	  left: 50%;
-	  transform: translateX(-50%);
-	}
-  
-	.footer-social {
-	  justify-content: center;
-	}
-  
-	.location {
-	  justify-content: center;
-	}
-  
-	.footer-link:hover {
-	  transform: translateX(0) scale(1.05);
-	}
-  }
-  
-  @media (max-width: 480px) {
-	.dark-footer {
-	  padding: 3rem 1rem 1.5rem;
-	}
-  
-	.footer-content {
-	  gap: 1.5rem;
-	}
-  }
-/* Estilos para la sección del equipo */
-.team-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+</head>
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    max-width: 1200px;
-    margin: 0 auto;
-	margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: 0 1rem;
-}
+<body>
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-bar"></div>
+    </div>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Logo.png" alt="Certainty Solutions Logo" class="logo-img">
+            </a>
+        </div>
+        <div class="nav-items">
+            <a href="index.html" class="lang" key="nav-home">Home</a>
+            <a href="#services" class="lang" key="nav-services">Services</a>
+            <a href="#about" class="lang" key="nav-about">About</a>
+          <!--    <a href="blog.html" class="lang" key="nav-blog" style="color: #AC53A5;">Blog</a> -->
 
-.team-member {
-    position: relative;
-    background: #E6E4E7;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
+            <!-- Selector de idioma para móvil -->
+            <div class="mobile-language-options">
+                <div class="language-option" onclick="changeLanguage('en')">
+                    <img src="flags/us.svg" alt="English">
+                </div>
+                <div class="language-option" onclick="changeLanguage('es')">
+                    <img src="flags/es.svg" alt="Español">
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt')">
+                    <img src="flags/br.svg" alt="Português">
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr')">
+                    <img src="flags/fr.svg" alt="Français">
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru')">
+                    <img src="flags/ru.svg" alt="Русский">
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh')">
+                    <img src="flags/zh.svg" alt="中文">
+                </div>
+            </div>
+        </div>
+        <!-- Globe icon solo visible en desktop -->
+        <div class="globe-dropdown">
+            <div class="globe-icon" onclick="toggleLanguageMenu(event)">
+              <img src="globe.svg" alt="Select Language">
+            </div>
+            <div class="language-selector">
+                <div class="language-option" onclick="changeLanguage('en')">
+                   <img src="flags/us.svg" alt="English">
+                   <span>English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es')">
+                   <img src="flags/es.svg" alt="Español">
+                    <span>Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('pt')">
+                    <img src="flags/br.svg" alt="Português">
+                    <span>Português</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr')">
+                    <img src="flags/fr.svg" alt="Français">
+                    <span>Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ru')">
+                    <img src="flags/ru.svg" alt="Русский">
+                    <span>Русский</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('zh')">
+                    <img src="flags/zh.svg" alt="中文">
+                   <span>中文</span>
+                </div>
+            </div>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-.team-member:hover {
-    transform: translateY(-5px);
-}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="highlight-word">
+            High Value in <br>
+            Privacy & Compliance
+            <svg class="underline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 10" preserveAspectRatio="none" aria-hidden="true" role="presentation">
+                <rect x="0" y="8" width="200" height="2" fill="#FFFFFF">
+                  <animate attributeName="x" from="-200" to="200" dur="3s" keyTimes="0;1" keySplines="0.4 0 0.2 1" repeatCount="indefinite" />
+                </rect>
+              </svg>
+        </span>
+      </h1>
+  
+      </h2>
+      <div class="cta-buttons">
+        <a href="#services" class="cta-button lang" data-key="explore-services">Explore Services</a>
+        <a href="#about" class="cta-button transparent-button lang" data-key="be-compliant">Be Compliant</a>
+        
+      </div>
+    </div>
+  </section>
 
-.member-image {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 12px;
-}
+    <!-- Services Section -->
+    <section id="services">
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                         <i class="fas fa-clipboard-check"></i>
+                        <h3 class="lang" key="service1-title">Data Compliance & Quality Audits</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service1-desc">Elevate your data integrity with our comprehensive audits. We ensure your information meets and exceeds legal standards, fortifying your decision-making process.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3 class="lang" key="service2-title">Human Rights & Compliance Audits</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service2-desc">Champion ethical business practices with our human rights compliance audits. We help you navigate complex regulations, ensuring respect for human rights.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-file-contract"></i>
+                        <h3 class="lang" key="service3-title">Software Contracts & Licensing</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service3-desc">Safeguard your digital assets with our expert contract crafting. We create robust software agreements that protect your intellectual property.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-gavel"></i>
+                        <h3 class="lang" key="service4-title">Legal Advisory in Tech & Data</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service4-desc">Navigate the complex intersection of technology and law with our specialized legal advisory. Keep your tech innovations compliant and competitive.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3 class="lang" key="service5-title">Data Privacy & Privacy Policies</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service5-desc">Build trust with ironclad privacy protection. Our tailored policies ensure you stay ahead of regulations while fostering customer confidence.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                         <i class="fas fa-chalkboard-teacher"></i>
+                        <h3 class="lang" key="service6-title">Training & Awareness Initiatives</h3>
+                    </div>
+                    <div class="card-back">
+                        <p class="lang" key="service6-desc">Empower your team with knowledge. Our training programs transform compliance from a checklist to a culture, ensuring best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="services-cta">
+            <a href="https://wa.me/5491161179711" class="cta-button inverse lang" key="contact-us" target="_blank">Contact Us</a>
+        </div>
+    </section>
 
-.member-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
+    <!-- About Section -->
+    <section id="about" class="team-section">
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Estefania.png" alt="Dra. Estefanía Cuello">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/estefan%C3%ADa-p-cuello-060755343/" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team1-name">Dra. Estefanía Cuello</h3>
+                        <p class="lang" key="team1-position">Geopolitical & Legal Compliance Advisor</p>
+                    </div>
+                </div>
+    
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Ariel.png" alt="Dr. Ariel Onnis">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/onnis/"" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team2-name">Dr. Ariel Onnis</h3>
+                        <p class="lang" key="team2-position">Legal Tech & Data Protection</p>
+                    </div>
+                </div>
+    
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/Flor.png" alt="Mg. Flor Vargas">
+                        <div class="member-overlay">
+                            <a href="https://www.linkedin.com/in/flor-de-magdalena-vargas-ortiz-0a7161345/" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="lang" key="team3-name">Mg. Flor Vargas</h3>
+                        <p class="lang" key="team3-position">Human Rights Audits Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <button class="accordion lang" key="collaborators-title">
+              <span>We collaborate with third-party consultants to provide comprehensive solutions tailored to our clients' needs</span>
+               <i class="fas fa-chevron-down accordion-icon"></i>
+            </button>
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
+                            <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
+                            <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant1-name">Mg. Andrea Cuellar Camarena</div>
+                            <div class="consultant-area lang" key="consultant1-area">Gender Studies</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant2-name">Lic. Silvina Fernanda Yosia</div>
+                            <div class="consultant-area lang" key="consultant2-area">Forensic Psychology</div>
+                        </div>
+                    </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant3-name">Mg. José Ignacio Agostini</div>
+                            <div class="consultant-area lang" key="consultant3-area">Labor & Relations Law</div>
+                        </div>
+                    </div>
+                     <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant4-name">Mg. Jhonatan S. Peña Carlos</div>
+                            <div class="consultant-area lang" key="consultant4-area">Corporate Negotiation & Applied Neuroscience</div>
+                         </div>
+                     </div>
+                    <div class="consultant-card">
+                        <div class="consultant-info">
+                            <div class="consultant-name lang" key="consultant5-name">Lic. Dulce Alejandra Hernández Vargas</div>
+                            <div class="consultant-area lang" key="consultant5-area">Business Administration Specialist in Management</div>
+                       </div>
+                   </div>
+                    <div class="consultant-card">
+                       <div class="consultant-info">
+                           <div class="consultant-name lang" key="consultant6-name">Mg. María Carolina Estepa Becerra</div>
+                           <div class="consultant-area lang" key="consultant6-area">Strategic Litigation in the Inter-American Court & Commission on Human Rights</div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <footer class="dark-footer">
+        <div class="footer-content">
+           <div class="footer-section">
+               <h4 class="footer-title">Certainty<span style="font-weight: bold; color: #AC53A5">.</span></h4>
+               <div class="footer-description">
+                    <p>Your legal and data compliance advisor, ensuring your business stays protected and aligned with regulations.</p>
+               </div>
+           </div>
 
-.member-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: linear-gradient(135deg, rgba(31, 6, 61, 0.7), rgba(31, 6, 61, 0.9));
-	opacity: 0;
-	transition: all 0.3s ease;
-	display: flex;
-	flex-direction: column;
-	justify-content: center; /* Centrado vertical */
-	align-items: center; /* Centrado horizontal */
-	padding: 1rem;
-	border-radius: 12px;
- }
-.member-info {
-    position: absolute;
-    bottom: 8rem;
-    left: 1rem;
-    right: 1rem;
-    text-align: center;
-    color: white;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-.team-member:hover .member-info {
-    opacity: 1;
-    transform: translateY(0);
-}
-.member-info h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    color: white;
-    margin-bottom: 0.5rem;
-}
-.member-info p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
-}
-.team-member:hover .member-overlay {
-    opacity: 1;
-}
-
-.team-member:hover .member-image img {
-    transform: scale(1.05);
-}
-
-.linkedin-link {
-	position: absolute;
-	top: 1rem;
-	right: 1rem;
-	background: rgba(255, 255, 255, 0.2);
-	color: white;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all 0.3s ease;
-	backdrop-filter: blur(2px);
- }
+           <div class="footer-section">
+              
+               <h4 class="footer-title">Useful links</h4>
+                <ul class="footer-links">
+                     <li><a href="#about" class="footer-link">About</a></li>
+                     <li><a href="#services" class="footer-link">Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+              <h4 class="footer-title">Terms</h4>
+              <ul class="footer-links">
+                  <li><a href="terms-and-condition.html" class="footer-link">Terms and Conditions</a></li>
+                  <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+              </ul>
+            </div>
+        
+             <div class="footer-section">
+                <h4 class="footer-title">Contact Us</h4>
+                  <div class="footer-social">
+                     <a href="https://www.instagram.com/certainty.solutions" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/certainty-solutions/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:info@certainty.solutions" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <a href="https://wa.me/5491161179711" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="footer-locations">
+                   <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Argentina, Buenos Aires</p>
+                     <p class="location"><i class="fas fa-map-marker-alt" style="color: #AC53A5;"></i> Mexico, CDMX</p>
+                 </div>
+             </div>
+        </div>
+         <div class="footer-bottom">
+           <p style="color: #AFAFAF;">© 2025 Certainty. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Move sitemap URLs to hidden div -->
+    <div class="hidden-sitemap" aria-hidden="true">
+      <?xml version="1.0" encoding="UTF-8" ?>
+       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <url>
+            <loc>https://www.certainty.solutions/</loc>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>weekly</changefreq>
+             <priority>1.0</priority>
+          </url>
+          <url>
+             <loc>https://www.certainty.solutions/#services</loc>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>monthly</changefreq>
+             <priority>0.8</priority>
+        </url>
+          <url>
+           <loc>https://www.certainty.solutions/#about</loc>
+             <lastmod>2024-03-14</lastmod>
+             <changefreq>monthly</changefreq>
+            <priority>0.7</priority>
+          </url>
+        </urlset>
+    </div>
+   <script src="script.js"></script>
+    <script>
+        // Indicador de scroll
+        window.addEventListener('scroll', () => {
+             const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+             document.querySelector('.scroll-bar').style.width = `${scrolled}%`;
+         });
+        </script>
+    <!-- Agregar el overlay -->
+      <div class="language-overlay">
+      </div>
+</body>
+</html>
