@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Meta tags en inglés -->
-    <meta name="description" content="Latest tech news and insights: AI innovations, cybersecurity trends, startup breakthroughs, and digital transformation from around the globe.">
+    <meta name="description" content="Experts in compliance audits, human rights, and risk management. Ensure your business is safe and compliant today.">
     <meta name="robots" content="index, follow">
     
     <!-- Meta tags en español -->
@@ -69,18 +69,7 @@
             color: white !important;
         }
 
-        .back-link {
-            display: block;
-            margin: 1rem auto;
-            background-color: rgb(139, 58, 133);
-            color: var(--purple-dark);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
+   
 
         .header-content {
             display: flex;
@@ -90,24 +79,39 @@
         }
 
         .back-link {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            background: #AC53A5;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: #AC53A5;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    font-size: 1rem; /* Tamaño por defecto */
+}
 
-        .back-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            background-color: var(--purple-hover);
-        }
+.back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--purple-hover);
+}
+
+/* Ajustes específicos para mobile */
+@media (max-width: 768px) {
+    .back-link {
+        top: auto; /* Resetea el top */
+        bottom: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1rem; /* Ajusta padding */
+        font-size: 0.9rem; /* Reduce el tamaño */
+    }
+}
+
+
+        
 
         .blog-container {
             max-width: 1200px;
@@ -463,12 +467,7 @@
                 font-size: 2rem;
             }
 
-            .back-link {
-                top: 1rem;
-                right: 1rem;
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
+           
 
             .footer-content {
                 grid-template-columns: 1fr;
@@ -537,7 +536,6 @@
 
  
 
-   <!-- Add Font Awesome for social icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
 </html>
