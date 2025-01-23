@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1F063D">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Meta tags en inglés -->
+    <meta name="description" content="Experts in compliance audits, human rights, and risk management. Ensure your business is safe and compliant today.">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta tags en español -->
+    <meta name="description-es" content="Expertos en auditorías de cumplimiento, derechos humanos y gestión de riesgos. ¡Asegura hoy mismo el cumplimiento de tu negocio!">
+    <meta name="robots-es" content="index, follow">
+    
+    <!-- Favicon e iconos -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+    
+    <!-- Título -->
+    <title>Certainty | News</title>
+<html>
+<head>
+    <style>
+        :root {
+            --purple-dark: #4a154b;
+            --purple-light: #AC53A5;
+            --purple-hover: #3a1139;
+            --grid-spacing: 2rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .logo-image {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .blog-header {
+            display: block;
+            text-align: center;
+            margin: 0;
+            background-color: #220840;
+            width: 100%;
+            padding: 0;
+        }
+
+        .blog-description {
+            color: white !important;
+        }
+
+        .back-link {
+            display: block;
+            margin: 1rem auto;
+            background-color: rgb(139, 58, 133);
+            color: var(--purple-dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .back-link {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: #AC53A5;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: var(--purple-hover);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--grid-spacing);
+            line-height: 1.6;
+            color: #37352f;
+        }
+
+        .blog-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--grid-spacing);
+            margin-bottom: var(--grid-spacing);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--grid-spacing);
+        }
+
+        .post-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(74, 21, 75, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .post-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(74, 21, 75, 0.2);
+            border-color: var(--purple-light);
+        }
+
+        .post-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--purple-dark);
+        }
+
+        .post-metadata {
+            font-size: 0.9rem;
+            color: var(--purple-light);
+            margin-bottom: 1rem;
+        }
+
+        .post-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .post-preview {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .post-social {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;  
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .like-button, .share-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--purple-light);
+            font-size: 0.9rem;
+            padding: 0;
+            transition: all 0.2s ease;
+        }
+
+        .like-button:hover, .share-button:hover {
+            color: var(--purple-dark);
+            transform: scale(1.1);
+        }
+
+        .like-button.active {
+            color: var(--purple-dark);
+        }
+
+        .like-button.active svg {
+            fill: var(--purple-dark);
+        }
+
+        .copied-message {
+            position: absolute;
+            background: var(--purple-dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .copied-message.show {
+            opacity: 1;
+        }
+
+        .read-more-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, white);
+            pointer-events: none;
+        }
+
+        .newsletter-section {
+            background-color: #1F063D;
+            color: white;
+            padding: 3rem 0;  
+            margin-top: 4rem;
+            text-align: center;
+            width: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+
+        .newsletter-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--grid-spacing);
+        }
+
+        .newsletter-title {
+            color: #AC53A5;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .newsletter-description {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .newsletter-checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-checkbox {
+            width: 18px;
+            height: 18px;
+        }
+
+        .newsletter-checkbox-label {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .newsletter-checkbox-label a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .subscribe-button {
+            background-color: #AC53A5;
+            color: #ffffff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .subscribe-button:hover {
+            background-color: #3b063e;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            background-color: #AC53A5;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            margin: 0 0.3rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background-color: #9c6bad;
+        }
+
+        .pagination button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .ticker-container {
+            width: 100%;
+            background: #ffffff;
+            padding: 0.1rem;
+            margin: 0;
+            border: none;
+            line-height: 0;
+            display: block;
+        }
+
+        .footer {
+            background-color: #1F063D;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--grid-spacing);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-title {
+            color: #AC53A5;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple-light);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--purple-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .posts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --grid-spacing: 1.5rem;
+            }
+            
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .post-title {
+                font-size: 1.3rem;
+            }
+
+            .newsletter-title {
+                font-size: 2rem;
+            }
+
+            .back-link {
+                top: 1rem;
+                right: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="blog-header">
+        <div class="header-content">
+            <h1 class="blog-title">
+                <img src="./images/news.png" alt="Logo" class="logo-image">
+            </h1>
+            <p class="blog-description"></p>
+        </div>
+        <a href="index.html" class="back-link">Volver</a>
+    </header>
+
+    <div class="ticker-container">
+        <rssapp-ticker id="txetQzkGEahg2cKo"></rssapp-ticker>
+        <rssapp-wall id="CSpUY8ay5APxWsvh"></rssapp-wall>
+        <script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
+    </div>
+    
+    <div class="ticker-container">
+        <rssapp-carousel id="B1vZedJVnO82In60"></rssapp-carousel>
+    </div>
+    
+    <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+    
+    
+
+    <main class="posts-grid">
+        <!-- Posts will be loaded here -->
+    </main>
+
+    
+
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2 class="newsletter-title" style="display: inline-flex; align-items: center;">
+                Stay up to date
+            </h2>
+            <p class="newsletter-description">Data Compliance with Certainty Insights, daily</p>
+
+            <script src="https://cdn.lordicon.com/lordicon.js"></script>
+            <lord-icon
+                src="https://cdn.lordicon.com/vpbspaec.json"
+                trigger="hover"
+                colors="primary:#ffffff,secondary:#ffffff"
+                style="width:50px;height:50px">
+            </lord-icon>
+        </div>
+        
+        <form class="newsletter-form">
+           <!--  <input type="email" placeholder="example@email.com" class="newsletter-input" required>
+            <div class="newsletter-checkbox-container">
+                <input type="checkbox" class="newsletter-checkbox" required>
+                <label class="newsletter-checkbox-label">
+                    By subscribing I accept the <a href="privacy-policy.html">Privacy Policy</a>.
+                </label>
+            </div>
+            <button type="submit" class="subscribe-button">Subscribe</button>-->
+        </form>
+    </section>
+
+ 
+
+    Add Font Awesome for social icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+</html>
