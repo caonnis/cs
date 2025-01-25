@@ -24,10 +24,11 @@
     <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Título -->
     <title>Certainty | News</title>
-<html>
-<head>
     <style>
         :root {
             --purple-dark: #4a154b;
@@ -45,6 +46,9 @@
             margin: 0;
             padding: 0;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .logo-image {
@@ -63,13 +67,15 @@
             background-color: #220840;
             width: 100%;
             padding: 0;
+            background-image: url('https://source.unsplash.com/1600x900/?technology,ai'); /* Imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            padding: 2rem 0;
         }
 
         .blog-description {
             color: white !important;
         }
-
-   
 
         .header-content {
             display: flex;
@@ -79,39 +85,35 @@
         }
 
         .back-link {
-    position: fixed;
-    bottom: 2rem;
-    left: 2rem;
-    background: #AC53A5;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    z-index: 1000;
-    font-size: 1rem; /* Tamaño por defecto */
-}
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: #AC53A5;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            font-size: 1rem;
+        }
 
-.back-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: var(--purple-hover);
-}
+        .back-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: var(--purple-hover);
+        }
 
-/* Ajustes específicos para mobile */
-@media (max-width: 768px) {
-    .back-link {
-        top: auto; /* Resetea el top */
-        bottom: 1rem;
-        left: 1rem;
-        padding: 0.6rem 1rem; /* Ajusta padding */
-        font-size: 0.9rem; /* Reduce el tamaño */
-    }
-}
-
-
-        
+        @media (max-width: 768px) {
+            .back-link {
+                top: auto;
+                bottom: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
 
         .blog-container {
             max-width: 1200px;
@@ -119,6 +121,7 @@
             padding: var(--grid-spacing);
             line-height: 1.6;
             color: #37352f;
+            flex: 1; /* Asegura que el contenido ocupe el espacio restante */
         }
 
         .blog-title {
@@ -130,7 +133,7 @@
 
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Tarjetas responsivas */
             gap: var(--grid-spacing);
             margin-bottom: var(--grid-spacing);
             max-width: 1200px;
@@ -139,6 +142,7 @@
         }
 
         .post-container {
+            position: relative; /* Asegura que los íconos se posicionen dentro de la caja */
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(74, 21, 75, 0.1);
@@ -147,8 +151,7 @@
             border: 1px solid #eee;
             display: flex;
             flex-direction: column;
-            position: relative;
-            min-height: 300px;
+            min-height: 400px; /* Cajas más grandes */
         }
 
         .post-container:hover {
@@ -157,40 +160,43 @@
             border-color: var(--purple-light);
         }
 
-        .post-title {
-            font-size: 1.4rem;
+        .post-image {
+            width: 100%;
+            height: 200px; /* Ajustar altura de la imagen */
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 1rem;
-            color: var(--purple-dark);
+        }
+
+        .post-title {
+            font-size: 1.5rem; /* Títulos más grandes */
+            margin-bottom: 0.5rem;
+            color: var(--purple-dark); /* Color del título */
+        }
+
+        .post-title a {
+            color: var(--purple-dark); /* Color del título */
+            text-decoration: none; /* Quitar subrayado */
+        }
+
+        .post-title a:hover {
+            color: var(--purple-light); /* Cambiar color al pasar el mouse */
         }
 
         .post-metadata {
             font-size: 0.9rem;
-            color: var(--purple-light);
+            color: #666;
             margin-bottom: 1rem;
         }
 
-        .post-content {
-            font-size: 1rem;
-            line-height: 1.7;
-            flex-grow: 1;
-        }
-
-        .post-preview {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            position: relative;
-        }
-
-        .post-social {
-            position: absolute;
+        .post-actions {
+            position: absolute; /* Posiciona los íconos en la esquina inferior derecha */
             bottom: 1rem;
-            right: 1.5rem;  
+            right: 1rem;
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             align-items: center;
-        }
+}
 
         .like-button, .share-button {
             background: none;
@@ -199,182 +205,71 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--purple-light);
-            font-size: 0.9rem;
+            color: var(--purple-dark); /* Color violeta oscuro */
+            font-size: 1rem;
             padding: 0;
             transition: all 0.2s ease;
         }
 
         .like-button:hover, .share-button:hover {
-            color: var(--purple-dark);
+            color: var(--purple-light); /* Color violeta claro al pasar el mouse */
             transform: scale(1.1);
         }
 
         .like-button.active {
-            color: var(--purple-dark);
+            color: var(--purple-light); /* Color violeta claro cuando está activo */
         }
 
-        .like-button.active svg {
-            fill: var(--purple-dark);
-        }
-
-        .copied-message {
-            position: absolute;
-            background: var(--purple-dark);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+        .share-message {
             font-size: 0.8rem;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 0.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            color: var(--purple-light);
+            display: none; /* Ocultar por defecto */
         }
 
-        .copied-message.show {
-            opacity: 1;
+        .share-message.error {
+            color: red; /* Color rojo para mensajes de error */
         }
 
-        .read-more-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(transparent, white);
-            pointer-events: none;
+        #toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
         }
 
-        .newsletter-section {
-            background-color: #1F063D;
+        .toast {
+            background-color: #4CAF50; /* Verde para éxito */
             color: white;
-            padding: 3rem 0;  
-            margin-top: 4rem;
-            text-align: center;
-            width: 100%;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-        }
-
-        .newsletter-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--grid-spacing);
-        }
-
-        .newsletter-title {
-            color: #AC53A5;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .newsletter-description {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: #ffffff;
-        }
-
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            padding: 0.8rem 1rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
-            width: 100%;
-        }
-
-        .newsletter-checkbox-container {
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-bottom: 1rem;
+            gap: 10px;
         }
 
-        .newsletter-checkbox {
-            width: 18px;
-            height: 18px;
+        .toast.error {
+            background-color: #f44336; /* Rojo para errores */
         }
 
-        .newsletter-checkbox-label {
-            font-size: 0.9rem;
-            color: #ffffff;
-        }
-
-        .newsletter-checkbox-label a {
-            color: #ffffff;
-            text-decoration: underline;
-        }
-
-        .subscribe-button {
-            background-color: #AC53A5;
-            color: #ffffff;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 400;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: auto;
-            margin: 0 auto;
-        }
-
-        .subscribe-button:hover {
-            background-color: #3b063e;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .pagination button {
-            background-color: #AC53A5;
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            margin: 0 0.3rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .pagination button:hover {
-            background-color: #9c6bad;
-        }
-
-        .pagination button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-        }
-
-        .ticker-container {
-            width: 100%;
-            background: #ffffff;
-            padding: 0.1rem;
-            margin: 0;
-            border: none;
-            line-height: 0;
-            display: block;
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         .footer {
             background-color: #1F063D;
             color: white;
             padding: 3rem 0;
-            margin-top: 2rem;
+            margin-top: auto; /* Asegura que el footer esté al final */
         }
 
         .footer-content {
@@ -442,6 +337,10 @@
 
         @media (max-width: 1024px) {
             .posts-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas en tabletas */
+            }
+
+            .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -452,7 +351,7 @@
             }
             
             .posts-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* 1 columna en móviles */
             }
 
             .blog-title {
@@ -460,14 +359,8 @@
             }
 
             .post-title {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
-
-            .newsletter-title {
-                font-size: 2rem;
-            }
-
-           
 
             .footer-content {
                 grid-template-columns: 1fr;
@@ -475,8 +368,9 @@
         }
     </style>
 </head>
+
 <body>
-  <header class="blog-header">
+    <header class="blog-header">
         <div class="header-content">
             <h1 class="blog-title">
                 <a href="https://www.certainty.solutions" rel="noopener noreferrer">
@@ -485,36 +379,17 @@
             </h1>
             <p class="blog-description"></p>
         </div>
-        <a href="https://www.certainty.solutions/" class="back-link">Volver</a>
+        <a href="index.html" class="back-link">Volver</a>
     </header>
 
-    <div class="ticker-container">
-        <rssapp-ticker id="txetQzkGEahg2cKo"></rssapp-ticker>
-        <rssapp-wall id="CSpUY8ay5APxWsvh"></rssapp-wall>
-        <script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
-    </div>
-    
-    <div class="ticker-container">
-        <rssapp-carousel id="B1vZedJVnO82In60"></rssapp-carousel>
-    </div>
-    
-    <script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
-    
-    
-
-    <main class="posts-grid">
-        <!-- Posts will be loaded here -->
+    <main class="posts-grid" id="posts-grid">
+        <!-- Los posts se cargarán aquí dinámicamente -->
     </main>
-
-    
 
     <section class="newsletter-section">
         <div class="newsletter-content">
             <h2 class="newsletter-title" style="display: inline-flex; align-items: center;">
-                Stay up to date
             </h2>
-            <p class="newsletter-description">Data Compliance with Certainty Insights, daily</p>
-
             <script src="https://cdn.lordicon.com/lordicon.js"></script>
             <lord-icon
                 src="https://cdn.lordicon.com/vpbspaec.json"
@@ -523,21 +398,142 @@
                 style="width:50px;height:50px">
             </lord-icon>
         </div>
-        
-        <form class="newsletter-form">
-           <!--  <input type="email" placeholder="example@email.com" class="newsletter-input" required>
-            <div class="newsletter-checkbox-container">
-                <input type="checkbox" class="newsletter-checkbox" required>
-                <label class="newsletter-checkbox-label">
-                    By subscribing I accept the <a href="privacy-policy.html">Privacy Policy</a>.
-                </label>
-            </div>
-            <button type="submit" class="subscribe-button">Subscribe</button>-->
-        </form>
     </section>
 
- 
+   
+    <div id="toast-container"></div>
+
+    <script>
+        // URL de tu aplicación web de Google Apps Script
+        const rssFeedUrl = "https://script.google.com/macros/s/AKfycbyY-gYe8OLEw5_qQmwxi3WeDIbN3SnVKKbjdc8zyP-mQrLErJ74zwGmU8Dmta7FA4c/exec";
+
+        // Variables para el paginado
+        let currentPage = 1;
+        const itemsPerPage = 8; // 8 artículos iniciales (4 columnas x 2 filas)
+        let allItems = []; // Almacena todos los artículos cargados
+
+        // Función para formatear la fecha
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Función para obtener y mostrar el feed RSS
+        async function fetchRSSFeed() {
+            try {
+                const response = await fetch(rssFeedUrl);
+                const text = await response.text();
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(text, "text/xml");
+
+                const items = xmlDoc.querySelectorAll("item");
+                allItems = Array.from(items); // Convertir NodeList a Array
+
+                // Mostrar los primeros 8 artículos
+                loadMoreItems();
+            } catch (error) {
+                console.error("Error fetching RSS feed:", error);
+            }
+        }
+
+        // Función para manejar el like (sumar o restar)
+        function handleLikeClick(event) {
+            const likeButton = event.currentTarget;
+            const likeCount = likeButton.querySelector("span");
+            let count = parseInt(likeCount.textContent);
+
+            if (likeButton.classList.contains("active")) {
+                count--; // Restar like si ya está activo
+            } else {
+                count++; // Sumar like si no está activo
+            }
+
+            likeCount.textContent = count;
+            likeButton.classList.toggle("active"); // Alternar estado activo
+        }
+
+        // Función para mostrar un toast
+        function showToast(message, isError = false) {
+            const toastContainer = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = `toast ${isError ? "error" : ""}`;
+            toast.textContent = message;
+
+            toastContainer.appendChild(toast);
+
+            // Ocultar el toast después de 3 segundos
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Función para copiar el enlace y mostrar toast
+        function handleShareClick(event, link) {
+            navigator.clipboard.writeText(link).then(() => {
+                showToast("Enlace copiado"); // Mensaje de éxito
+            }).catch((error) => {
+                console.error("Error al copiar el enlace:", error);
+                showToast("Error al copiar el enlace", true); // Mensaje de error
+            });
+        }
+
+        // Función para cargar más artículos
+        function loadMoreItems() {
+            const feedContainer = document.getElementById("posts-grid");
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Mostrar los artículos correspondientes a la página actual
+            allItems.slice(startIndex, endIndex).forEach(item => {
+                const title = item.querySelector("title").textContent;
+                const link = item.querySelector("link").textContent;
+                const description = item.querySelector("description").textContent;
+                const pubDate = formatDate(item.querySelector("pubDate").textContent);
+
+                // Extraer la imagen del contenido (si está disponible)
+                const content = item.querySelector("description").textContent;
+                const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+                const imageUrl = imgMatch ? imgMatch[1] : "https://via.placeholder.com/300x200"; // Imagen por defecto
+
+                const post = document.createElement("div");
+                post.className = "post-container";
+                post.innerHTML = `
+                    <img src="${imageUrl}" alt="${title}" class="post-image">
+                    <h2 class="post-title"><a href="${link}" target="_blank">${title}</a></h2>
+                    <p class="post-metadata">${pubDate}</p>
+                    <div class="post-actions">
+                        <button class="like-button"><i class="fas fa-heart"></i> <span>0</span></button>
+                        <button class="share-button"><i class="fas fa-share"></i></button>
+                    </div>
+                `;
+
+                // Agregar eventos a los botones
+                const likeButton = post.querySelector(".like-button");
+                const shareButton = post.querySelector(".share-button");
+
+                likeButton.addEventListener("click", handleLikeClick);
+                shareButton.addEventListener("click", (event) => handleShareClick(event, link));
+
+                feedContainer.appendChild(post);
+            });
+
+            currentPage++; // Incrementar la página para la próxima carga
+        }
+
+        // Función para detectar el scroll y cargar más artículos
+        window.addEventListener("scroll", () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            if (scrollTop + clientHeight >= scrollHeight - 10) {
+                loadMoreItems();
+            }
+        });
+
+        // Iniciar la carga del feed RSS
+        fetchRSSFeed();
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 </body>
+
 </html>
