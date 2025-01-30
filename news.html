@@ -381,6 +381,139 @@
         </div>
         <a href="index.html" class="back-link">Volver</a>
     </header>
+    <!-- Contenedor del Ticker -->
+<div class="ticker-container">
+    <div class="live-label">LIVE</div>
+    <div class="ticker" id="ticker"></div>
+    <div class="loading-message" id="loading-message">Cargando noticias...</div>
+</div>
+
+<!-- Estilos mínimos para el Ticker -->
+<style>
+    .ticker-container {
+        width: 100%;
+        overflow: hidden;
+        background-color: #000000; /* Fondo negro sólido */
+        color: #fff; /* Texto blanco */
+        white-space: nowrap;
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+    .live-label {
+        background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 25px 35px;
+    margin-right: 20px;
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    display: flex; /* Asegura que el span esté correctamente alineado */
+    align-items: center; /* Centra verticalmente el texto */
+}
+
+    /* Animación de parpadeo */
+@keyframes blink-animation {
+    0%, 100% { opacity: 1; } /* Completamente visible */
+    50% { opacity: 0.5; }    /* Semi-transparente */
+}
+    .ticker {
+        display: inline-block;
+        padding-left: 100%;
+        animation: ticker-scroll 290s linear infinite;
+    }
+    .ticker:hover {
+        animation-play-state: paused;
+    }
+    .ticker-item {
+        display: inline-block;
+        margin-right: 50px;
+        color: #fff;
+        text-decoration: none;
+    }
+    .ticker-item:hover {
+        text-decoration: underline;
+    }
+    @keyframes ticker-scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .loading-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 20px;
+    }
+      /* Responsivo para móviles */
+      @media (max-width: 768px) {
+        .ticker-container {
+            font-size: 14px; /* Reducimos aún más el tamaño del texto */
+            background-color: #000000; /* Fondo negro sólido */
+        }
+
+        .live-label {
+            padding: 45px 20px; /* Padding más pequeño */
+            font-size: 12px; /* Texto más pequeño */
+        }
+
+        .ticker-item {
+            margin-right: 15px; /* Margen más pequeño */
+            font-size: 12px; /* Texto más pequeño */
+        }
+
+        .loading-message {
+            font-size: 12px; /* Texto más pequeño */
+        }
+    }
+</style>
+
+<!-- Script para cargar noticias -->
+<script>
+    const rssUrl = "https://news.google.com/rss/search?q=artificial+intelligence&hl=en-US&gl=US&ceid=US:en";
+
+    async function fetchRSS() {
+        try {
+            const proxyUrl = "https://api.allorigins.win/get?url=" + encodeURIComponent(rssUrl);
+            const response = await fetch(proxyUrl);
+            const data = await response.json();
+            if (data.contents) {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data.contents, "application/xml");
+                const items = Array.from(xmlDoc.querySelectorAll("item")).map(item => ({
+                    title: item.querySelector("title")?.textContent || "Sin título",
+                    link: item.querySelector("link")?.textContent || "#"
+                }));
+                if (items.length > 0) {
+                    displayTicker(items);
+                } else {
+                    document.getElementById("loading-message").textContent = "No hay noticias disponibles.";
+                }
+            } else {
+                throw new Error("No se pudo obtener el contenido del RSS.");
+            }
+        } catch (error) {
+            console.error("Error fetching RSS:", error);
+            document.getElementById("loading-message").textContent = "Error al cargar las noticias.";
+        }
+    }
+
+    function displayTicker(items) {
+        const ticker = document.getElementById("ticker");
+        const loadingMessage = document.getElementById("loading-message");
+        loadingMessage.style.display = "none";
+        const duplicatedItems = [...items, ...items];
+        ticker.innerHTML = duplicatedItems.map(item => `
+            <a href="${item.link}" class="ticker-item" target="_blank">${item.title}</a>
+        `).join("");
+    }
+
+    fetchRSS();
+</script>
 
     <main class="posts-grid" id="posts-grid">
         <!-- Los posts se cargarán aquí dinámicamente -->
