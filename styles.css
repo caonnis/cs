@@ -1314,7 +1314,7 @@ html {
     background: linear-gradient(135deg, var(--primary-dark) 0%, #3d1a57 100%);
     color: var(--white);
     cursor: pointer;
-    padding: 25px 40px;
+    padding: 25px 150px;
     width: 100%;
     border: none;
     text-align: center;
