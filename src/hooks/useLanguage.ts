@@ -75,7 +75,7 @@ const translations: Translations = {
     zh: '为您的合规和法律需求提供全面解决方案'
   },
 
-  // Service Cards
+  // Service Cards - Data Compliance
   'service.data-compliance.title': {
     en: 'Data Compliance & Quality Audits',
     es: 'Auditorías de Cumplimiento y Calidad de Datos',
@@ -88,7 +88,20 @@ const translations: Translations = {
     pt: 'Eleve a integridade dos seus dados com nossas auditorias abrangentes. Garantimos que suas informações atendam e superem os padrões legais.',
     zh: '通过我们全面的审计提升您的数据完整性。我们确保您的信息符合并超越法律标准。'
   },
+  'service.data-compliance.details': {
+    en: 'Our data compliance services include comprehensive data mapping, privacy impact assessments, GDPR compliance audits, data retention policy development, and ongoing monitoring systems. We help organizations establish robust data governance frameworks that protect both business interests and individual privacy rights.',
+    es: 'Nuestros servicios de cumplimiento de datos incluyen mapeo integral de datos, evaluaciones de impacto de privacidad, auditorías de cumplimiento GDPR, desarrollo de políticas de retención de datos y sistemas de monitoreo continuo. Ayudamos a las organizaciones a establecer marcos sólidos de gobernanza de datos que protejan tanto los intereses comerciales como los derechos de privacidad individual.',
+    pt: 'Nossos serviços de conformidade de dados incluem mapeamento abrangente de dados, avaliações de impacto de privacidade, auditorias de conformidade GDPR, desenvolvimento de políticas de retenção de dados e sistemas de monitoramento contínuo. Ajudamos organizações a estabelecer estruturas robustas de governança de dados que protegem tanto interesses comerciais quanto direitos de privacidade individual.',
+    zh: '我们的数据合规服务包括全面的数据映射、隐私影响评估、GDPR合规审计、数据保留政策制定和持续监控系统。我们帮助组织建立强大的数据治理框架，保护商业利益和个人隐私权。'
+  },
+  'service.data-compliance.benefits': {
+    en: '• Reduced legal risks and potential fines • Enhanced customer trust and brand reputation • Streamlined data processes and governance • Competitive advantage through compliance excellence • Peace of mind with expert guidance',
+    es: '• Reducción de riesgos legales y multas potenciales • Mayor confianza del cliente y reputación de marca • Procesos de datos optimizados y gobernanza • Ventaja competitiva a través de la excelencia en cumplimiento • Tranquilidad con orientación experta',
+    pt: '• Riscos legais reduzidos e multas potenciais • Maior confiança do cliente e reputação da marca • Processos de dados simplificados e governança • Vantagem competitiva através da excelência em conformidade • Tranquilidade com orientação especializada',
+    zh: '• 降低法律风险和潜在罚款 • 增强客户信任和品牌声誉 • 简化数据流程和治理 • 通过合规卓越获得竞争优势 • 专家指导带来的安心'
+  },
 
+  // Service Cards - Human Rights
   'service.human-rights.title': {
     en: 'Human Rights & Compliance Audits',
     es: 'Auditorías de Derechos Humanos y Cumplimiento',
@@ -101,7 +114,20 @@ const translations: Translations = {
     pt: 'Defenda práticas comerciais éticas com nossas auditorias de conformidade de direitos humanos. Navegue por regulamentações complexas com confiança.',
     zh: '通过我们的人权合规审计倡导道德商业实践。自信地应对复杂法规。'
   },
+  'service.human-rights.details': {
+    en: 'We conduct thorough human rights due diligence assessments, supply chain audits, workplace compliance reviews, and stakeholder engagement processes. Our team helps organizations identify, prevent, and mitigate adverse human rights impacts while building sustainable business practices.',
+    es: 'Realizamos evaluaciones exhaustivas de debida diligencia en derechos humanos, auditorías de cadena de suministro, revisiones de cumplimiento laboral y procesos de participación de partes interesadas. Nuestro equipo ayuda a las organizaciones a identificar, prevenir y mitigar impactos adversos en derechos humanos mientras construyen prácticas comerciales sostenibles.',
+    pt: 'Conduzimos avaliações completas de due diligence em direitos humanos, auditorias de cadeia de suprimentos, revisões de conformidade no local de trabalho e processos de engajamento de stakeholders. Nossa equipe ajuda organizações a identificar, prevenir e mitigar impactos adversos aos direitos humanos enquanto constroem práticas comerciais sustentáveis.',
+    zh: '我们进行全面的人权尽职调查评估、供应链审计、工作场所合规审查和利益相关者参与流程。我们的团队帮助组织识别、预防和减轻不利的人权影响，同时建立可持续的商业实践。'
+  },
+  'service.human-rights.benefits': {
+    en: '• Enhanced corporate reputation and stakeholder trust • Reduced operational and reputational risks • Improved employee satisfaction and retention • Stronger supplier relationships • Compliance with international standards',
+    es: '• Mayor reputación corporativa y confianza de las partes interesadas • Reducción de riesgos operacionales y reputacionales • Mejor satisfacción y retención de empleados • Relaciones más sólidas con proveedores • Cumplimiento con estándares internacionales',
+    pt: '• Reputação corporativa aprimorada e confiança dos stakeholders • Riscos operacionais e reputacionais reduzidos • Maior satisfação e retenção de funcionários • Relacionamentos mais fortes com fornecedores • Conformidade com padrões internacionais',
+    zh: '• 增强企业声誉和利益相关者信任 • 降低运营和声誉风险 • 提高员工满意度和留存率 • 加强供应商关系 • 符合国际标准'
+  },
 
+  // Service Cards - Software Contracts
   'service.software-contracts.title': {
     en: 'Software Contracts & Licensing',
     es: 'Contratos de Software y Licencias',
@@ -114,7 +140,20 @@ const translations: Translations = {
     pt: 'Proteja seus ativos digitais com elaboração especializada de contratos. Proteja sua propriedade intelectual com acordos robustos.',
     zh: '通过专业合同制定保护您的数字资产。用强有力的协议保护您的知识产权。'
   },
+  'service.software-contracts.details': {
+    en: 'Our software contract services cover SaaS agreements, licensing terms, end-user agreements, API terms of service, data processing agreements, and intellectual property protection. We ensure your software business is legally protected while maintaining user-friendly terms.',
+    es: 'Nuestros servicios de contratos de software cubren acuerdos SaaS, términos de licencia, acuerdos de usuario final, términos de servicio de API, acuerdos de procesamiento de datos y protección de propiedad intelectual. Aseguramos que su negocio de software esté legalmente protegido mientras mantiene términos amigables para el usuario.',
+    pt: 'Nossos serviços de contratos de software cobrem acordos SaaS, termos de licenciamento, acordos de usuário final, termos de serviço de API, acordos de processamento de dados e proteção de propriedade intelectual. Garantimos que seu negócio de software esteja legalmente protegido mantendo termos amigáveis ao usuário.',
+    zh: '我们的软件合同服务涵盖SaaS协议、许可条款、最终用户协议、API服务条款、数据处理协议和知识产权保护。我们确保您的软件业务在法律上受到保护，同时保持用户友好的条款。'
+  },
+  'service.software-contracts.benefits': {
+    en: '• Comprehensive IP protection and licensing clarity • Reduced legal disputes and liability exposure • Streamlined contract negotiation processes • Enhanced business relationships and trust • Scalable legal framework for growth',
+    es: '• Protección integral de PI y claridad en licencias • Reducción de disputas legales y exposición a responsabilidades • Procesos de negociación de contratos optimizados • Relaciones comerciales mejoradas y confianza • Marco legal escalable para el crecimiento',
+    pt: '• Proteção abrangente de PI e clareza de licenciamento • Disputas legais reduzidas e exposição à responsabilidade • Processos de negociação de contratos simplificados • Relacionamentos comerciais aprimorados e confiança • Estrutura legal escalável para crescimento',
+    zh: '• 全面的知识产权保护和许可清晰度 • 减少法律纠纷和责任风险 • 简化合同谈判流程 • 增强商业关系和信任 • 可扩展的增长法律框架'
+  },
 
+  // Service Cards - Legal Advisory
   'service.legal-advisory.title': {
     en: 'Legal Advisory in Tech & Data',
     es: 'Asesoría Legal en Tecnología y Datos',
@@ -127,7 +166,20 @@ const translations: Translations = {
     pt: 'Navegue pela complexa interseção de tecnologia e direito com nossos serviços de consultoria especializados.',
     zh: '通过我们的专业咨询服务应对技术与法律的复杂交集。'
   },
+  'service.legal-advisory.details': {
+    en: 'We provide strategic legal counsel on emerging technologies, AI governance, blockchain regulations, cybersecurity compliance, cross-border data transfers, and digital transformation initiatives. Our expertise helps technology companies navigate regulatory landscapes while fostering innovation.',
+    es: 'Proporcionamos asesoría legal estratégica sobre tecnologías emergentes, gobernanza de IA, regulaciones blockchain, cumplimiento de ciberseguridad, transferencias de datos transfronterizas e iniciativas de transformación digital. Nuestra experiencia ayuda a las empresas de tecnología a navegar por paisajes regulatorios mientras fomentan la innovación.',
+    pt: 'Fornecemos consultoria jurídica estratégica sobre tecnologias emergentes, governança de IA, regulamentações blockchain, conformidade de cibersegurança, transferências de dados transfronteiriças e iniciativas de transformação digital. Nossa expertise ajuda empresas de tecnologia a navegar por paisagens regulatórias enquanto promovem inovação.',
+    zh: '我们就新兴技术、AI治理、区块链法规、网络安全合规、跨境数据传输和数字化转型举措提供战略法律咨询。我们的专业知识帮助技术公司在促进创新的同时应对监管环境。'
+  },
+  'service.legal-advisory.benefits': {
+    en: '• Strategic guidance for technology innovation • Proactive risk management and compliance • Competitive advantage through legal expertise • Streamlined regulatory approval processes • Future-proof legal strategies',
+    es: '• Orientación estratégica para la innovación tecnológica • Gestión proactiva de riesgos y cumplimiento • Ventaja competitiva a través de experiencia legal • Procesos de aprobación regulatoria optimizados • Estrategias legales a prueba de futuro',
+    pt: '• Orientação estratégica para inovação tecnológica • Gestão proativa de riscos e conformidade • Vantagem competitiva através de expertise jurídica • Processos de aprovação regulatória simplificados • Estratégias jurídicas à prova de futuro',
+    zh: '• 技术创新的战略指导 • 主动风险管理和合规 • 通过法律专业知识获得竞争优势 • 简化监管审批流程 • 面向未来的法律策略'
+  },
 
+  // Service Cards - Data Privacy
   'service.data-privacy.title': {
     en: 'Data Privacy & Privacy Policies',
     es: 'Privacidad de Datos y Políticas de Privacidad',
@@ -140,7 +192,20 @@ const translations: Translations = {
     pt: 'Construa confiança com proteção de privacidade sólida. Nossas políticas personalizadas garantem conformidade regulatória.',
     zh: '通过坚实的隐私保护建立信任。我们的定制政策确保法规合规。'
   },
+  'service.data-privacy.details': {
+    en: 'We develop comprehensive privacy policies, cookie policies, terms of service, data subject rights procedures, privacy by design frameworks, and consent management systems. Our approach ensures transparency while protecting your business interests and user privacy.',
+    es: 'Desarrollamos políticas de privacidad integrales, políticas de cookies, términos de servicio, procedimientos de derechos del sujeto de datos, marcos de privacidad por diseño y sistemas de gestión de consentimiento. Nuestro enfoque asegura transparencia mientras protege sus intereses comerciales y la privacidad del usuario.',
+    pt: 'Desenvolvemos políticas de privacidade abrangentes, políticas de cookies, termos de serviço, procedimentos de direitos do titular dos dados, estruturas de privacidade por design e sistemas de gestão de consentimento. Nossa abordagem garante transparência enquanto protege seus interesses comerciais e privacidade do usuário.',
+    zh: '我们制定全面的隐私政策、cookie政策、服务条款、数据主体权利程序、隐私设计框架和同意管理系统。我们的方法确保透明度，同时保护您的商业利益和用户隐私。'
+  },
+  'service.data-privacy.benefits': {
+    en: '• Enhanced user trust and brand credibility • Regulatory compliance across jurisdictions • Reduced privacy-related legal risks • Improved data governance and transparency • Competitive advantage through privacy leadership',
+    es: '• Mayor confianza del usuario y credibilidad de marca • Cumplimiento regulatorio en todas las jurisdicciones • Reducción de riesgos legales relacionados con privacidad • Mejor gobernanza de datos y transparencia • Ventaja competitiva a través del liderazgo en privacidad',
+    pt: '• Maior confiança do usuário e credibilidade da marca • Conformidade regulatória em todas as jurisdições • Riscos legais relacionados à privacidade reduzidos • Governança de dados e transparência aprimoradas • Vantagem competitiva através da liderança em privacidade',
+    zh: '• 增强用户信任和品牌可信度 • 跨司法管辖区的监管合规 • 降低隐私相关法律风险 • 改善数据治理和透明度 • 通过隐私领导力获得竞争优势'
+  },
 
+  // Service Cards - Training
   'service.training.title': {
     en: 'Training & Awareness Initiatives',
     es: 'Iniciativas de Capacitación y Concientización',
@@ -152,6 +217,18 @@ const translations: Translations = {
     es: 'Empodere a su equipo con conocimiento. Transforme el cumplimiento de una lista de verificación a una cultura.',
     pt: 'Capacite sua equipe com conhecimento. Transforme conformidade de uma lista de verificação para uma cultura.',
     zh: '用知识赋能您的团队。将合规从清单转变为文化。'
+  },
+  'service.training.details': {
+    en: 'Our training programs cover data protection awareness, privacy impact assessments, incident response procedures, compliance best practices, and regulatory updates. We offer customized workshops, e-learning modules, and ongoing support to build a compliance-conscious organization.',
+    es: 'Nuestros programas de capacitación cubren conciencia sobre protección de datos, evaluaciones de impacto de privacidad, procedimientos de respuesta a incidentes, mejores prácticas de cumplimiento y actualizaciones regulatorias. Ofrecemos talleres personalizados, módulos de e-learning y soporte continuo para construir una organización consciente del cumplimiento.',
+    pt: 'Nossos programas de treinamento cobrem conscientização sobre proteção de dados, avaliações de impacto de privacidade, procedimentos de resposta a incidentes, melhores práticas de conformidade e atualizações regulatórias. Oferecemos workshops personalizados, módulos de e-learning e suporte contínuo para construir uma organização consciente da conformidade.',
+    zh: '我们的培训项目涵盖数据保护意识、隐私影响评估、事件响应程序、合规最佳实践和监管更新。我们提供定制研讨会、电子学习模块和持续支持，以建立具有合规意识的组织。'
+  },
+  'service.training.benefits': {
+    en: '• Improved compliance culture and awareness • Reduced human error and security incidents • Enhanced employee confidence and competence • Streamlined compliance processes • Ongoing support and updates',
+    es: '• Mejor cultura de cumplimiento y conciencia • Reducción de errores humanos e incidentes de seguridad • Mayor confianza y competencia de empleados • Procesos de cumplimiento optimizados • Soporte continuo y actualizaciones',
+    pt: '• Cultura de conformidade e conscientização aprimoradas • Erro humano e incidentes de segurança reduzidos • Confiança e competência de funcionários aprimoradas • Processos de conformidade simplificados • Suporte contínuo e atualizações',
+    zh: '• 改善合规文化和意识 • 减少人为错误和安全事件 • 增强员工信心和能力 • 简化合规流程 • 持续支持和更新'
   },
 
   // Team Section

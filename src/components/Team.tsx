@@ -29,8 +29,14 @@ export const Team = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-certainty-accent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-certainty-soft rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,6 +45,16 @@ export const Team = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-certainty-accent to-certainty-soft rounded-full mb-6"
+          >
+            <Linkedin className="w-8 h-8 text-white" />
+          </motion.div>
+          
           <h2 className="text-responsive-lg font-bold text-certainty-deep mb-6">
             {t('team.title')}
           </h2>
@@ -56,23 +72,33 @@ export const Team = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ y: -8 }}
+              className="group"
             >
-              <Card className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm">
                 <div className="relative overflow-hidden">
-                  <img
+                  <motion.img
                     src={member.image}
                     alt={t(member.nameKey)}
-                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    whileHover={{ scale: 1.05 }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-certainty-deep/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-certainty-deep/90 via-certainty-deep/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* LinkedIn Button */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  >
                     <Button
                       size="sm"
                       variant="certainty"
                       asChild
-                      className="rounded-full w-10 h-10 p-0"
+                      className="rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl"
                     >
                       <a
                         href={member.linkedin}
@@ -80,14 +106,27 @@ export const Team = () => {
                         rel="noopener noreferrer"
                         aria-label={`LinkedIn profile of ${t(member.nameKey)}`}
                       >
-                        <Linkedin className="h-4 w-4" />
+                        <Linkedin className="h-5 w-5" />
                       </a>
                     </Button>
-                  </div>
+                  </motion.div>
+
+                  {/* Member info overlay */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <h3 className="text-xl font-bold mb-1">
+                      {t(member.nameKey)}
+                    </h3>
+                    <p className="text-certainty-soft text-sm font-medium">
+                      {t(member.roleKey)}
+                    </p>
+                  </motion.div>
                 </div>
                 
                 <CardContent className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-certainty-deep mb-2">
+                  <h3 className="text-xl font-bold text-certainty-deep mb-2 group-hover:text-certainty-accent transition-colors duration-300">
                     {t(member.nameKey)}
                   </h3>
                   <p className="text-certainty-accent font-medium">
