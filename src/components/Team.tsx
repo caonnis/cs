@@ -32,20 +32,20 @@ const collaborators = [
     areaKey: 'collaborator.andrea.area'
   },
   {
-    nameKey: 'collaborator.carlos.name',
-    areaKey: 'collaborator.carlos.area'
+    nameKey: 'collaborator.silvina.name',
+    areaKey: 'collaborator.silvina.area'
   },
   {
-    nameKey: 'collaborator.ana.name',
-    areaKey: 'collaborator.ana.area'
+    nameKey: 'collaborator.jose.name',
+    areaKey: 'collaborator.jose.area'
   },
   {
-    nameKey: 'collaborator.luis.name',
-    areaKey: 'collaborator.luis.area'
+    nameKey: 'collaborator.dulce.name',
+    areaKey: 'collaborator.dulce.area'
   },
   {
-    nameKey: 'collaborator.sofia.name',
-    areaKey: 'collaborator.sofia.area'
+    nameKey: 'collaborator.carolina.name',
+    areaKey: 'collaborator.carolina.area'
   },
   {
     nameKey: 'collaborator.diego.name',
