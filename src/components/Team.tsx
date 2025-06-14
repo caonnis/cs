@@ -40,16 +40,16 @@ const collaborators = [
     areaKey: 'collaborator.jose.area'
   },
   {
+    nameKey: 'collaborator.jhonatan.name',
+    areaKey: 'collaborator.jhonatan.area'
+  },
+  {
     nameKey: 'collaborator.dulce.name',
     areaKey: 'collaborator.dulce.area'
   },
   {
     nameKey: 'collaborator.carolina.name',
     areaKey: 'collaborator.carolina.area'
-  },
-  {
-    nameKey: 'collaborator.diego.name',
-    areaKey: 'collaborator.diego.area'
   }
 ];
 
