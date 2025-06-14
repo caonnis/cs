@@ -285,6 +285,99 @@ const translations: Translations = {
     zh: '人权审计专家'
   },
 
+  // Team Collaborators Section
+  'team.collaborators.title': {
+    en: 'External Collaborators',
+    es: 'Colaboradores Externos',
+    pt: 'Colaboradores Externos',
+    zh: '外部合作者'
+  },
+  'team.collaborators.subtitle': {
+    en: 'We collaborate with third-party consultants to provide comprehensive solutions',
+    es: 'Colaboramos con consultores externos para brindar soluciones integrales',
+    pt: 'Colaboramos com consultores externos para fornecer soluções abrangentes',
+    zh: '我们与第三方顾问合作提供全面解决方案'
+  },
+
+  // Collaborators
+  'collaborator.maria.name': {
+    en: 'Dr. María González',
+    es: 'Dra. María González',
+    pt: 'Dra. María González',
+    zh: '玛丽亚·冈萨雷斯博士'
+  },
+  'collaborator.maria.area': {
+    en: 'Gender Studies & Equality',
+    es: 'Estudios de Género e Igualdad',
+    pt: 'Estudos de Gênero e Igualdade',
+    zh: '性别研究与平等'
+  },
+
+  'collaborator.carlos.name': {
+    en: 'Dr. Carlos Mendoza',
+    es: 'Dr. Carlos Mendoza',
+    pt: 'Dr. Carlos Mendoza',
+    zh: '卡洛斯·门多萨博士'
+  },
+  'collaborator.carlos.area': {
+    en: 'Forensic Psychology',
+    es: 'Psicología Forense',
+    pt: 'Psicologia Forense',
+    zh: '法医心理学'
+  },
+
+  'collaborator.ana.name': {
+    en: 'Mg. Ana Rodríguez',
+    es: 'Mg. Ana Rodríguez',
+    pt: 'Mg. Ana Rodríguez',
+    zh: '安娜·罗德里格斯硕士'
+  },
+  'collaborator.ana.area': {
+    en: 'Labor & Relations Law',
+    es: 'Derecho Laboral y de Relaciones',
+    pt: 'Direito do Trabalho e Relações',
+    zh: '劳动与关系法'
+  },
+
+  'collaborator.luis.name': {
+    en: 'Dr. Luis Fernández',
+    es: 'Dr. Luis Fernández',
+    pt: 'Dr. Luis Fernández',
+    zh: '路易斯·费尔南德斯博士'
+  },
+  'collaborator.luis.area': {
+    en: 'Corporate Negotiation & Applied Neuroscience',
+    es: 'Negociación Corporativa y Neurociencia Aplicada',
+    pt: 'Negociação Corporativa e Neurociência Aplicada',
+    zh: '企业谈判与应用神经科学'
+  },
+
+  'collaborator.sofia.name': {
+    en: 'Mg. Sofía Torres',
+    es: 'Mg. Sofía Torres',
+    pt: 'Mg. Sofía Torres',
+    zh: '索菲亚·托雷斯硕士'
+  },
+  'collaborator.sofia.area': {
+    en: 'Business Administration Specialist in Management',
+    es: 'Especialista en Administración de Empresas en Gestión',
+    pt: 'Especialista em Administração de Empresas em Gestão',
+    zh: '管理专业的商务管理专家'
+  },
+
+  'collaborator.diego.name': {
+    en: 'Dr. Diego Morales',
+    es: 'Dr. Diego Morales',
+    pt: 'Dr. Diego Morales',
+    zh: '迭戈·莫拉莱斯博士'
+  },
+  'collaborator.diego.area': {
+    en: 'Strategic Litigation in Inter-American Court & Commission on Human Rights',
+    es: 'Litigio Estratégico en la Corte y Comisión Interamericana de Derechos Humanos',
+    pt: 'Litigância Estratégica na Corte e Comissão Interamericana de Direitos Humanos',
+    zh: '美洲人权法院和委员会的战略诉讼'
+  },
+
   // Contact Section
   'contact.title': {
     en: 'Get in Touch',

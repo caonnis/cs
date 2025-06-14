@@ -23,9 +23,6 @@ const services = [
     descriptionKey: 'service.data-compliance.description',
     detailsKey: 'service.data-compliance.details',
     benefitsKey: 'service.data-compliance.benefits',
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-50',
-    gradient: 'from-blue-500 to-blue-600'
   },
   {
     id: 'human-rights',
@@ -34,9 +31,6 @@ const services = [
     descriptionKey: 'service.human-rights.description',
     detailsKey: 'service.human-rights.details',
     benefitsKey: 'service.human-rights.benefits',
-    color: 'text-green-500',
-    bgColor: 'bg-green-50',
-    gradient: 'from-green-500 to-green-600'
   },
   {
     id: 'software-contracts',
@@ -45,9 +39,6 @@ const services = [
     descriptionKey: 'service.software-contracts.description',
     detailsKey: 'service.software-contracts.details',
     benefitsKey: 'service.software-contracts.benefits',
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-50',
-    gradient: 'from-purple-500 to-purple-600'
   },
   {
     id: 'legal-advisory',
@@ -56,9 +47,6 @@ const services = [
     descriptionKey: 'service.legal-advisory.description',
     detailsKey: 'service.legal-advisory.details',
     benefitsKey: 'service.legal-advisory.benefits',
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-50',
-    gradient: 'from-orange-500 to-orange-600'
   },
   {
     id: 'data-privacy',
@@ -67,9 +55,6 @@ const services = [
     descriptionKey: 'service.data-privacy.description',
     detailsKey: 'service.data-privacy.details',
     benefitsKey: 'service.data-privacy.benefits',
-    color: 'text-red-500',
-    bgColor: 'bg-red-50',
-    gradient: 'from-red-500 to-red-600'
   },
   {
     id: 'training',
@@ -78,9 +63,6 @@ const services = [
     descriptionKey: 'service.training.description',
     detailsKey: 'service.training.details',
     benefitsKey: 'service.training.benefits',
-    color: 'text-indigo-500',
-    bgColor: 'bg-indigo-50',
-    gradient: 'from-indigo-500 to-indigo-600'
   }
 ];
 
@@ -142,7 +124,7 @@ export const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Unified Design */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -157,20 +139,20 @@ export const Services = () => {
                 className="group cursor-pointer"
                 onClick={() => openServiceModal(service.id)}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm overflow-hidden relative">
-                  {/* Gradient overlay on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm overflow-hidden relative group-hover:bg-gradient-to-br group-hover:from-certainty-deep group-hover:to-certainty-accent">
+                  {/* Unified gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-certainty-deep to-certainty-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <CardHeader className="text-center pb-4 relative z-10">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
-                      className={`w-20 h-20 mx-auto mb-6 rounded-2xl ${service.bgColor} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}
+                      className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-certainty-accent to-certainty-soft flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 group-hover:bg-white/20"
                     >
-                      <Icon className={`h-10 w-10 ${service.color}`} />
+                      <Icon className="h-10 w-10 text-white" />
                     </motion.div>
                     
-                    <CardTitle className="text-xl font-bold text-certainty-deep group-hover:text-certainty-accent transition-colors duration-300">
+                    <CardTitle className="text-xl font-bold text-certainty-deep group-hover:text-white transition-colors duration-300">
                       {t(service.titleKey)}
                     </CardTitle>
                   </CardHeader>
@@ -179,7 +161,7 @@ export const Services = () => {
                     <motion.div
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 1 }}
-                      className="flex items-center justify-center text-certainty-accent group-hover:text-certainty-deep transition-colors duration-300"
+                      className="flex items-center justify-center text-certainty-accent group-hover:text-white transition-colors duration-300"
                     >
                       <span className="text-sm font-medium mr-2">Learn More</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -230,7 +212,7 @@ export const Services = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className={`bg-gradient-to-r ${selectedServiceData.gradient} p-8 text-white relative overflow-hidden`}>
+              <div className="bg-gradient-to-r from-certainty-deep to-certainty-accent p-8 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="relative z-10">
                   <Button

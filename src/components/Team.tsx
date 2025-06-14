@@ -1,5 +1,6 @@
-import { motion } from 'framer-motion';
-import { Linkedin } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Linkedin, ChevronDown, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -25,8 +26,36 @@ const teamMembers = [
   }
 ];
 
+const collaborators = [
+  {
+    nameKey: 'collaborator.maria.name',
+    areaKey: 'collaborator.maria.area'
+  },
+  {
+    nameKey: 'collaborator.carlos.name',
+    areaKey: 'collaborator.carlos.area'
+  },
+  {
+    nameKey: 'collaborator.ana.name',
+    areaKey: 'collaborator.ana.area'
+  },
+  {
+    nameKey: 'collaborator.luis.name',
+    areaKey: 'collaborator.luis.area'
+  },
+  {
+    nameKey: 'collaborator.sofia.name',
+    areaKey: 'collaborator.sofia.area'
+  },
+  {
+    nameKey: 'collaborator.diego.name',
+    areaKey: 'collaborator.diego.area'
+  }
+];
+
 export const Team = () => {
   const { t } = useLanguage();
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   return (
     <section id="about" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -52,7 +81,7 @@ export const Team = () => {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-certainty-accent to-certainty-soft rounded-full mb-6"
           >
-            <Linkedin className="w-8 h-8 text-white" />
+            <Users className="w-8 h-8 text-white" />
           </motion.div>
           
           <h2 className="text-responsive-lg font-bold text-certainty-deep mb-6">
@@ -63,8 +92,8 @@ export const Team = () => {
           </p>
         </motion.div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Core Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.nameKey}
@@ -75,7 +104,7 @@ export const Team = () => {
               whileHover={{ y: -8 }}
               className="group"
             >
-              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/80 backdrop-blur-sm">
+              <Card className="overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm">
                 <div className="relative overflow-hidden">
                   <motion.img
                     src={member.image}
@@ -137,6 +166,77 @@ export const Team = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Collaborators Accordion */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <Card className="border-0 shadow-lg bg-white/90 backdrop-blur-sm overflow-hidden">
+            <motion.button
+              onClick={() => setIsAccordionOpen(!isAccordionOpen)}
+              className="w-full p-8 text-left bg-gradient-to-r from-certainty-deep to-certainty-accent text-white hover:from-certainty-accent hover:to-certainty-deep transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Users className="h-6 w-6 mr-4" />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">
+                      {t('team.collaborators.title')}
+                    </h3>
+                    <p className="text-white/90 text-sm">
+                      {t('team.collaborators.subtitle')}
+                    </p>
+                  </div>
+                </div>
+                <motion.div
+                  animate={{ rotate: isAccordionOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown className="h-6 w-6" />
+                </motion.div>
+              </div>
+            </motion.button>
+
+            <AnimatePresence>
+              {isAccordionOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="p-8 bg-gray-50">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {collaborators.map((collaborator, index) => (
+                        <motion.div
+                          key={collaborator.nameKey}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-certainty-accent hover:shadow-md transition-shadow duration-300"
+                        >
+                          <h4 className="font-bold text-certainty-deep mb-2">
+                            {t(collaborator.nameKey)}
+                          </h4>
+                          <p className="text-certainty-accent text-sm font-medium">
+                            {t(collaborator.areaKey)}
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );
