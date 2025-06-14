@@ -300,78 +300,78 @@ const translations: Translations = {
   },
 
   // Collaborators
-  'collaborator.maria.name': {
-    en: 'Dr. María González',
-    es: 'Dra. María González',
-    pt: 'Dra. María González',
+  'collaborator.andrea.name': {
+    en: 'Mg. Andrea Cuellar Camarena',
+    es: 'Mg. Andrea Cuellar Camarena',
+    pt: 'Mg. Andrea Cuellar Camarena',
     zh: '玛丽亚·冈萨雷斯博士'
   },
-  'collaborator.maria.area': {
+  'collaborator.andrea.area': {
     en: 'Gender Studies & Equality',
     es: 'Estudios de Género e Igualdad',
     pt: 'Estudos de Gênero e Igualdade',
     zh: '性别研究与平等'
   },
 
-  'collaborator.carlos.name': {
-    en: 'Dr. Carlos Mendoza',
-    es: 'Dr. Carlos Mendoza',
-    pt: 'Dr. Carlos Mendoza',
+  'collaborator.silvina.name': {
+    en: 'Lic. Silvina Fernanda Yosia',
+    es: 'Lic. Silvina Fernanda Yosia',
+    pt: 'Lic. Silvina Fernanda Yosia',
     zh: '卡洛斯·门多萨博士'
   },
-  'collaborator.carlos.area': {
+  'collaborator.silvina.area': {
     en: 'Forensic Psychology',
     es: 'Psicología Forense',
     pt: 'Psicologia Forense',
     zh: '法医心理学'
   },
 
-  'collaborator.ana.name': {
-    en: 'Mg. Ana Rodríguez',
-    es: 'Mg. Ana Rodríguez',
-    pt: 'Mg. Ana Rodríguez',
+  'collaborator.jose.name': {
+    en: 'Mg. José Ignacio Agostini',
+    es: 'Mg. José Ignacio Agostini',
+    pt: 'Mg. José Ignacio Agostini',
     zh: '安娜·罗德里格斯硕士'
   },
-  'collaborator.ana.area': {
+  'collaborator.jose.area': {
     en: 'Labor & Relations Law',
     es: 'Derecho Laboral y de Relaciones',
     pt: 'Direito do Trabalho e Relações',
     zh: '劳动与关系法'
   },
 
-  'collaborator.luis.name': {
-    en: 'Dr. Luis Fernández',
-    es: 'Dr. Luis Fernández',
-    pt: 'Dr. Luis Fernández',
+  'collaborator.jhonatan.name': {
+    en: 'Mg. Jhonatan S. Peña Carlos',
+    es: 'Mg. Jhonatan S. Peña Carlos',
+    pt: 'Mg. Jhonatan S. Peña Carlos',
     zh: '路易斯·费尔南德斯博士'
   },
-  'collaborator.luis.area': {
+  'collaborator.jhonatan.area': {
     en: 'Corporate Negotiation & Applied Neuroscience',
     es: 'Negociación Corporativa y Neurociencia Aplicada',
     pt: 'Negociação Corporativa e Neurociência Aplicada',
     zh: '企业谈判与应用神经科学'
   },
 
-  'collaborator.sofia.name': {
-    en: 'Mg. Sofía Torres',
-    es: 'Mg. Sofía Torres',
-    pt: 'Mg. Sofía Torres',
+  'collaborator.dulce.name': {
+    en: 'Lic. Dulce Alejandra Hernández Vargas',
+    es: 'Lic. Dulce Alejandra Hernández Vargas',
+    pt: 'Lic. Dulce Alejandra Hernández Vargas',
     zh: '索菲亚·托雷斯硕士'
   },
-  'collaborator.sofia.area': {
+  'collaborator.dulce.area': {
     en: 'Business Administration Specialist in Management',
     es: 'Especialista en Administración de Empresas en Gestión',
     pt: 'Especialista em Administração de Empresas em Gestão',
     zh: '管理专业的商务管理专家'
   },
 
-  'collaborator.diego.name': {
-    en: 'Dr. Diego Morales',
-    es: 'Dr. Diego Morales',
-    pt: 'Dr. Diego Morales',
+  'collaborator.carolina.name': {
+    en: 'Mg. María Carolina Estepa Becerra',
+    es: 'Mg. María Carolina Estepa Becerra',
+    pt: 'Mg. María Carolina Estepa Becerra',
     zh: '迭戈·莫拉莱斯博士'
   },
-  'collaborator.diego.area': {
+  'collaborator.carolina.area': {
     en: 'Strategic Litigation in Inter-American Court & Commission on Human Rights',
     es: 'Litigio Estratégico en la Corte y Comisión Interamericana de Derechos Humanos',
     pt: 'Litigância Estratégica na Corte e Comissão Interamericana de Direitos Humanos',
