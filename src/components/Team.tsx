@@ -28,8 +28,8 @@ const teamMembers = [
 
 const collaborators = [
   {
-    nameKey: 'collaborator.maria.name',
-    areaKey: 'collaborator.maria.area'
+    nameKey: 'collaborator.andrea.name',
+    areaKey: 'collaborator.andrea.area'
   },
   {
     nameKey: 'collaborator.carlos.name',
