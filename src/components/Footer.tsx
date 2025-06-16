@@ -50,8 +50,47 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-certainty-deep text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-black text-white relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ 
+            duration: 60,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10"
+          style={{
+            background: 'linear-gradient(135deg, #c85dad 0%, #4ecdc4 100%)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            filter: 'blur(100px)',
+          }}
+        />
+        
+        <motion.div
+          animate={{ 
+            rotate: [360, 0],
+            scale: [1.1, 0.9, 1.1],
+          }}
+          transition={{ 
+            duration: 50,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-8"
+          style={{
+            background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 100%)',
+            borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+            filter: 'blur(80px)',
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <motion.div
@@ -61,8 +100,11 @@ export const Footer = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-1"
           >
-            <h3 className="text-2xl font-bold mb-4">
-              Certainty<span className="text-certainty-accent">.</span>
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">
+                Certainty
+              </span>
+              <span className="text-white">.</span>
             </h3>
             <p className="text-white/80 leading-relaxed">
               {t('footer.description')}
@@ -76,7 +118,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-lg font-semibold mb-4 text-certainty-accent">
+            <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">
               {t('footer.links')}
             </h4>
             <ul className="space-y-2">
@@ -84,7 +126,7 @@ export const Footer = () => {
                 <li key={link.key}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-white/80 hover:text-certainty-accent transition-colors"
+                    className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300"
                   >
                     {t(link.key)}
                   </button>
@@ -100,7 +142,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold mb-4 text-certainty-accent">
+            <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">
               {t('footer.legal')}
             </h4>
             <ul className="space-y-2">
@@ -108,7 +150,7 @@ export const Footer = () => {
                 <li key={link.text}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-white/80 hover:text-certainty-accent transition-colors"
+                    className="text-white/80 hover:text-white hover:translate-x-1 transition-all duration-300"
                   >
                     {link.text}
                   </button>
@@ -124,7 +166,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-lg font-semibold mb-4 text-certainty-accent">
+            <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">
               {t('footer.contact')}
             </h4>
             
@@ -133,16 +175,18 @@ export const Footer = () => {
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                  <motion.a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-certainty-accent transition-colors"
+                    className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#c85dad] hover:to-[#4ecdc4] transition-all duration-300 hover:scale-110"
                     aria-label={social.label}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     <Icon className="h-5 w-5" />
-                  </a>
+                  </motion.a>
                 );
               })}
             </div>
@@ -150,11 +194,11 @@ export const Footer = () => {
             {/* Locations */}
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-white/80">
-                <MapPin className="h-4 w-4 text-certainty-accent" />
+                <MapPin className="h-4 w-4 text-[#c85dad]" />
                 <span className="text-sm">Argentina, Buenos Aires</span>
               </div>
               <div className="flex items-center space-x-2 text-white/80">
-                <MapPin className="h-4 w-4 text-certainty-accent" />
+                <MapPin className="h-4 w-4 text-[#4ecdc4]" />
                 <span className="text-sm">Mexico, CDMX</span>
               </div>
             </div>
@@ -170,7 +214,7 @@ export const Footer = () => {
           className="border-t border-white/10 mt-12 pt-8 text-center"
         >
           <p className="text-white/60">
-            © 2025 Certainty. {t('footer.rights')}
+            © 2025 <span className="bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent font-semibold">Certainty</span>. {t('footer.rights')}
           </p>
         </motion.div>
       </div>

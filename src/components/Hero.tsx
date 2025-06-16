@@ -1,10 +1,28 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Shield, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
 
+const rotatingWords = [
+  'Compliance',
+  'Privacy',
+  'Security',
+  'Protection',
+  'Governance'
+];
+
 export const Hero = () => {
   const { t } = useLanguage();
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
@@ -93,26 +111,36 @@ export const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col justify-center min-h-screen pt-20 lg:pt-0">
           <div className="max-w-6xl mx-auto text-center">
-            {/* Main Title with 3D effect */}
+            {/* Main Title with rotating word */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white mb-6 leading-tight">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white leading-tight">
                 <span className="block">Power</span>
-                <span 
-                  className="block font-bold bg-gradient-to-r from-[#c85dad] via-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent"
-                  style={{
-                    textShadow: '0 0 30px rgba(200, 93, 173, 0.5)',
-                  }}
-                >
-                  Compliance
-                </span>
-                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-4">
-                  With Your Data
-                </span>
+                <div className="block h-[1.2em] flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentWordIndex}
+                      initial={{ y: 50, opacity: 0, rotateX: -90 }}
+                      animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                      exit={{ y: -50, opacity: 0, rotateX: 90 }}
+                      transition={{ 
+                        duration: 0.6,
+                        ease: "easeInOut"
+                      }}
+                      className="font-bold bg-gradient-to-r from-[#c85dad] via-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent"
+                      style={{
+                        textShadow: '0 0 30px rgba(200, 93, 173, 0.5)',
+                        transformStyle: 'preserve-3d'
+                      }}
+                    >
+                      {rotatingWords[currentWordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
               </h1>
             </motion.div>
 
@@ -149,7 +177,7 @@ export const Hero = () => {
                 size="xl"
                 variant="outline"
                 onClick={() => scrollToSection('#contact')}
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-medium rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
               >
                 {t('hero.cta.secondary')}
               </Button>
