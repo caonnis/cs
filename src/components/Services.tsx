@@ -90,11 +90,44 @@ export const Services = () => {
   const selectedServiceData = services.find(s => s.id === selectedService);
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-certainty-accent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-certainty-soft rounded-full blur-3xl"></div>
+    <section id="services" className="py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <motion.div
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ 
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-20 right-20 w-96 h-96 opacity-20"
+          style={{
+            background: 'linear-gradient(135deg, #c85dad 0%, #4ecdc4 100%)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            filter: 'blur(80px)',
+          }}
+        />
+        
+        <motion.div
+          animate={{ 
+            rotate: [360, 0],
+            scale: [1.2, 0.8, 1.2],
+          }}
+          transition={{ 
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute bottom-20 left-20 w-80 h-80 opacity-15"
+          style={{
+            background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 100%)',
+            borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+            filter: 'blur(70px)',
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -111,20 +144,20 @@ export const Services = () => {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-certainty-accent to-certainty-soft rounded-full mb-6"
+            className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] rounded-3xl mb-8 shadow-2xl"
           >
-            <Shield className="w-8 h-8 text-white" />
+            <Shield className="w-10 h-10 text-white" />
           </motion.div>
           
-          <h2 className="text-responsive-lg font-bold text-certainty-deep mb-6">
-            {t('services.title')}
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-white mb-8">
+            Our <span className="font-bold bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-responsive-md text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             {t('services.subtitle')}
           </p>
         </motion.div>
 
-        {/* Services Grid - Unified Design */}
+        {/* Services Grid - Modern glassmorphism cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -135,24 +168,27 @@ export const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -8, scale: 1.02 }}
                 className="group cursor-pointer"
                 onClick={() => openServiceModal(service.id)}
               >
-                <Card className="h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 bg-white/90 backdrop-blur-sm overflow-hidden relative group-hover:bg-gradient-to-br group-hover:from-certainty-deep group-hover:to-certainty-accent">
-                  {/* Unified gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-certainty-deep to-certainty-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <Card className="h-full border-0 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20">
+                  {/* Gradient border effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#c85dad] via-[#4ecdc4] to-[#ff6b6b] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" 
+                       style={{ padding: '1px' }}>
+                    <div className="w-full h-full bg-black/90 rounded-lg" />
+                  </div>
                   
                   <CardHeader className="text-center pb-4 relative z-10">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
-                      className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-certainty-accent to-certainty-soft flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 group-hover:bg-white/20"
+                      className="w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-[#c85dad] to-[#4ecdc4] flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow duration-300"
                     >
                       <Icon className="h-10 w-10 text-white" />
                     </motion.div>
                     
-                    <CardTitle className="text-xl font-bold text-certainty-deep group-hover:text-white transition-colors duration-300">
+                    <CardTitle className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#c85dad] group-hover:to-[#4ecdc4] group-hover:bg-clip-text transition-all duration-300">
                       {t(service.titleKey)}
                     </CardTitle>
                   </CardHeader>
@@ -161,7 +197,7 @@ export const Services = () => {
                     <motion.div
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 1 }}
-                      className="flex items-center justify-center text-certainty-accent group-hover:text-white transition-colors duration-300"
+                      className="flex items-center justify-center text-white/70 group-hover:text-white transition-colors duration-300"
                     >
                       <span className="text-sm font-medium mr-2">Learn More</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -183,12 +219,14 @@ export const Services = () => {
         >
           <Button
             size="xl"
-            variant="certainty"
             onClick={scrollToContact}
-            className="group shadow-xl hover:shadow-2xl"
+            className="group relative overflow-hidden bg-white text-black hover:bg-white/90 px-10 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
-            {t('contact.cta')}
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <span className="relative z-10 flex items-center">
+              {t('contact.cta')}
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           </Button>
         </motion.div>
       </div>
@@ -200,7 +238,7 @@ export const Services = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
             onClick={closeServiceModal}
           >
             <motion.div
@@ -208,24 +246,23 @@ export const Services = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+              className="bg-black/90 backdrop-blur-xl border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="bg-gradient-to-r from-certainty-deep to-certainty-accent p-8 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10"></div>
+              <div className="bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] p-8 text-white relative overflow-hidden rounded-t-3xl">
                 <div className="relative z-10">
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={closeServiceModal}
-                    className="absolute top-0 right-0 text-white hover:bg-white/20"
+                    className="absolute top-0 right-0 text-white hover:bg-white/20 rounded-full"
                   >
                     <X className="h-5 w-5" />
                   </Button>
                   
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mr-4">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4">
                       <selectedServiceData.icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold">{t(selectedServiceData.titleKey)}</h3>
@@ -234,28 +271,28 @@ export const Services = () => {
               </div>
 
               {/* Modal Content */}
-              <div className="p-8">
+              <div className="p-8 text-white">
                 <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-certainty-deep mb-4">Overview</h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h4 className="text-lg font-semibold text-white mb-4">Overview</h4>
+                  <p className="text-white/80 leading-relaxed">
                     {t(selectedServiceData.descriptionKey)}
                   </p>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-certainty-deep mb-4">What We Offer</h4>
-                  <p className="text-gray-600 leading-relaxed mb-4">
+                  <h4 className="text-lg font-semibold text-white mb-4">What We Offer</h4>
+                  <p className="text-white/80 leading-relaxed mb-4">
                     {t(selectedServiceData.detailsKey)}
                   </p>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-lg font-semibold text-certainty-deep mb-4">Key Benefits</h4>
+                  <h4 className="text-lg font-semibold text-white mb-4">Key Benefits</h4>
                   <div className="space-y-3">
                     {t(selectedServiceData.benefitsKey).split('•').filter(benefit => benefit.trim()).map((benefit, index) => (
                       <div key={index} className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600">{benefit.trim()}</span>
+                        <CheckCircle className="h-5 w-5 text-[#4ecdc4] mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/80">{benefit.trim()}</span>
                       </div>
                     ))}
                   </div>
@@ -263,20 +300,19 @@ export const Services = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
-                    variant="certainty"
                     onClick={() => {
                       closeServiceModal();
                       scrollToContact();
                     }}
-                    className="flex-1"
+                    className="flex-1 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] text-white hover:opacity-90 rounded-full"
                   >
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button
-                    variant="certainty-outline"
+                    variant="outline"
                     onClick={closeServiceModal}
-                    className="flex-1"
+                    className="flex-1 border-white/20 text-white hover:bg-white/10 rounded-full"
                   >
                     Close
                   </Button>

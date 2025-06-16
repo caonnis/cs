@@ -14,92 +14,167 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen gradient-bg relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.1%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+    <section id="home" className="min-h-screen bg-black relative overflow-hidden">
+      {/* Animated 3D Background Elements */}
+      <div className="absolute inset-0">
+        {/* Main fluid shape */}
+        <motion.div
+          initial={{ scale: 0.8, rotate: 0 }}
+          animate={{ 
+            scale: [0.8, 1.1, 0.9, 1.0],
+            rotate: [0, 180, 360],
+          }}
+          transition={{ 
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-80"
+          style={{
+            background: 'linear-gradient(135deg, #c85dad 0%, #1f053f 50%, #00ff88 100%)',
+            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            filter: 'blur(40px)',
+          }}
+        />
+        
+        {/* Secondary fluid shape */}
+        <motion.div
+          initial={{ scale: 1.2, rotate: 180 }}
+          animate={{ 
+            scale: [1.2, 0.8, 1.1, 1.0],
+            rotate: [180, 0, -180, -360],
+          }}
+          transition={{ 
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-60"
+          style={{
+            background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 50%, #4ecdc4 100%)',
+            borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+            filter: 'blur(50px)',
+          }}
+        />
+
+        {/* Tertiary accent shape */}
+        <motion.div
+          initial={{ scale: 0.6, rotate: -90 }}
+          animate={{ 
+            scale: [0.6, 1.3, 0.8, 1.1],
+            rotate: [-90, 270, 90, 450],
+          }}
+          transition={{ 
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-1/2 right-1/3 w-64 h-64 opacity-40"
+          style={{
+            background: 'linear-gradient(45deg, #ffd93d 0%, #ff6b6b 50%, #c85dad 100%)',
+            borderRadius: '80% 20% 60% 40% / 20% 80% 20% 80%',
+            filter: 'blur(60px)',
+          }}
+        />
+
+        {/* Grid overlay */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col justify-center min-h-screen pt-20 lg:pt-0">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Main Title */}
+          <div className="max-w-6xl mx-auto text-center">
+            {/* Main Title with 3D effect */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="text-responsive-xl font-light text-white mb-6 leading-tight">
-                <span className="gradient-text font-bold">
-                  {t('hero.title')}
+              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white mb-6 leading-tight">
+                <span className="block">Power</span>
+                <span 
+                  className="block font-bold bg-gradient-to-r from-[#c85dad] via-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent"
+                  style={{
+                    textShadow: '0 0 30px rgba(200, 93, 173, 0.5)',
+                  }}
+                >
+                  Compliance
+                </span>
+                <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl mt-4">
+                  With Your Data
                 </span>
               </h1>
-              
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="w-24 h-1 bg-gradient-to-r from-certainty-accent to-certainty-soft mx-auto mb-8"
-              />
             </motion.div>
 
             {/* Subtitle */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-responsive-md text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed"
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="text-xl sm:text-2xl md:text-3xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             >
               {t('hero.subtitle')}
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons with modern styling */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
               <Button
                 size="xl"
-                variant="certainty"
                 onClick={() => scrollToSection('#services')}
-                className="group w-full sm:w-auto"
+                className="group relative overflow-hidden bg-white text-black hover:bg-white/90 px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
               >
-                {t('hero.cta.primary')}
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10 flex items-center">
+                  {t('hero.cta.primary')}
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </Button>
               
               <Button
                 size="xl"
-                variant="certainty-outline"
+                variant="outline"
                 onClick={() => scrollToSection('#contact')}
-                className="w-full sm:w-auto"
+                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg font-medium rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
               >
                 {t('hero.cta.secondary')}
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Trust Indicators with glassmorphism */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
+              transition={{ delay: 1.1, duration: 0.8 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
             >
-              <div className="flex items-center justify-center space-x-2 text-white/80">
-                <Shield className="h-5 w-5 text-certainty-accent" />
-                <span className="text-sm font-medium">GDPR Compliant</span>
-              </div>
-              <div className="flex items-center justify-center space-x-2 text-white/80">
-                <CheckCircle className="h-5 w-5 text-certainty-accent" />
-                <span className="text-sm font-medium">ISO Certified</span>
-              </div>
-              <div className="flex items-center justify-center space-x-2 text-white/80">
-                <Shield className="h-5 w-5 text-certainty-accent" />
-                <span className="text-sm font-medium">Expert Team</span>
-              </div>
+              {[
+                { icon: Shield, text: "GDPR Compliant" },
+                { icon: CheckCircle, text: "ISO Certified" },
+                { icon: Shield, text: "Expert Team" }
+              ].map((item, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center justify-center space-x-3 text-white/70 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                >
+                  <item.icon className="h-5 w-5 text-[#c85dad]" />
+                  <span className="text-sm font-medium">{item.text}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -108,13 +183,13 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center"
+            className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center backdrop-blur-sm"
           >
             <motion.div
               animate={{ y: [0, 12, 0] }}
