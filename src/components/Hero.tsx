@@ -6,7 +6,7 @@ import { useLanguage } from '@/hooks/useLanguage';
 
 const rotatingWords = [
   'Privacy & Compliance',
-  'Data Protection',
+  'Data Protection', 
   'Legal Security',
   'Risk Management',
   'Digital Governance'
@@ -33,9 +33,8 @@ export const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen bg-black relative overflow-hidden">
-      {/* Animated 3D Background Elements */}
+      {/* Minimal background elements */}
       <div className="absolute inset-0">
-        {/* Main fluid shape */}
         <motion.div
           initial={{ scale: 0.8, rotate: 0 }}
           animate={{ 
@@ -47,15 +46,14 @@ export const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-80"
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-20"
           style={{
-            background: 'linear-gradient(135deg, #c85dad 0%, #1f053f 50%, #00ff88 100%)',
+            background: '#c85dad',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-            filter: 'blur(40px)',
+            filter: 'blur(100px)',
           }}
         />
         
-        {/* Secondary fluid shape */}
         <motion.div
           initial={{ scale: 1.2, rotate: 180 }}
           animate={{ 
@@ -67,43 +65,11 @@ export const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-60"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-10"
           style={{
-            background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 50%, #4ecdc4 100%)',
+            background: '#c85dad',
             borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
-            filter: 'blur(50px)',
-          }}
-        />
-
-        {/* Tertiary accent shape */}
-        <motion.div
-          initial={{ scale: 0.6, rotate: -90 }}
-          animate={{ 
-            scale: [0.6, 1.3, 0.8, 1.1],
-            rotate: [-90, 270, 90, 450],
-          }}
-          transition={{ 
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-1/2 right-1/3 w-64 h-64 opacity-40"
-          style={{
-            background: 'linear-gradient(45deg, #ffd93d 0%, #ff6b6b 50%, #c85dad 100%)',
-            borderRadius: '80% 20% 60% 40% / 20% 80% 20% 80%',
-            filter: 'blur(60px)',
-          }}
-        />
-
-        {/* Grid overlay */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
+            filter: 'blur(80px)',
           }}
         />
       </div>
@@ -118,8 +84,8 @@ export const Hero = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white leading-tight">
-                <span className="block">High Value in</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight">
+                <span className="block mb-4">High Value in</span>
                 <div className="block h-[1.2em] flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -131,9 +97,8 @@ export const Hero = () => {
                         duration: 0.6,
                         ease: "easeInOut"
                       }}
-                      className="font-bold bg-gradient-to-r from-[#c85dad] via-[#ff6b6b] to-[#4ecdc4] bg-clip-text text-transparent"
+                      className="font-bold text-[#c85dad]"
                       style={{
-                        textShadow: '0 0 30px rgba(200, 93, 173, 0.5)',
                         transformStyle: 'preserve-3d'
                       }}
                     >
@@ -149,12 +114,12 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl sm:text-2xl md:text-3xl text-white/80 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
+              className="text-lg sm:text-xl md:text-2xl text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed font-light"
             >
               {t('hero.subtitle')}
             </motion.p>
 
-            {/* CTA Buttons with modern styling */}
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -164,26 +129,25 @@ export const Hero = () => {
               <Button
                 size="xl"
                 onClick={() => scrollToSection('#services')}
-                className="group relative overflow-hidden bg-white text-black hover:bg-white/90 px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="group relative overflow-hidden bg-[#c85dad] text-white hover:bg-[#b84ca3] px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
               >
                 <span className="relative z-10 flex items-center">
                   {t('hero.cta.primary')}
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
               </Button>
               
               <Button
                 size="xl"
                 variant="outline"
                 onClick={() => scrollToSection('#contact')}
-                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
               >
                 {t('hero.cta.secondary')}
               </Button>
             </motion.div>
 
-            {/* Trust Indicators with glassmorphism */}
+            {/* Trust Indicators */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -197,7 +161,7 @@ export const Hero = () => {
               ].map((item, index) => (
                 <div 
                   key={index}
-                  className="flex items-center justify-center space-x-3 text-white/70 bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
+                  className="flex items-center justify-center space-x-3 text-white/70 bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
                 >
                   <item.icon className="h-5 w-5 text-[#c85dad]" />
                   <span className="text-sm font-medium">{item.text}</span>

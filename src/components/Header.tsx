@@ -54,7 +54,7 @@ export const Header = () => {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-certainty-deep/95 backdrop-blur-md shadow-lg'
+          ? 'bg-black/95 backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -69,9 +69,9 @@ export const Header = () => {
           >
             <button
               onClick={() => scrollToSection('#home')}
-              className="text-2xl lg:text-3xl font-bold text-white hover:text-certainty-accent transition-colors"
+              className="text-2xl lg:text-3xl font-bold text-white hover:text-[#c85dad] transition-colors"
             >
-              Certainty<span className="text-certainty-accent">.</span>
+              Certainty<span className="text-[#c85dad]">.</span>
             </button>
           </motion.div>
 
@@ -84,7 +84,7 @@ export const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-white hover:text-certainty-accent transition-colors font-medium"
+                className="text-white hover:text-[#c85dad] transition-colors font-medium"
               >
                 {t(item.key)}
               </motion.button>
@@ -102,7 +102,7 @@ export const Header = () => {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="text-white hover:text-certainty-accent"
+              className="text-white hover:text-[#c85dad]"
             >
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -115,7 +115,7 @@ export const Header = () => {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="text-white hover:text-certainty-accent"
+              className="text-white hover:text-[#c85dad]"
             >
               {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
@@ -124,7 +124,7 @@ export const Header = () => {
               variant="ghost"
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-white hover:text-certainty-accent"
+              className="text-white hover:text-[#c85dad]"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -139,14 +139,14 @@ export const Header = () => {
             opacity: isMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3 }}
-          className="lg:hidden overflow-hidden bg-certainty-deep/95 backdrop-blur-md"
+          className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-md"
         >
           <div className="py-4 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-2 text-white hover:text-certainty-accent hover:bg-white/10 transition-colors"
+                className="block w-full text-left px-4 py-2 text-white hover:text-[#c85dad] hover:bg-white/10 transition-colors"
               >
                 {t(item.key)}
               </button>
