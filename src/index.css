@@ -54,8 +54,49 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
+}
+
+/* Dark mode styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  @apply bg-black text-white;
+}
+
+.dark .bg-white {
+  @apply bg-gray-900;
+}
+
+.dark .text-black {
+  @apply text-white;
+}
+
+.dark .text-gray-900 {
+  @apply text-gray-100;
+}
+
+.dark .text-gray-700 {
+  @apply text-gray-300;
+}
+
+.dark .text-gray-600 {
+  @apply text-gray-400;
+}
+
+.dark .border-gray-100 {
+  @apply border-gray-800;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-gray-900;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  @apply hover:bg-gray-800;
 }
 
 /* Custom scrollbar */
@@ -65,6 +106,10 @@
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1f1f1f;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -121,4 +166,9 @@ html {
 /* Focus styles for accessibility */
 .focus-visible:focus-visible {
   @apply outline-2 outline-offset-2 outline-certainty-accent;
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

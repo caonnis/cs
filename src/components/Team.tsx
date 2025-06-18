@@ -29,27 +29,39 @@ const teamMembers = [
 const collaborators = [
   {
     nameKey: 'collaborator.andrea.name',
-    areaKey: 'collaborator.andrea.area'
+    areaKey: 'collaborator.andrea.area',
+    icon: Users,
+    color: '#3B82F6'
   },
   {
     nameKey: 'collaborator.silvina.name',
-    areaKey: 'collaborator.silvina.area'
+    areaKey: 'collaborator.silvina.area',
+    icon: Users,
+    color: '#10B981'
   },
   {
     nameKey: 'collaborator.jose.name',
-    areaKey: 'collaborator.jose.area'
+    areaKey: 'collaborator.jose.area',
+    icon: Users,
+    color: '#F59E0B'
   },
   {
     nameKey: 'collaborator.jhonatan.name',
-    areaKey: 'collaborator.jhonatan.area'
+    areaKey: 'collaborator.jhonatan.area',
+    icon: Users,
+    color: '#8B5CF6'
   },
   {
     nameKey: 'collaborator.dulce.name',
-    areaKey: 'collaborator.dulce.area'
+    areaKey: 'collaborator.dulce.area',
+    icon: Users,
+    color: '#EF4444'
   },
   {
     nameKey: 'collaborator.carolina.name',
-    areaKey: 'collaborator.carolina.area'
+    areaKey: 'collaborator.carolina.area',
+    icon: Users,
+    color: '#06B6D4'
   }
 ];
 
@@ -184,7 +196,9 @@ export const Team = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Users className="h-6 w-6 mr-4" />
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mr-4">
+                    <Users className="h-6 w-6" />
+                  </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">
                       {t('team.collaborators.title')}
@@ -214,22 +228,34 @@ export const Team = () => {
                 >
                   <div className="p-8 bg-gray-50">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {collaborators.map((collaborator, index) => (
-                        <motion.div
-                          key={collaborator.nameKey}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-certainty-accent hover:shadow-md transition-shadow duration-300"
-                        >
-                          <h4 className="font-bold text-certainty-deep mb-2">
-                            {t(collaborator.nameKey)}
-                          </h4>
-                          <p className="text-certainty-accent text-sm font-medium">
-                            {t(collaborator.areaKey)}
-                          </p>
-                        </motion.div>
-                      ))}
+                      {collaborators.map((collaborator, index) => {
+                        const Icon = collaborator.icon;
+                        return (
+                          <motion.div
+                            key={collaborator.nameKey}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="bg-white p-6 rounded-lg shadow-sm border-l-4 hover:shadow-md transition-shadow duration-300 flex items-center"
+                            style={{ borderLeftColor: collaborator.color }}
+                          >
+                            <div 
+                              className="w-12 h-12 rounded-full flex items-center justify-center mr-4"
+                              style={{ backgroundColor: collaborator.color }}
+                            >
+                              <Icon className="h-6 w-6 text-white" />
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-certainty-deep mb-2">
+                                {t(collaborator.nameKey)}
+                              </h4>
+                              <p className="text-gray-600 text-sm font-medium">
+                                {t(collaborator.areaKey)}
+                              </p>
+                            </div>
+                          </motion.div>
+                        );
+                      })}
                     </div>
                   </div>
                 </motion.div>

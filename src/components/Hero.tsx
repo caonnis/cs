@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
 
 const rotatingWords = [
-  'Compliance',
-  'Privacy',
-  'Security',
-  'Protection',
-  'Governance'
+  'Privacy & Compliance',
+  'Data Protection',
+  'Legal Security',
+  'Risk Management',
+  'Digital Governance'
 ];
 
 export const Hero = () => {
@@ -119,7 +119,7 @@ export const Hero = () => {
               className="mb-8"
             >
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-white leading-tight">
-                <span className="block">Power</span>
+                <span className="block">High Value in</span>
                 <div className="block h-[1.2em] flex items-center justify-center">
                   <AnimatePresence mode="wait">
                     <motion.span

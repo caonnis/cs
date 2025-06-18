@@ -23,6 +23,7 @@ const services = [
     descriptionKey: 'service.data-compliance.description',
     detailsKey: 'service.data-compliance.details',
     benefitsKey: 'service.data-compliance.benefits',
+    color: '#3B82F6', // Blue
   },
   {
     id: 'human-rights',
@@ -31,6 +32,7 @@ const services = [
     descriptionKey: 'service.human-rights.description',
     detailsKey: 'service.human-rights.details',
     benefitsKey: 'service.human-rights.benefits',
+    color: '#10B981', // Green
   },
   {
     id: 'software-contracts',
@@ -39,6 +41,7 @@ const services = [
     descriptionKey: 'service.software-contracts.description',
     detailsKey: 'service.software-contracts.details',
     benefitsKey: 'service.software-contracts.benefits',
+    color: '#F59E0B', // Orange
   },
   {
     id: 'legal-advisory',
@@ -47,6 +50,7 @@ const services = [
     descriptionKey: 'service.legal-advisory.description',
     detailsKey: 'service.legal-advisory.details',
     benefitsKey: 'service.legal-advisory.benefits',
+    color: '#8B5CF6', // Purple
   },
   {
     id: 'data-privacy',
@@ -55,6 +59,7 @@ const services = [
     descriptionKey: 'service.data-privacy.description',
     detailsKey: 'service.data-privacy.details',
     benefitsKey: 'service.data-privacy.benefits',
+    color: '#EF4444', // Red
   },
   {
     id: 'training',
@@ -63,6 +68,7 @@ const services = [
     descriptionKey: 'service.training.description',
     detailsKey: 'service.training.details',
     benefitsKey: 'service.training.benefits',
+    color: '#06B6D4', // Cyan
   }
 ];
 
@@ -90,7 +96,7 @@ export const Services = () => {
   const selectedServiceData = services.find(s => s.id === selectedService);
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-32 bg-black relative overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -103,10 +109,11 @@ export const Services = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-20 right-20 w-96 h-96 opacity-5"
+          className="absolute top-20 right-20 w-96 h-96 opacity-10"
           style={{
             background: 'linear-gradient(135deg, #c85dad 0%, #4ecdc4 100%)',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
+            filter: 'blur(100px)',
           }}
         />
         
@@ -120,10 +127,11 @@ export const Services = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-20 left-20 w-80 h-80 opacity-3"
+          className="absolute bottom-20 left-20 w-80 h-80 opacity-8"
           style={{
             background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 100%)',
             borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',
+            filter: 'blur(80px)',
           }}
         />
       </div>
@@ -147,15 +155,15 @@ export const Services = () => {
             <Shield className="w-10 h-10 text-white" />
           </motion.div>
           
-          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-black mb-8">
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-light text-white mb-8">
             Our <span className="font-bold bg-gradient-to-r from-[#c85dad] to-[#4ecdc4] bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
             {t('services.subtitle')}
           </p>
         </motion.div>
 
-        {/* Services Grid - Clean minimal cards */}
+        {/* Services Grid - Dark theme with solid icons */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -170,17 +178,18 @@ export const Services = () => {
                 className="group cursor-pointer"
                 onClick={() => openServiceModal(service.id)}
               >
-                <Card className="h-full border border-gray-100 bg-white hover:bg-gray-50 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-gray-200/50 rounded-2xl">
+                <Card className="h-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
                   <CardHeader className="text-center pb-4 relative z-10">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
-                      className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#c85dad] to-[#4ecdc4] flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      style={{ backgroundColor: service.color }}
                     >
                       <Icon className="h-10 w-10 text-white" />
                     </motion.div>
                     
-                    <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#c85dad] group-hover:to-[#4ecdc4] group-hover:bg-clip-text transition-all duration-300">
+                    <CardTitle className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#c85dad] group-hover:to-[#4ecdc4] group-hover:bg-clip-text transition-all duration-300">
                       {t(service.titleKey)}
                     </CardTitle>
                   </CardHeader>
@@ -189,7 +198,7 @@ export const Services = () => {
                     <motion.div
                       initial={{ opacity: 0.7 }}
                       whileHover={{ opacity: 1 }}
-                      className="flex items-center justify-center text-gray-600 group-hover:text-gray-900 transition-colors duration-300"
+                      className="flex items-center justify-center text-white/70 group-hover:text-white transition-colors duration-300"
                     >
                       <span className="text-sm font-medium mr-2">Learn More</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -212,7 +221,7 @@ export const Services = () => {
           <Button
             size="xl"
             onClick={scrollToContact}
-            className="group relative overflow-hidden bg-black text-white hover:bg-gray-900 px-10 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="group relative overflow-hidden bg-white text-black hover:bg-white/90 px-10 py-4 text-lg font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
             <span className="relative z-10 flex items-center">
               {t('contact.cta')}
@@ -254,7 +263,10 @@ export const Services = () => {
                   </Button>
                   
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4">
+                    <div 
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mr-4"
+                      style={{ backgroundColor: selectedServiceData.color }}
+                    >
                       <selectedServiceData.icon className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold">{t(selectedServiceData.titleKey)}</h3>
