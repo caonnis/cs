@@ -159,9 +159,9 @@ export const Services = () => {
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
-                      className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-white flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+                      className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-black border border-white/20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
                     >
-                      <Icon className="h-8 w-8 text-black" />
+                      <Icon className="h-8 w-8 text-white" />
                     </motion.div>
                     
                     <CardTitle className="text-lg font-bold text-white group-hover:text-[#c85dad] transition-all duration-300">
@@ -221,7 +221,7 @@ export const Services = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-[#1a1a1a] rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10"
+              className="bg-black border border-white/20 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}

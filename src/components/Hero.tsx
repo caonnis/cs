@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Shield, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/hooks/useLanguage';
 
@@ -84,7 +84,7 @@ export const Hero = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mb-8"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light text-white leading-tight">
                 <span className="block mb-4">High Value in</span>
                 <div className="block h-[1.2em] flex items-center justify-center">
                   <AnimatePresence mode="wait">
@@ -145,28 +145,6 @@ export const Hero = () => {
               >
                 {t('hero.cta.secondary')}
               </Button>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.1, duration: 0.8 }}
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto"
-            >
-              {[
-                { icon: Shield, text: "GDPR Compliant" },
-                { icon: CheckCircle, text: "ISO Certified" },
-                { icon: Shield, text: "Expert Team" }
-              ].map((item, index) => (
-                <div 
-                  key={index}
-                  className="flex items-center justify-center space-x-3 text-white/70 bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all duration-300"
-                >
-                  <item.icon className="h-5 w-5 text-[#c85dad]" />
-                  <span className="text-sm font-medium">{item.text}</span>
-                </div>
-              ))}
             </motion.div>
           </div>
         </div>

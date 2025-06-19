@@ -287,16 +287,16 @@ const translations: Translations = {
 
   // Team Collaborators Section
   'team.collaborators.title': {
-    en: 'External Collaborators',
-    es: 'Colaboradores Externos',
-    pt: 'Colaboradores Externos',
-    zh: '外部合作者'
+    en: 'Our Team & External Collaborators',
+    es: 'Nuestro Equipo y Colaboradores Externos',
+    pt: 'Nossa Equipe e Colaboradores Externos',
+    zh: '我们的团队和外部合作者'
   },
   'team.collaborators.subtitle': {
-    en: 'We collaborate with third-party consultants to provide comprehensive solutions',
-    es: 'Colaboramos con consultores externos para brindar soluciones integrales',
-    pt: 'Colaboramos com consultores externos para fornecer soluções abrangentes',
-    zh: '我们与第三方顾问合作提供全面解决方案'
+    en: 'Core team and external consultants working together for comprehensive solutions',
+    es: 'Equipo principal y consultores externos trabajando juntos para soluciones integrales',
+    pt: 'Equipe principal e consultores externos trabalhando juntos para soluções abrangentes',
+    zh: '核心团队和外部顾问共同合作提供全面解决方案'
   },
 
   // Collaborators
@@ -304,7 +304,7 @@ const translations: Translations = {
     en: 'Mg. Andrea Cuellar Camarena',
     es: 'Mg. Andrea Cuellar Camarena',
     pt: 'Mg. Andrea Cuellar Camarena',
-    zh: '玛丽亚·冈萨雷斯博士'
+    zh: '安德烈亚·奎拉尔·卡马雷纳硕士'
   },
   'collaborator.andrea.area': {
     en: 'Gender Studies & Equality',
@@ -317,7 +317,7 @@ const translations: Translations = {
     en: 'Lic. Silvina Fernanda Yosia',
     es: 'Lic. Silvina Fernanda Yosia',
     pt: 'Lic. Silvina Fernanda Yosia',
-    zh: '卡洛斯·门多萨博士'
+    zh: '西尔维娜·费尔南达·约西亚学士'
   },
   'collaborator.silvina.area': {
     en: 'Forensic Psychology',
@@ -330,7 +330,7 @@ const translations: Translations = {
     en: 'Mg. José Ignacio Agostini',
     es: 'Mg. José Ignacio Agostini',
     pt: 'Mg. José Ignacio Agostini',
-    zh: '安娜·罗德里格斯硕士'
+    zh: '何塞·伊格纳西奥·阿戈斯蒂尼硕士'
   },
   'collaborator.jose.area': {
     en: 'Labor & Relations Law',
@@ -343,7 +343,7 @@ const translations: Translations = {
     en: 'Mg. Jhonatan S. Peña Carlos',
     es: 'Mg. Jhonatan S. Peña Carlos',
     pt: 'Mg. Jhonatan S. Peña Carlos',
-    zh: '路易斯·费尔南德斯博士'
+    zh: '约纳坦·S·佩尼亚·卡洛斯硕士'
   },
   'collaborator.jhonatan.area': {
     en: 'Corporate Negotiation & Applied Neuroscience',
@@ -356,7 +356,7 @@ const translations: Translations = {
     en: 'Lic. Dulce Alejandra Hernández Vargas',
     es: 'Lic. Dulce Alejandra Hernández Vargas',
     pt: 'Lic. Dulce Alejandra Hernández Vargas',
-    zh: '索菲亚·托雷斯硕士'
+    zh: '杜尔塞·亚历杭德拉·埃尔南德斯·巴尔加斯学士'
   },
   'collaborator.dulce.area': {
     en: 'Business Administration Specialist in Management',
@@ -369,7 +369,7 @@ const translations: Translations = {
     en: 'Mg. María Carolina Estepa Becerra',
     es: 'Mg. María Carolina Estepa Becerra',
     pt: 'Mg. María Carolina Estepa Becerra',
-    zh: '迭戈·莫拉莱斯博士'
+    zh: '玛丽亚·卡罗琳娜·埃斯特帕·贝塞拉硕士'
   },
   'collaborator.carolina.area': {
     en: 'Strategic Litigation in Inter-American Court & Commission on Human Rights',
