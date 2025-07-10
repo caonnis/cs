@@ -11,7 +11,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'news'>('home');
 
   if (currentPage === 'news') {
-    return <News />;
+    return <News onNavigateToHome={() => setCurrentPage('home')} />;
   }
 
   return (

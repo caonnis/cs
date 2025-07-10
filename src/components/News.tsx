@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, ExternalLink, Globe, TrendingUp, Shield, Cpu } from 'lucide-react';
+import { Calendar, ExternalLink, Globe, TrendingUp, Shield, Cpu, Menu, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { LanguageSelector } from '@/components/LanguageSelector';
 import { useLanguage } from '@/hooks/useLanguage';
 
 interface NewsItem {
@@ -80,32 +81,129 @@ const categoryIcons = {
 };
 
 const categoryColors = {
-  ai: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  compliance: 'bg-[#c85dad]/10 text-[#c85dad] border-[#c85dad]/20',
-  tech: 'bg-green-500/10 text-green-400 border-green-500/20'
+  ai: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+  compliance: 'bg-[#c85dad]/20 text-[#c85dad] border-[#c85dad]/30',
+  tech: 'bg-green-500/20 text-green-300 border-green-500/30'
 };
 
-export const News = () => {
+interface NewsProps {
+  onNavigateToHome?: () => void;
+}
+
+export const News = ({ onNavigateToHome }: NewsProps) => {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const filteredNews = selectedCategory === 'all' 
     ? newsData 
     : newsData.filter(item => item.category === selectedCategory);
 
-  const goBack = () => {
-    window.history.back();
-  };
+  const navItems = [
+    { key: 'nav.home', action: () => onNavigateToHome?.() },
+    { key: 'nav.services', action: () => onNavigateToHome?.() },
+    { key: 'nav.about', action: () => onNavigateToHome?.() },
+    { key: 'nav.contact', action: () => onNavigateToHome?.() },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+      {/* Header */}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-lg"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 }}
+              className="flex-shrink-0"
+            >
+              <button
+                onClick={onNavigateToHome}
+                className="text-2xl lg:text-3xl font-bold text-white hover:text-[#c85dad] transition-colors"
+              >
+                Certainty<span className="text-[#c85dad]">.</span>
+              </button>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.key}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                  onClick={item.action}
+                  className="text-white hover:text-[#c85dad] transition-colors font-medium"
+                >
+                  {t(item.key)}
+                </motion.button>
+              ))}
+            </nav>
+
+            {/* Desktop Controls */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="hidden lg:flex items-center space-x-4"
+            >
+              <LanguageSelector />
+            </motion.div>
+
+            {/* Mobile Controls */}
+            <div className="lg:hidden flex items-center space-x-2">
+              <LanguageSelector />
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-white hover:text-[#c85dad] p-2"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation */}
+          <motion.nav
+            initial={false}
+            animate={{
+              height: isMenuOpen ? 'auto' : 0,
+              opacity: isMenuOpen ? 1 : 0,
+            }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-md"
+          >
+            <div className="py-4 space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => {
+                    item.action();
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-4 py-2 text-white hover:text-[#c85dad] hover:bg-white/10 transition-colors"
+                >
+                  {t(item.key)}
+                </button>
+              ))}
+            </div>
+          </motion.nav>
+        </div>
+      </motion.header>
+
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-2">
         <div className="absolute top-20 right-10 w-96 h-96 bg-[#c85dad] blur-3xl" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
         <div className="absolute bottom-20 left-10 w-80 h-80 bg-[#c85dad] blur-3xl" style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -113,15 +211,6 @@ export const News = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <Button
-            onClick={goBack}
-            variant="ghost"
-            className="mb-8 text-white hover:text-[#c85dad] hover:bg-white/10"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            {t('news.back')}
-          </Button>
-
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -153,9 +242,9 @@ export const News = () => {
               variant={selectedCategory === category ? 'default' : 'outline'}
               className={`${
                 selectedCategory === category
-                  ? 'bg-[#c85dad] text-white hover:bg-[#b84ca3]'
-                  : 'border-white/20 text-white hover:bg-white/10'
-              } rounded-lg transition-all duration-300`}
+                  ? 'bg-[#c85dad] text-white hover:bg-[#b84ca3] border-[#c85dad]'
+                  : 'border-white/30 text-white hover:bg-[#c85dad]/20 hover:border-[#c85dad]/50 bg-black/20'
+              } rounded-lg transition-all duration-300 font-medium`}
             >
               {t(`news.category.${category}`)}
             </Button>
@@ -175,7 +264,7 @@ export const News = () => {
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="group cursor-pointer"
               >
-                <Card className="h-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
+                <Card className="h-full border border-white/10 bg-black/40 backdrop-blur-xl hover:bg-black/60 transition-all duration-500 overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -232,7 +321,7 @@ export const News = () => {
         >
           <Button
             variant="outline"
-            className="border-white/20 text-white hover:bg-white/10 px-8 py-3 rounded-lg"
+            className="border-white/30 text-white hover:bg-[#c85dad]/20 hover:border-[#c85dad]/50 bg-black/20 px-8 py-3 rounded-lg font-medium"
           >
             {t('news.loadMore')}
           </Button>
