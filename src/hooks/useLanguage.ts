@@ -28,6 +28,12 @@ const translations: Translations = {
     pt: 'Sobre',
     zh: '关于'
   },
+  'nav.news': {
+    en: 'News',
+    es: 'Noticias',
+    pt: 'Notícias',
+    zh: '新闻'
+  },
   'nav.contact': {
     en: 'Contact',
     es: 'Contacto',

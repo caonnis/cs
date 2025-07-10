@@ -54,49 +54,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-gray-900 text-white transition-colors duration-300;
   }
 }
 
-/* Dark mode styles */
-.dark {
-  color-scheme: dark;
-}
-
-.dark body {
-  @apply bg-black text-white;
-}
-
-.dark .bg-white {
-  @apply bg-gray-900;
-}
-
-.dark .text-black {
-  @apply text-white;
-}
-
-.dark .text-gray-900 {
-  @apply text-gray-100;
-}
-
-.dark .text-gray-700 {
-  @apply text-gray-300;
-}
-
-.dark .text-gray-600 {
-  @apply text-gray-400;
-}
-
-.dark .border-gray-100 {
-  @apply border-gray-800;
-}
-
-.dark .bg-gray-50 {
-  @apply bg-gray-900;
-}
-
-.dark .hover\:bg-gray-50:hover {
-  @apply hover:bg-gray-800;
+/* Softer background for better readability */
+body {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+  min-height: 100vh;
 }
 
 /* Custom scrollbar */

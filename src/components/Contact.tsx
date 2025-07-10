@@ -29,7 +29,7 @@ export const Contact = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-black relative overflow-hidden">
+    <section id="contact" className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -42,7 +42,7 @@ export const Contact = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10"
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-5"
           style={{
             background: '#c85dad',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',

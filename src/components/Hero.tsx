@@ -32,7 +32,7 @@ export const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen bg-black relative overflow-hidden">
+    <section id="home" className="min-h-screen bg-gray-900 relative overflow-hidden">
       {/* Minimal background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -46,7 +46,7 @@ export const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-20"
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10"
           style={{
             background: '#c85dad',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
@@ -65,7 +65,7 @@ export const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-10"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-5"
           style={{
             background: '#c85dad',
             borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',

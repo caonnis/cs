@@ -22,13 +22,18 @@ export const Header = () => {
     { key: 'nav.home', href: '#home' },
     { key: 'nav.services', href: '#services' },
     { key: 'nav.about', href: '#about' },
+    { key: 'nav.news', href: '/news.html' },
     { key: 'nav.contact', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.open(href, '_blank');
     }
     setIsMenuOpen(false);
   };

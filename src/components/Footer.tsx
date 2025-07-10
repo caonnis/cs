@@ -50,7 +50,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white relative overflow-hidden">
+    <footer className="bg-gray-900 text-white relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -63,7 +63,7 @@ export const Footer = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-10"
+          className="absolute top-1/4 left-1/4 w-96 h-96 opacity-3"
           style={{
             background: 'linear-gradient(135deg, #c85dad 0%, #4ecdc4 100%)',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
@@ -81,7 +81,7 @@ export const Footer = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-8"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 opacity-3"
           style={{
             background: 'linear-gradient(225deg, #ff6b6b 0%, #c85dad 100%)',
             borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%',

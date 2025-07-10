@@ -59,7 +59,7 @@ export const Team = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-black relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
       {/* Minimal background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 right-10 w-72 h-72 bg-[#c85dad] rounded-full blur-3xl"></div>
@@ -150,16 +150,11 @@ export const Team = () => {
                           transition={{ delay: index * 0.1 }}
                           className={`bg-white/5 backdrop-blur-sm p-6 rounded-lg border-l-4 ${
                             collaborator.isCore ? 'border-[#c85dad]' : 'border-white/30'
-                          } hover:bg-white/10 transition-all duration-300 flex items-center`}
+                          } hover:bg-white/10 transition-all duration-300`}
                         >
-                          <div className={`w-12 h-12 ${
-                            collaborator.isCore ? 'bg-[#c85dad]' : 'bg-white/20'
-                          } rounded-full flex items-center justify-center mr-4`}>
-                            <Users className="h-6 w-6 text-white" />
-                          </div>
                           <div>
                             <h4 className={`font-bold mb-2 ${
-                              collaborator.isCore ? 'text-[#c85dad]' : 'text-white'
+                              collaborator.isCore ? 'text-white' : 'text-white'
                             }`}>
                               {t(collaborator.nameKey)}
                             </h4>
