@@ -4,7 +4,11 @@ import { Menu, X } from 'lucide-react';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { useLanguage } from '@/hooks/useLanguage';
 
-export const Header = () => {
+interface HeaderProps {
+  onNavigateToNews?: () => void;
+}
+
+export const Header = ({ onNavigateToNews }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t } = useLanguage();
@@ -22,18 +26,22 @@ export const Header = () => {
     { key: 'nav.home', href: '#home' },
     { key: 'nav.services', href: '#services' },
     { key: 'nav.about', href: '#about' },
-    { key: 'nav.news', href: '/news.html' },
+    { key: 'nav.news', href: 'news' },
     { key: 'nav.contact', href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
+    if (href === 'news') {
+      onNavigateToNews?.();
+      setIsMenuOpen(false);
+      return;
+    }
+    
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else {
-      window.open(href, '_blank');
     }
     setIsMenuOpen(false);
   };

@@ -90,7 +90,7 @@ export const Services = () => {
   const selectedServiceData = services.find(s => s.id === selectedService);
 
   return (
-    <section id="services" className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-32 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
       {/* Minimal background elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -103,11 +103,11 @@ export const Services = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-20 right-20 w-96 h-96 opacity-5"
+          className="absolute top-20 right-20 w-96 h-96 opacity-2"
           style={{
             background: '#c85dad',
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-            filter: 'blur(100px)',
+            filter: 'blur(120px)',
           }}
         />
       </div>

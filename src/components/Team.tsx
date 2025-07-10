@@ -59,11 +59,11 @@ export const Team = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-gray-900 relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-32 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
       {/* Minimal background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-[#c85dad] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#c85dad] rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 opacity-2">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-[#c85dad] blur-3xl" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#c85dad] blur-3xl" style={{ borderRadius: '30% 70% 70% 30% / 30% 30% 70% 70%' }}></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

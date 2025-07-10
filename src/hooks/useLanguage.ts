@@ -434,6 +434,124 @@ const translations: Translations = {
     es: 'Todos los derechos reservados.',
     pt: 'Todos os direitos reservados.',
     zh: '版权所有。'
+  },
+
+  // News Section
+  'news.back': {
+    en: 'Back',
+    es: 'Volver',
+    pt: 'Voltar',
+    zh: '返回'
+  },
+  'news.subtitle': {
+    en: 'Stay updated with the latest developments in AI, compliance, and technology',
+    es: 'Mantente actualizado con los últimos desarrollos en IA, cumplimiento y tecnología',
+    pt: 'Mantenha-se atualizado com os últimos desenvolvimentos em IA, conformidade e tecnologia',
+    zh: '了解AI、合规和技术的最新发展'
+  },
+  'news.category.all': {
+    en: 'All',
+    es: 'Todos',
+    pt: 'Todos',
+    zh: '全部'
+  },
+  'news.category.ai': {
+    en: 'AI',
+    es: 'IA',
+    pt: 'IA',
+    zh: 'AI'
+  },
+  'news.category.compliance': {
+    en: 'Compliance',
+    es: 'Cumplimiento',
+    pt: 'Conformidade',
+    zh: '合规'
+  },
+  'news.category.tech': {
+    en: 'Technology',
+    es: 'Tecnología',
+    pt: 'Tecnologia',
+    zh: '技术'
+  },
+  'news.loadMore': {
+    en: 'Load More Articles',
+    es: 'Cargar Más Artículos',
+    pt: 'Carregar Mais Artigos',
+    zh: '加载更多文章'
+  },
+
+  // News Articles
+  'news.ai.gdpr-compliance': {
+    en: 'AI and GDPR Compliance: New Guidelines for 2025',
+    es: 'IA y Cumplimiento GDPR: Nuevas Directrices para 2025',
+    pt: 'IA e Conformidade GDPR: Novas Diretrizes para 2025',
+    zh: 'AI与GDPR合规：2025年新指南'
+  },
+  'news.ai.gdpr-compliance.desc': {
+    en: 'European regulators release comprehensive guidelines for AI systems compliance with GDPR, focusing on data minimization and algorithmic transparency.',
+    es: 'Los reguladores europeos publican directrices integrales para el cumplimiento de sistemas de IA con GDPR, enfocándose en minimización de datos y transparencia algorítmica.',
+    pt: 'Reguladores europeus lançam diretrizes abrangentes para conformidade de sistemas de IA com GDPR, focando em minimização de dados e transparência algorítmica.',
+    zh: '欧洲监管机构发布AI系统GDPR合规综合指南，重点关注数据最小化和算法透明度。'
+  },
+  'news.compliance.data-protection': {
+    en: 'Global Data Protection Trends: What Companies Need to Know',
+    es: 'Tendencias Globales de Protección de Datos: Lo que las Empresas Necesitan Saber',
+    pt: 'Tendências Globais de Proteção de Dados: O que as Empresas Precisam Saber',
+    zh: '全球数据保护趋势：企业需要了解的内容'
+  },
+  'news.compliance.data-protection.desc': {
+    en: 'Analysis of emerging data protection regulations worldwide and their impact on multinational corporations and cross-border data transfers.',
+    es: 'Análisis de las regulaciones emergentes de protección de datos a nivel mundial y su impacto en corporaciones multinacionales y transferencias de datos transfronterizas.',
+    pt: 'Análise de regulamentações emergentes de proteção de dados mundialmente e seu impacto em corporações multinacionais e transferências de dados transfronteiriças.',
+    zh: '分析全球新兴数据保护法规及其对跨国公司和跨境数据传输的影响。'
+  },
+  'news.tech.blockchain-regulations': {
+    en: 'Blockchain Technology Regulations: A Comprehensive Overview',
+    es: 'Regulaciones de Tecnología Blockchain: Una Visión Integral',
+    pt: 'Regulamentações de Tecnologia Blockchain: Uma Visão Abrangente',
+    zh: '区块链技术法规：全面概述'
+  },
+  'news.tech.blockchain-regulations.desc': {
+    en: 'Latest developments in blockchain regulations across different jurisdictions and their implications for businesses adopting distributed ledger technologies.',
+    es: 'Últimos desarrollos en regulaciones blockchain en diferentes jurisdicciones y sus implicaciones para empresas que adoptan tecnologías de libro mayor distribuido.',
+    pt: 'Últimos desenvolvimentos em regulamentações blockchain em diferentes jurisdições e suas implicações para empresas que adotam tecnologias de livro-razão distribuído.',
+    zh: '不同司法管辖区区块链法规的最新发展及其对采用分布式账本技术的企业的影响。'
+  },
+  'news.ai.ethics-framework': {
+    en: 'Building Ethical AI: New Framework for Responsible Development',
+    es: 'Construyendo IA Ética: Nuevo Marco para Desarrollo Responsable',
+    pt: 'Construindo IA Ética: Nova Estrutura para Desenvolvimento Responsável',
+    zh: '构建道德AI：负责任开发的新框架'
+  },
+  'news.ai.ethics-framework.desc': {
+    en: 'Industry leaders collaborate to establish comprehensive ethical guidelines for AI development, addressing bias, fairness, and accountability in machine learning systems.',
+    es: 'Líderes de la industria colaboran para establecer directrices éticas integrales para el desarrollo de IA, abordando sesgo, equidad y responsabilidad en sistemas de aprendizaje automático.',
+    pt: 'Líderes da indústria colaboram para estabelecer diretrizes éticas abrangentes para desenvolvimento de IA, abordando viés, equidade e responsabilidade em sistemas de aprendizado de máquina.',
+    zh: '行业领导者合作建立AI开发的综合道德准则，解决机器学习系统中的偏见、公平性和问责制问题。'
+  },
+  'news.compliance.human-rights': {
+    en: 'Human Rights Due Diligence in the Digital Age',
+    es: 'Debida Diligencia en Derechos Humanos en la Era Digital',
+    pt: 'Due Diligence de Direitos Humanos na Era Digital',
+    zh: '数字时代的人权尽职调查'
+  },
+  'news.compliance.human-rights.desc': {
+    en: 'New standards for human rights impact assessments in technology companies, focusing on algorithmic decision-making and digital surveillance practices.',
+    es: 'Nuevos estándares para evaluaciones de impacto en derechos humanos en empresas tecnológicas, enfocándose en toma de decisiones algorítmica y prácticas de vigilancia digital.',
+    pt: 'Novos padrões para avaliações de impacto de direitos humanos em empresas de tecnologia, focando em tomada de decisões algorítmicas e práticas de vigilância digital.',
+    zh: '技术公司人权影响评估的新标准，重点关注算法决策和数字监控实践。'
+  },
+  'news.tech.cybersecurity-trends': {
+    en: 'Cybersecurity Trends 2025: Preparing for Next-Gen Threats',
+    es: 'Tendencias de Ciberseguridad 2025: Preparándose para Amenazas de Nueva Generación',
+    pt: 'Tendências de Cibersegurança 2025: Preparando-se para Ameaças de Nova Geração',
+    zh: '2025年网络安全趋势：为下一代威胁做准备'
+  },
+  'news.tech.cybersecurity-trends.desc': {
+    en: 'Emerging cybersecurity challenges and solutions, including AI-powered attacks, quantum computing threats, and zero-trust architecture implementations.',
+    es: 'Desafíos y soluciones emergentes de ciberseguridad, incluyendo ataques potenciados por IA, amenazas de computación cuántica e implementaciones de arquitectura de confianza cero.',
+    pt: 'Desafios e soluções emergentes de cibersegurança, incluindo ataques alimentados por IA, ameaças de computação quântica e implementações de arquitetura de confiança zero.',
+    zh: '新兴网络安全挑战和解决方案，包括AI驱动的攻击、量子计算威胁和零信任架构实施。'
   }
 };
 
