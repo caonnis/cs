@@ -75,16 +75,6 @@ export const Team = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-[#c85dad] rounded-2xl mb-6"
-          >
-            <Users className="w-8 h-8 text-white" />
-          </motion.div>
-          
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-6">
             Our <span className="font-bold text-[#c85dad]">Expert Team</span>
           </h2>
@@ -104,12 +94,12 @@ export const Team = () => {
           <Card className="border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden rounded-2xl">
             <motion.button
               onClick={() => setIsAccordionOpen(!isAccordionOpen)}
-              className="w-full p-8 text-left bg-[#c85dad] text-white hover:bg-[#b84ca3] transition-all duration-300"
+              className="w-full p-8 text-center bg-[#c85dad] text-white hover:bg-[#b84ca3] transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
+              <div className="flex items-center justify-center">
+                <div className="text-center">
                   <div>
                     <h3 className="text-xl font-bold mb-2">
                       {t('team.collaborators.title')}
@@ -119,7 +109,7 @@ export const Team = () => {
                     </p>
                   </div>
                 </div>
-                <motion.div
+                <motion.div className="absolute right-8"
                   animate={{ rotate: isAccordionOpen ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >

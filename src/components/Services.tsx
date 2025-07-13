@@ -121,16 +121,6 @@ export const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-[#c85dad] rounded-2xl mb-8"
-          >
-            <Shield className="w-8 h-8 text-white" />
-          </motion.div>
-          
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-8">
             Our <span className="font-bold text-[#c85dad]">Services</span>
           </h2>
@@ -140,9 +130,8 @@ export const Services = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
           {services.map((service, index) => {
-            const Icon = service.icon;
             return (
               <motion.div
                 key={service.id}
@@ -154,7 +143,7 @@ export const Services = () => {
                 className="group cursor-pointer"
                 onClick={() => openServiceModal(service.id)}
               >
-                <Card className="h-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
+                <Card className="h-48 border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
                   <CardHeader className="text-center pb-4 relative z-10">
                     <CardTitle className="text-lg font-bold text-white group-hover:text-[#c85dad] transition-all duration-300">
                       {t(service.titleKey)}
