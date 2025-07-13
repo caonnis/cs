@@ -110,9 +110,6 @@ export const Team = () => {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mr-4">
-                    <Users className="h-6 w-6 text-[#c85dad]" />
-                  </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">
                       {t('team.collaborators.title')}

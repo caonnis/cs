@@ -83,9 +83,6 @@ export const Contact = () => {
               >
                 <Card className="group h-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-[#c85dad]/20 rounded-2xl">
                   <CardHeader className="text-center pb-4">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-black border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                      <Icon className="h-8 w-8 text-white" />
-                    </div>
                     <CardTitle className="text-xl font-bold text-white">
                       {method.title}
                     </CardTitle>

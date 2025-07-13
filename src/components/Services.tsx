@@ -156,14 +156,6 @@ export const Services = () => {
               >
                 <Card className="h-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 overflow-hidden relative group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
                   <CardHeader className="text-center pb-4 relative z-10">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-black border border-white/20 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
-                    >
-                      <Icon className="h-8 w-8 text-white" />
-                    </motion.div>
-                    
                     <CardTitle className="text-lg font-bold text-white group-hover:text-[#c85dad] transition-all duration-300">
                       {t(service.titleKey)}
                     </CardTitle>
