@@ -159,6 +159,15 @@ export const Services = () => {
                       <span className="text-sm font-medium mr-2">Learn More</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.div>
+                    
+                    {/* Service Icon */}
+                    <motion.div
+                      initial={{ opacity: 0.5 }}
+                      whileHover={{ opacity: 1 }}
+                      className="mt-4 flex justify-center"
+                    >
+                      <service.icon className="h-8 w-8 text-white/40 group-hover:text-[#c85dad] transition-colors duration-300" />
+                    </motion.div>
                   </CardContent>
                 </Card>
               </motion.div>
