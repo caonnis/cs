@@ -216,21 +216,31 @@ export const Services = () => {
             >
               {/* Modal Header */}
               <div className="bg-[#c85dad] p-8 text-white relative overflow-hidden rounded-t-3xl">
-                <div className="relative z-10">
+                {/* Animated background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-16 -translate-y-16"></div>
+                  <div className="absolute bottom-0 right-0 w-24 h-24 bg-white rounded-full translate-x-12 translate-y-12"></div>
+                  <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-white rounded-full -translate-x-8 -translate-y-8"></div>
+                </div>
+                
+                <div className="relative z-10 flex items-center">
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={closeServiceModal}
-                    className="absolute top-0 right-0 text-white hover:bg-white/20 rounded-full"
+                    className="absolute -top-4 -right-4 text-white hover:bg-white/20 rounded-full w-10 h-10 p-0"
                   >
                     <X className="h-5 w-5" />
                   </Button>
                   
-                  <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mr-4">
+                  <div className="flex items-center w-full">
+                    <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mr-6 border border-white/30">
                       <selectedServiceData.icon className="h-8 w-8 text-[#c85dad]" />
                     </div>
-                    <h3 className="text-2xl font-bold">{t(selectedServiceData.titleKey)}</h3>
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-bold mb-2 leading-tight">{t(selectedServiceData.titleKey)}</h3>
+                      <div className="w-16 h-1 bg-white/40 rounded-full"></div>
+                    </div>
                   </div>
                 </div>
               </div>

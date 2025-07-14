@@ -399,17 +399,11 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="flex items-center justify-center mb-6">
-            <Globe className="h-8 w-8 text-[#c85dad] mr-3" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-white">
-              Latest <span className="font-bold text-[#c85dad]">News</span>
-            </h1>
-          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-6">
+            Latest <span className="font-bold text-[#c85dad]">News</span>
+          </h1>
           <p className="text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
             {t('news.subtitle')}
-          </p>
-          <p className="text-sm text-white/50 mt-2">
-            Updated daily • Last refresh: {new Date().toLocaleDateString()}
           </p>
         </motion.div>
 
