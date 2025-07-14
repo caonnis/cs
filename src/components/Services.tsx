@@ -287,7 +287,7 @@ export const Services = () => {
                   <Button
                     variant="outline"
                     onClick={closeServiceModal}
-                    className="flex-1 border-white/20 text-white hover:bg-white/10 rounded-lg"
+                    className="flex-1 border-white/30 text-white hover:bg-white hover:text-gray-900 bg-transparent rounded-lg transition-all duration-300"
                   >
                     Close
                   </Button>

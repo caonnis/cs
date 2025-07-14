@@ -141,7 +141,7 @@ export const Hero = () => {
                 size="xl"
                 variant="outline"
                 onClick={() => scrollToSection('#contact')}
-                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 bg-transparent px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300 hover:scale-105"
               >
                 {t('hero.cta.secondary')}
               </Button>
