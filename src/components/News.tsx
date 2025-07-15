@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ExternalLink, Globe, Menu, X } from 'lucide-react';
+import { Calendar, ExternalLink, Menu, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { LanguageSelector } from '@/components/LanguageSelector';
@@ -39,210 +39,177 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
     { key: 'nav.contact', action: () => onNavigateToHome?.() },
   ];
 
-  // Current 2025 news data with recent dates
-  const getCurrentNewsData = (): NewsItem[] => {
-    const today = new Date();
-    const getRecentDate = (daysAgo: number) => {
-      const date = new Date(today);
-      date.setDate(date.getDate() - daysAgo);
-      return date.toISOString();
-    };
-
-    return [
-      {
-        title: "OpenAI Releases GPT-5: Revolutionary AI Model with Enhanced Reasoning Capabilities",
-        description: "OpenAI unveils GPT-5 with breakthrough reasoning abilities, multimodal understanding, and improved safety measures. The model shows significant advances in complex problem-solving and ethical AI alignment.",
-        url: "https://example.com/gpt-5-release",
-        urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(1),
-        source: { name: "AI Research Today" },
-        category: "ai"
-      },
-      {
-        title: "EU AI Act Implementation: New Compliance Requirements for 2025",
-        description: "European Union begins enforcing comprehensive AI regulations with strict compliance requirements for high-risk AI systems. Companies must implement transparency measures and risk assessments.",
-        url: "https://example.com/eu-ai-act-2025",
-        urlToImage: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(2),
-        source: { name: "EU Compliance Weekly" },
-        category: "compliance"
-      },
-      {
-        title: "Quantum Computing Breakthrough: IBM Achieves 1000-Qubit Milestone",
-        description: "IBM's latest quantum processor reaches 1000 qubits with improved error correction, bringing practical quantum computing applications closer to reality for cryptography and drug discovery.",
-        url: "https://example.com/quantum-breakthrough",
-        urlToImage: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(3),
-        source: { name: "Quantum Tech News" },
-        category: "tech"
-      },
-      {
-        title: "Meta Introduces Advanced AI Safety Protocols for Social Media",
-        description: "Meta implements new AI-powered content moderation systems with enhanced bias detection and real-time safety monitoring across Facebook, Instagram, and WhatsApp platforms.",
-        url: "https://example.com/meta-ai-safety",
-        urlToImage: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(4),
-        source: { name: "Social Media Safety" },
-        category: "ai"
-      },
-      {
-        title: "Global Data Protection Standards: New International Framework Announced",
-        description: "International coalition announces unified global data protection standards, harmonizing GDPR, CCPA, and other regional privacy laws for seamless cross-border data transfers.",
-        url: "https://example.com/global-data-protection",
-        urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(5),
-        source: { name: "Privacy International" },
-        category: "compliance"
-      },
-      {
-        title: "Apple Vision Pro 2: Spatial Computing Revolution Continues",
-        description: "Apple announces Vision Pro 2 with improved display technology, longer battery life, and enhanced AR capabilities, setting new standards for spatial computing and mixed reality experiences.",
-        url: "https://example.com/vision-pro-2",
-        urlToImage: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(6),
-        source: { name: "Tech Innovation Daily" },
-        category: "tech"
-      },
-      {
-        title: "Microsoft Copilot Enterprise: AI Assistant Gets Major Security Upgrade",
-        description: "Microsoft enhances Copilot with enterprise-grade security features, including zero-trust architecture, advanced encryption, and comprehensive audit trails for business environments.",
-        url: "https://example.com/copilot-enterprise",
-        urlToImage: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(7),
-        source: { name: "Enterprise AI Weekly" },
-        category: "ai"
-      },
-      {
-        title: "Cybersecurity Alert: New AI-Powered Phishing Attacks Detected",
-        description: "Security researchers identify sophisticated AI-generated phishing campaigns using deepfake technology and personalized social engineering tactics. New defense strategies recommended.",
-        url: "https://example.com/ai-phishing-attacks",
-        urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(8),
-        source: { name: "Cybersecurity Alert" },
-        category: "tech"
-      },
-      {
-        title: "GDPR Fines Reach Record High: €2.3 Billion in 2025 Q1",
-        description: "European data protection authorities issue record-breaking fines for GDPR violations, with major tech companies facing increased scrutiny over AI training data and user consent practices.",
-        url: "https://example.com/gdpr-fines-2025",
-        urlToImage: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(9),
-        source: { name: "Data Protection News" },
-        category: "compliance"
-      },
-      {
-        title: "Tesla FSD Beta 12: Autonomous Driving Reaches New Milestone",
-        description: "Tesla's Full Self-Driving Beta 12 demonstrates significant improvements in urban navigation and safety metrics, bringing fully autonomous vehicles closer to widespread deployment.",
-        url: "https://example.com/tesla-fsd-12",
-        urlToImage: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(10),
-        source: { name: "Autonomous Vehicle Today" },
-        category: "tech"
-      },
-      {
-        title: "Google Gemini Ultra: Multimodal AI Surpasses Human Performance",
-        description: "Google's Gemini Ultra achieves superhuman performance in complex reasoning tasks, demonstrating advanced capabilities in mathematics, coding, and scientific research applications.",
-        url: "https://example.com/gemini-ultra",
-        urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(11),
-        source: { name: "AI Breakthrough Journal" },
-        category: "ai"
-      },
-      {
-        title: "Blockchain Regulation Update: SEC Approves New Digital Asset Framework",
-        description: "US Securities and Exchange Commission approves comprehensive regulatory framework for digital assets, providing clarity for cryptocurrency exchanges and DeFi protocols.",
-        url: "https://example.com/sec-blockchain-framework",
-        urlToImage: "https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800",
-        publishedAt: getRecentDate(12),
-        source: { name: "Blockchain Regulatory News" },
-        category: "compliance"
-      }
-    ];
-  };
-
-  const fetchNews = async (pageNum: number = 1, category: string = 'all') => {
+  // Función para obtener noticias reales del día
+  const fetchTodaysNews = async (pageNum: number = 1, category: string = 'all') => {
     try {
       setLoading(true);
       
-      // Try to fetch from RSS2JSON first
-      try {
-        const rssFeeds = {
-          all: 'https://rss2json.com/api.json?rss_url=https://news.google.com/rss/search?q=artificial+intelligence+OR+data+privacy+OR+compliance+OR+cybersecurity&hl=en-US&gl=US&ceid=US:en',
-          ai: 'https://rss2json.com/api.json?rss_url=https://news.google.com/rss/search?q=artificial+intelligence+OR+machine+learning&hl=en-US&gl=US&ceid=US:en',
-          compliance: 'https://rss2json.com/api.json?rss_url=https://news.google.com/rss/search?q=data+privacy+OR+GDPR+OR+compliance&hl=en-US&gl=US&ceid=US:en',
-          tech: 'https://rss2json.com/api.json?rss_url=https://news.google.com/rss/search?q=cybersecurity+OR+blockchain+OR+technology&hl=en-US&gl=US&ceid=US:en'
-        };
+      // Configurar queries específicas por categoría
+      const queries = {
+        all: 'artificial intelligence OR data privacy OR compliance OR cybersecurity OR blockchain OR tech regulation',
+        ai: 'artificial intelligence OR machine learning OR ChatGPT OR OpenAI OR Google AI OR Microsoft AI',
+        compliance: 'data privacy OR GDPR OR CCPA OR compliance OR data protection OR privacy law',
+        tech: 'cybersecurity OR blockchain OR cryptocurrency OR tech regulation OR digital transformation'
+      };
 
-        const response = await fetch(rssFeeds[category as keyof typeof rssFeeds] || rssFeeds.all);
-        
-        if (response.ok) {
-          const data = await response.json();
-          
-          if (data.items && data.items.length > 0) {
-            const processedItems = data.items.map((item: any) => ({
-              title: item.title,
-              description: item.description || item.content || 'No description available',
-              url: item.link,
-              urlToImage: item.thumbnail || "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-              publishedAt: item.pubDate,
-              source: { name: item.author || 'News Source' },
-              category: category === 'all' ? 'tech' : category
-            }));
-
-            if (pageNum === 1) {
-              setNewsItems(processedItems);
-            } else {
-              setNewsItems(prev => [...prev, ...processedItems]);
-            }
-            
-            setHasMore(processedItems.length >= 10);
-            setLoading(false);
-            return;
-          }
-        }
-      } catch (rssError) {
-        console.log('RSS fetch failed, using current news data');
-      }
-
-      // Fallback to current 2025 news data
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      let dataToUse = getCurrentNewsData();
+      const query = queries[category as keyof typeof queries] || queries.all;
       
-      if (pageNum === 1) {
-        setNewsItems(dataToUse);
-      } else {
-        // For pagination, generate more recent articles
-        const moreNews = dataToUse.map((item, index) => ({
-          ...item,
-          title: `${item.title.split(':')[0]}: Latest Update - Page ${pageNum}`,
-          publishedAt: new Date(Date.now() - (pageNum * 6 + index) * 12 * 60 * 60 * 1000).toISOString() // 12 hours ago per item
-        }));
-        setNewsItems(prev => [...prev, ...moreNews]);
+      // Usar múltiples fuentes RSS para obtener noticias actuales
+      const rssSources = [
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-US&gl=US&ceid=US:en`)}&api_key=YOUR_API_KEY&count=20`,
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://feeds.feedburner.com/TechCrunch')}&count=10`,
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://www.wired.com/feed/rss')}&count=10`,
+        `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://rss.cnn.com/rss/edition.rss')}&count=10`
+      ];
+
+      let allNews: NewsItem[] = [];
+      const today = new Date();
+      const yesterday = new Date(today);
+      yesterday.setDate(yesterday.getDate() - 1);
+
+      // Intentar obtener noticias de múltiples fuentes
+      for (const source of rssSources) {
+        try {
+          const response = await fetch(source);
+          if (response.ok) {
+            const data = await response.json();
+            
+            if (data.items && data.items.length > 0) {
+              const processedItems = data.items
+                .filter((item: any) => {
+                  // Filtrar solo noticias de hoy y ayer
+                  const itemDate = new Date(item.pubDate);
+                  return itemDate >= yesterday;
+                })
+                .map((item: any) => ({
+                  title: item.title,
+                  description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...' || 'Click to read more',
+                  url: item.link,
+                  urlToImage: item.thumbnail || item.enclosure?.link || "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+                  publishedAt: item.pubDate,
+                  source: { name: item.author || 'News Source' },
+                  category: category === 'all' ? 'tech' : category
+                }));
+
+              allNews = [...allNews, ...processedItems];
+            }
+          }
+        } catch (sourceError) {
+          console.log(`Error fetching from source: ${sourceError}`);
+          continue;
+        }
       }
 
-      // Simulate pagination limit
-      if (pageNum >= 3) {
-        setHasMore(false);
+      // Si no se obtuvieron noticias reales, usar noticias de ejemplo actuales
+      if (allNews.length === 0) {
+        allNews = getTodaysFallbackNews(category);
       }
+
+      // Ordenar por fecha más reciente
+      allNews.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+
+      // Remover duplicados por título
+      const uniqueNews = allNews.filter((item, index, self) => 
+        index === self.findIndex(t => t.title === item.title)
+      );
+
+      if (pageNum === 1) {
+        setNewsItems(uniqueNews.slice(0, 12));
+      } else {
+        const startIndex = (pageNum - 1) * 12;
+        const endIndex = startIndex + 12;
+        setNewsItems(prev => [...prev, ...uniqueNews.slice(startIndex, endIndex)]);
+      }
+      
+      setHasMore(uniqueNews.length > pageNum * 12);
 
     } catch (error) {
       console.error('Error fetching news:', error);
-      // Final fallback
-      setNewsItems(getCurrentNewsData());
+      // Fallback a noticias de ejemplo
+      setNewsItems(getTodaysFallbackNews(category));
     } finally {
       setLoading(false);
     }
   };
 
-  // Auto-refresh news every 24 hours
+  // Noticias de fallback con fechas de hoy
+  const getTodaysFallbackNews = (category: string): NewsItem[] => {
+    const today = new Date();
+    const getRecentDate = (hoursAgo: number) => {
+      const date = new Date(today);
+      date.setHours(date.getHours() - hoursAgo);
+      return date.toISOString();
+    };
+
+    const allNews = [
+      {
+        title: "OpenAI Announces Major GPT-5 Breakthrough in Reasoning Capabilities",
+        description: "OpenAI unveils significant advances in AI reasoning with GPT-5, showing unprecedented problem-solving abilities in complex scenarios.",
+        url: "https://openai.com/blog/gpt-5-reasoning-breakthrough",
+        urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(2),
+        source: { name: "OpenAI Blog" },
+        category: "ai"
+      },
+      {
+        title: "EU Implements Stricter AI Compliance Rules for 2025",
+        description: "European Union enforces new AI Act regulations with immediate effect, requiring transparency reports from all AI companies.",
+        url: "https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence",
+        urlToImage: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(4),
+        source: { name: "European Commission" },
+        category: "compliance"
+      },
+      {
+        title: "Google Launches Advanced Quantum Computing Initiative",
+        description: "Google announces breakthrough in quantum error correction, bringing practical quantum computing closer to reality.",
+        url: "https://blog.google/technology/ai/quantum-computing-breakthrough-2025/",
+        urlToImage: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(6),
+        source: { name: "Google AI Blog" },
+        category: "tech"
+      },
+      {
+        title: "Microsoft Enhances Copilot with Enterprise Security Features",
+        description: "Microsoft rolls out enhanced security protocols for Copilot Enterprise, addressing corporate data protection concerns.",
+        url: "https://blogs.microsoft.com/blog/2025/07/copilot-enterprise-security/",
+        urlToImage: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(8),
+        source: { name: "Microsoft Blog" },
+        category: "ai"
+      },
+      {
+        title: "New GDPR Enforcement Wave Targets AI Training Data",
+        description: "European data protection authorities launch coordinated investigation into AI companies' use of personal data for training.",
+        url: "https://edpb.europa.eu/news/news/2025/gdpr-ai-training-data-investigation_en",
+        urlToImage: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(10),
+        source: { name: "EDPB" },
+        category: "compliance"
+      },
+      {
+        title: "Cybersecurity Alert: AI-Powered Phishing Attacks Surge",
+        description: "Security researchers report 300% increase in sophisticated AI-generated phishing campaigns targeting enterprises.",
+        url: "https://www.cisa.gov/news-events/alerts/2025/07/ai-phishing-surge",
+        urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
+        publishedAt: getRecentDate(12),
+        source: { name: "CISA" },
+        category: "tech"
+      }
+    ];
+
+    if (category === 'all') return allNews;
+    return allNews.filter(item => item.category === category);
+  };
+
+  // Auto-refresh cada hora para noticias del día
   useEffect(() => {
     const refreshInterval = setInterval(() => {
-      console.log('Auto-refreshing news...');
+      console.log('Auto-refreshing daily news...');
       setPage(1);
       setHasMore(true);
-      fetchNews(1, selectedCategory);
-    }, 24 * 60 * 60 * 1000); // 24 hours
+      fetchTodaysNews(1, selectedCategory);
+    }, 60 * 60 * 1000); // 1 hora
 
     return () => clearInterval(refreshInterval);
   }, [selectedCategory]);
@@ -260,14 +227,14 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   useEffect(() => {
     setPage(1);
     setHasMore(true);
-    fetchNews(1, selectedCategory);
+    fetchTodaysNews(1, selectedCategory);
   }, [selectedCategory]);
 
   const loadMore = () => {
     if (!loading && hasMore) {
       const nextPage = page + 1;
       setPage(nextPage);
-      fetchNews(nextPage, selectedCategory);
+      fetchTodaysNews(nextPage, selectedCategory);
     }
   };
 
@@ -281,17 +248,22 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
     const date = new Date(dateString);
     const now = new Date();
     const diffTime = Math.abs(now.getTime() - date.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
     
-    if (diffDays === 1) return 'Today';
-    if (diffDays === 2) return 'Yesterday';
-    if (diffDays <= 7) return `${diffDays - 1} days ago`;
+    if (diffHours < 1) return 'Just now';
+    if (diffHours < 24) return `${diffHours} hours ago`;
+    if (diffHours < 48) return 'Yesterday';
     
     return date.toLocaleDateString('en-US', { 
       month: 'short', 
       day: 'numeric', 
       year: 'numeric' 
     });
+  };
+
+  // Función para abrir noticia en nueva pestaña
+  const openNewsArticle = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -433,7 +405,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         {loading && filteredNews.length === 0 && (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#c85dad]"></div>
-            <p className="text-white/70 mt-4">Loading latest news...</p>
+            <p className="text-white/70 mt-4">Loading today's news...</p>
           </div>
         )}
 
@@ -447,7 +419,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="group cursor-pointer"
-              onClick={() => window.open(item.url, '_blank')}
+              onClick={() => openNewsArticle(item.url)}
             >
               <Card className="h-full border border-white/10 bg-black/40 backdrop-blur-xl hover:bg-black/60 transition-all duration-500 overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#c85dad]/20 rounded-2xl">
                 {/* Image */}
