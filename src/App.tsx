@@ -10,6 +10,15 @@ import { News } from '@/components/News';
 function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'news'>('home');
 
+  // Prevent redirect to home on refresh when in news
+  useState(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.includes('news') || window.location.hash === '#news') {
+        setCurrentPage('news');
+      }
+    }
+  });
   if (currentPage === 'news') {
     return <News onNavigateToHome={() => setCurrentPage('home')} />;
   }

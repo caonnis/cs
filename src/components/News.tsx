@@ -31,6 +31,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [languageKey, setLanguageKey] = useState(0);
   const [forceUpdate, setForceUpdate] = useState(0);
 
   const navItems = [
@@ -213,19 +214,23 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
     fetchDiversifiedNews();
   }, []);
 
-  // Force re-render when language changes
+  // Force re-render when language changes - FIXED
   useEffect(() => {
     const handleLanguageChange = () => {
-      setForceUpdate(prev => prev + 1);
+      setLanguageKey(prev => prev + 1);
+      // Force immediate re-render of all text elements
+      setTimeout(() => {
+        setLanguageKey(prev => prev + 1);
+      }, 10);
     };
 
     window.addEventListener('languageChanged', handleLanguageChange);
     return () => window.removeEventListener('languageChanged', handleLanguageChange);
   }, []);
 
-  // Re-render when currentLanguage changes
+  // Re-render when currentLanguage changes - FIXED
   useEffect(() => {
-    setForceUpdate(prev => prev + 1);
+    setLanguageKey(prev => prev + 1);
   }, [currentLanguage]);
 
   // Auto-refresh cada hora
@@ -272,7 +277,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
+    <div key={`news-${currentLanguage}-${languageKey}`} className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 relative overflow-hidden">
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
@@ -347,7 +352,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <button
-                  key={item.key}
+                  key={`${item.key}-mobile-${languageKey}`}
                   onClick={() => {
                     item.action();
                     setIsMenuOpen(false);
@@ -375,6 +380,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
+          key={`header-${languageKey}`}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-6">
             Latest <span className="font-bold text-[#c85dad]">News</span>
@@ -390,10 +396,11 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
+          key={`filters-${languageKey}`}
         >
           {['all', 'ai', 'compliance', 'tech'].map((category) => (
             <Button
-              key={category}
+              key={`${category}-${languageKey}`}
               onClick={() => handleCategoryChange(category)}
               className={`${
                 selectedCategory === category
@@ -408,17 +415,17 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
 
         {/* Loading State */}
         {loading && filteredNews.length === 0 && (
-          <div className="text-center py-12">
+          <div key={`loading-${languageKey}`} className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#c85dad]"></div>
             <p className="text-white/70 mt-4">{t('news.loading')}</p>
           </div>
         )}
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div key={`grid-${languageKey}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredNews.map((item, index) => (
             <motion.div
-              key={`${item.title}-${index}`}
+              key={`${item.title}-${index}-${languageKey}`}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -482,6 +489,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         {/* Load More Button */}
         {hasMore && filteredNews.length > 0 && (
           <motion.div
+            key={`loadmore-${languageKey}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8 }}
@@ -506,14 +514,14 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
 
         {/* No more articles message */}
         {!hasMore && filteredNews.length > 0 && (
-          <div className="text-center mt-12">
+          <div key={`nomore-${languageKey}`} className="text-center mt-12">
             <p className="text-white/50">{t('news.noMore')}</p>
           </div>
         )}
 
         {/* No articles found */}
         {!loading && filteredNews.length === 0 && (
-          <div className="text-center py-12">
+          <div key={`noarticles-${languageKey}`} className="text-center py-12">
             <p className="text-white/70">{t('news.noArticles')}</p>
           </div>
         )}
