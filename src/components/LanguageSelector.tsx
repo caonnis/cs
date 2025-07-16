@@ -1,4 +1,5 @@
 import { Globe } from 'lucide-react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -10,9 +11,15 @@ import { useLanguage, languages, type Language } from '@/hooks/useLanguage';
 
 export const LanguageSelector = () => {
   const { currentLanguage, changeLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleLanguageChange = (langCode: Language) => {
+    changeLanguage(langCode);
+    setIsOpen(false);
+  };
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="text-white hover:text-certainty-accent">
           <Globe className="h-4 w-4 mr-2" />
@@ -25,7 +32,7 @@ export const LanguageSelector = () => {
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
-            onClick={() => changeLanguage(language.code)}
+            onClick={() => handleLanguageChange(language.code)}
             className={`cursor-pointer ${
               currentLanguage === language.code ? 'bg-certainty-soft' : ''
             }`}

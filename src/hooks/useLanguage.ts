@@ -552,17 +552,48 @@ const translations: Translations = {
     es: 'Desafíos y soluciones emergentes de ciberseguridad, incluyendo ataques potenciados por IA, amenazas de computación cuántica e implementaciones de arquitectura de confianza cero.',
     pt: 'Desafios e soluções emergentes de cibersegurança, incluindo ataques alimentados por IA, ameaças de computação quântica e implementações de arquitetura de confiança zero.',
     zh: '新兴网络安全挑战和解决方案，包括AI驱动的攻击、量子计算威胁和零信任架构实施。'
+  },
+
+  // News specific translations
+  'news.title': {
+    en: 'Latest News',
+    es: 'Últimas Noticias',
+    pt: 'Últimas Notícias',
+    zh: '最新新闻'
+  },
+  'news.loading': {
+    en: 'Loading today\'s news...',
+    es: 'Cargando noticias de hoy...',
+    pt: 'Carregando notícias de hoje...',
+    zh: '正在加载今日新闻...'
+  },
+  'news.noArticles': {
+    en: 'No articles found for this category.',
+    es: 'No se encontraron artículos para esta categoría.',
+    pt: 'Nenhum artigo encontrado para esta categoria.',
+    zh: '未找到此类别的文章。'
+  },
+  'news.noMore': {
+    en: 'No more articles to load',
+    es: 'No hay más artículos para cargar',
+    pt: 'Não há mais artigos para carregar',
+    zh: '没有更多文章可加载'
   }
 };
 
 export const useLanguage = () => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('certainty-language');
-    return (saved as Language) || 'en';
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('certainty-language');
+      return (saved as Language) || 'en';
+    }
+    return 'en';
   });
 
   useEffect(() => {
-    localStorage.setItem('certainty-language', currentLanguage);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('certainty-language', currentLanguage);
+    }
   }, [currentLanguage]);
 
   const t = (key: string): string => {

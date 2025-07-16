@@ -394,7 +394,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         {loading && filteredNews.length === 0 && (
           <div className="text-center py-12">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#c85dad]"></div>
-            <p className="text-white/70 mt-4">Loading today's news...</p>
+            <p className="text-white/70 mt-4">{t('news.loading')}</p>
           </div>
         )}
 
@@ -491,14 +491,14 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         {/* No more articles message */}
         {!hasMore && filteredNews.length > 0 && (
           <div className="text-center mt-12">
-            <p className="text-white/50">No more articles to load</p>
+            <p className="text-white/50">{t('news.noMore')}</p>
           </div>
         )}
 
         {/* No articles found */}
         {!loading && filteredNews.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-white/70">No articles found for this category.</p>
+            <p className="text-white/70">{t('news.noArticles')}</p>
           </div>
         )}
       </div>
