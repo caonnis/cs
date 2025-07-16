@@ -23,7 +23,7 @@ interface NewsProps {
 }
 
 export const News = ({ onNavigateToHome }: NewsProps) => {
-  const { t } = useLanguage();
+  const { t, currentLanguage } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [allNewsItems, setAllNewsItems] = useState<NewsItem[]>([]);
@@ -31,6 +31,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [forceUpdate, setForceUpdate] = useState(0);
 
   const navItems = [
     { key: 'nav.home', action: () => onNavigateToHome?.() },
@@ -211,6 +212,21 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   useEffect(() => {
     fetchDiversifiedNews();
   }, []);
+
+  // Force re-render when language changes
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setForceUpdate(prev => prev + 1);
+    };
+
+    window.addEventListener('languageChanged', handleLanguageChange);
+    return () => window.removeEventListener('languageChanged', handleLanguageChange);
+  }, []);
+
+  // Re-render when currentLanguage changes
+  useEffect(() => {
+    setForceUpdate(prev => prev + 1);
+  }, [currentLanguage]);
 
   // Auto-refresh cada hora
   useEffect(() => {

@@ -10,13 +10,28 @@ import {
 import { useLanguage, languages, type Language } from '@/hooks/useLanguage';
 
 export const LanguageSelector = () => {
-  const { currentLanguage, changeLanguage } = useLanguage();
+  const { currentLanguage, changeLanguage, isInitialized } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleLanguageChange = (langCode: Language) => {
     changeLanguage(langCode);
     setIsOpen(false);
+    
+    // Force immediate UI update
+    setTimeout(() => {
+      window.dispatchEvent(new Event('languageChanged'));
+    }, 0);
   };
+
+  // Don't render until language is initialized
+  if (!isInitialized) {
+    return (
+      <Button variant="ghost" size="sm" className="text-white hover:text-certainty-accent">
+        <Globe className="h-4 w-4 mr-2" />
+        <span className="hidden sm:inline">🌐</span>
+      </Button>
+    );
+  }
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>

@@ -582,19 +582,26 @@ const translations: Translations = {
 };
 
 export const useLanguage = () => {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('certainty-language');
-      return (saved as Language) || 'en';
-    }
-    return 'en';
-  });
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const [isInitialized, setIsInitialized] = useState(false);
 
+  // Initialize language from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('certainty-language');
+      if (saved && ['en', 'es', 'pt', 'zh'].includes(saved)) {
+        setCurrentLanguage(saved as Language);
+      }
+    }
+    setIsInitialized(true);
+  }, []);
+
+  // Save to localStorage when language changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && isInitialized) {
       localStorage.setItem('certainty-language', currentLanguage);
     }
-  }, [currentLanguage]);
+  }, [currentLanguage, isInitialized]);
 
   const t = (key: string): string => {
     return translations[key]?.[currentLanguage] || key;
@@ -602,12 +609,17 @@ export const useLanguage = () => {
 
   const changeLanguage = (lang: Language) => {
     setCurrentLanguage(lang);
+    // Force immediate re-render by triggering a state change
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('certainty-language', lang);
+    }
   };
 
   return {
     currentLanguage,
     changeLanguage,
-    t
+    t,
+    isInitialized
   };
 };
 
