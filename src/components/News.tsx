@@ -47,152 +47,133 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
       setLoading(true);
       
       const today = new Date();
-      const yesterday = new Date(today);
-      yesterday.setDate(yesterday.getDate() - 1);
+      const formatDate = (date: Date) => date.toISOString().split('T')[0];
+      const todayStr = formatDate(today);
       
-      // Noticias categorizadas con fuentes diversas
-      const newsData: NewsItem[] = [
-        // AI Category
-        {
-          title: "OpenAI Releases GPT-5 with Revolutionary Reasoning Capabilities",
-          description: "OpenAI announces GPT-5 with breakthrough reasoning abilities, setting new standards for AI problem-solving and logical thinking.",
-          url: "https://openai.com/blog/gpt-5-announcement",
-          urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 2 * 60 * 60 * 1000).toISOString(),
-          source: { name: "OpenAI Blog" },
-          category: "ai"
-        },
-        {
-          title: "Google DeepMind Achieves Breakthrough in Protein Folding AI",
-          description: "Google's DeepMind team announces major advancement in protein structure prediction, revolutionizing drug discovery.",
-          url: "https://deepmind.google/discover/blog/alphafold-protein-structure-breakthrough",
-          urlToImage: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 4 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Google DeepMind" },
-          category: "ai"
-        },
-        {
-          title: "Microsoft Copilot Gets Major Enterprise Security Update",
-          description: "Microsoft enhances Copilot with advanced security features for enterprise customers, addressing data protection concerns.",
-          url: "https://blogs.microsoft.com/blog/2025/copilot-enterprise-security-update",
-          urlToImage: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 6 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Microsoft Blog" },
-          category: "ai"
-        },
-        {
-          title: "Anthropic's Claude 4 Shows Improved Reasoning in Complex Tasks",
-          description: "Anthropic releases Claude 4 with enhanced reasoning capabilities, competing directly with GPT-5 in logical problem solving.",
-          url: "https://www.anthropic.com/news/claude-4-reasoning-breakthrough",
-          urlToImage: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 8 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Anthropic" },
-          category: "ai"
-        },
-
-        // Compliance Category
-        {
-          title: "EU Enforces New AI Act Regulations Across Member States",
-          description: "European Union begins strict enforcement of AI Act regulations, requiring transparency reports from all AI companies operating in Europe.",
-          url: "https://digital-strategy.ec.europa.eu/en/policies/ai-act-enforcement-2025",
-          urlToImage: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 3 * 60 * 60 * 1000).toISOString(),
-          source: { name: "European Commission" },
-          category: "compliance"
-        },
-        {
-          title: "GDPR Fines Reach Record High in 2025 Data Protection Enforcement",
-          description: "European data protection authorities issue unprecedented fines for GDPR violations, focusing on AI training data usage.",
-          url: "https://edpb.europa.eu/news/news/2025/gdpr-enforcement-record-fines",
-          urlToImage: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 5 * 60 * 60 * 1000).toISOString(),
-          source: { name: "EDPB" },
-          category: "compliance"
-        },
-        {
-          title: "California Passes Comprehensive AI Privacy Protection Act",
-          description: "California legislature approves sweeping AI privacy legislation, setting new standards for algorithmic transparency and user consent.",
-          url: "https://oag.ca.gov/news/press-releases/california-ai-privacy-act-2025",
-          urlToImage: "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 7 * 60 * 60 * 1000).toISOString(),
-          source: { name: "California AG Office" },
-          category: "compliance"
-        },
-        {
-          title: "UK Data Protection Authority Issues New AI Guidance",
-          description: "ICO releases comprehensive guidance for AI developers on data protection compliance and privacy by design principles.",
-          url: "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2025/ai-guidance-data-protection",
-          urlToImage: "https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 9 * 60 * 60 * 1000).toISOString(),
-          source: { name: "ICO UK" },
-          category: "compliance"
-        },
-
-        // Tech Category
-        {
-          title: "Major Cybersecurity Breach Affects 50 Million Users Worldwide",
-          description: "Global cybersecurity incident exposes vulnerabilities in cloud infrastructure, prompting urgent security updates across the industry.",
-          url: "https://www.cisa.gov/news-events/alerts/2025/major-cybersecurity-incident-response",
-          urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 1 * 60 * 60 * 1000).toISOString(),
-          source: { name: "CISA" },
-          category: "tech"
-        },
-        {
-          title: "Quantum Computing Breakthrough: IBM Achieves 1000-Qubit Milestone",
-          description: "IBM announces successful development of 1000-qubit quantum processor, marking significant progress toward practical quantum computing.",
-          url: "https://research.ibm.com/blog/1000-qubit-quantum-processor-breakthrough",
-          urlToImage: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 10 * 60 * 60 * 1000).toISOString(),
-          source: { name: "IBM Research" },
-          category: "tech"
-        },
-        {
-          title: "Apple Announces Revolutionary Neural Processing Unit for iPhone 17",
-          description: "Apple unveils next-generation NPU with 10x performance improvement for on-device AI processing in upcoming iPhone 17 series.",
-          url: "https://www.apple.com/newsroom/2025/iphone-17-neural-processing-breakthrough",
-          urlToImage: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 11 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Apple Newsroom" },
-          category: "tech"
-        },
-        {
-          title: "Tesla's Full Self-Driving Beta Achieves 99.9% Safety Rating",
-          description: "Tesla reports unprecedented safety milestone for FSD Beta, with 99.9% accident-free performance in controlled testing environments.",
-          url: "https://www.tesla.com/blog/fsd-beta-safety-milestone-2025",
-          urlToImage: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 12 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Tesla Blog" },
-          category: "tech"
-        },
-        {
-          title: "Meta Launches Advanced VR Workspace for Remote Collaboration",
-          description: "Meta introduces Horizon Workrooms 3.0 with photorealistic avatars and haptic feedback for immersive remote work experiences.",
-          url: "https://about.fb.com/news/2025/horizon-workrooms-3-launch",
-          urlToImage: "https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 13 * 60 * 60 * 1000).toISOString(),
-          source: { name: "Meta Newsroom" },
-          category: "tech"
-        },
-        {
-          title: "Amazon Web Services Introduces Quantum Cloud Computing Platform",
-          description: "AWS launches Braket Quantum Cloud, providing enterprise access to quantum computing resources from multiple hardware providers.",
-          url: "https://aws.amazon.com/blogs/aws/braket-quantum-cloud-platform-launch",
-          urlToImage: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800",
-          publishedAt: new Date(today.getTime() - 14 * 60 * 60 * 1000).toISOString(),
-          source: { name: "AWS Blog" },
-          category: "tech"
-        }
+      // Múltiples fuentes RSS reales y actuales
+      const rssSources = [
+        // Fuentes en inglés
+        'https://feeds.feedburner.com/oreilly/radar',
+        'https://www.wired.com/feed/rss',
+        'https://techcrunch.com/feed/',
+        'https://www.theverge.com/rss/index.xml',
+        'https://arstechnica.com/feed/',
+        'https://www.engadget.com/rss.xml',
+        'https://www.zdnet.com/news/rss.xml',
+        'https://www.cnet.com/rss/news/',
+        
+        // Fuentes en español
+        'https://www.xataka.com/index.xml',
+        'https://hipertextual.com/feed',
+        'https://www.genbeta.com/index.xml',
+        'https://www.applesfera.com/index.xml',
+        'https://www.androidpit.es/feed.xml'
       ];
 
+      let allArticles: NewsItem[] = [];
+
+      // Función para categorizar noticias basado en palabras clave
+      const categorizeNews = (title: string, description: string): string => {
+        const text = (title + ' ' + description).toLowerCase();
+        
+        if (text.includes('ai') || text.includes('artificial intelligence') || 
+            text.includes('machine learning') || text.includes('neural') ||
+            text.includes('chatgpt') || text.includes('openai') || 
+            text.includes('deepmind') || text.includes('claude')) {
+          return 'ai';
+        }
+        
+        if (text.includes('gdpr') || text.includes('privacy') || 
+            text.includes('compliance') || text.includes('regulation') ||
+            text.includes('data protection') || text.includes('legal') ||
+            text.includes('rights') || text.includes('policy')) {
+          return 'compliance';
+        }
+        
+        return 'tech';
+      };
+
+      // Obtener noticias de múltiples fuentes
+      for (const rssUrl of rssSources.slice(0, 8)) { // Limitar a 8 fuentes para no sobrecargar
+        try {
+          const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=YOUR_API_KEY&count=5`;
+          const response = await fetch(proxyUrl);
+          const data = await response.json();
+          
+          if (data.status === 'ok' && data.items) {
+            const recentItems = data.items
+              .filter((item: any) => {
+                const itemDate = new Date(item.pubDate);
+                const daysDiff = (today.getTime() - itemDate.getTime()) / (1000 * 60 * 60 * 24);
+                return daysDiff <= 2; // Solo noticias de los últimos 2 días
+              })
+              .map((item: any) => ({
+                title: item.title,
+                description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...' || 'No description available',
+                url: item.link,
+                urlToImage: item.enclosure?.link || item.thumbnail || "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+                publishedAt: item.pubDate,
+                source: { name: data.feed?.title || 'Tech News' },
+                category: categorizeNews(item.title, item.description || '')
+              }));
+            
+            allArticles = [...allArticles, ...recentItems];
+          }
+        } catch (error) {
+          console.warn(`Error fetching from ${rssUrl}:`, error);
+        }
+      }
+
+      // Si no hay suficientes noticias reales, agregar algunas de respaldo
+      if (allArticles.length < 10) {
+        const fallbackNews: NewsItem[] = [
+          {
+            title: "ChatGPT-5 Expected to Launch with Advanced Reasoning Capabilities",
+            description: "OpenAI is reportedly working on ChatGPT-5 with significantly improved reasoning and problem-solving abilities.",
+            url: "https://openai.com/blog",
+            urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+            publishedAt: new Date(today.getTime() - 2 * 60 * 60 * 1000).toISOString(),
+            source: { name: "OpenAI" },
+            category: "ai"
+          },
+          {
+            title: "EU AI Act Implementation Accelerates Across Member States",
+            description: "European Union member states are rapidly implementing the AI Act regulations, affecting tech companies worldwide.",
+            url: "https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence",
+            urlToImage: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
+            publishedAt: new Date(today.getTime() - 4 * 60 * 60 * 1000).toISOString(),
+            source: { name: "European Commission" },
+            category: "compliance"
+          },
+          {
+            title: "Apple Vision Pro 2 Rumored with Enhanced AR Capabilities",
+            description: "Reports suggest Apple is developing a second-generation Vision Pro with improved augmented reality features.",
+            url: "https://www.apple.com/newsroom/",
+            urlToImage: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800",
+            publishedAt: new Date(today.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+            source: { name: "Apple Newsroom" },
+            category: "tech"
+          }
+        ];
+        
+        allArticles = [...allArticles, ...fallbackNews];
+      }
+
       // Ordenar por fecha más reciente
-      newsData.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+      allArticles.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
       
-      setAllNewsItems(newsData);
-      setHasMore(newsData.length > 12);
+      // Remover duplicados por título
+      const uniqueArticles = allArticles.filter((article, index, self) => 
+        index === self.findIndex(a => a.title === article.title)
+      );
+      
+      setAllNewsItems(uniqueArticles.slice(0, 50)); // Limitar a 50 noticias
+      setHasMore(uniqueArticles.length > 12);
 
     } catch (error) {
       console.error('Error fetching news:', error);
+      // Fallback en caso de error total
+      setAllNewsItems([]);
     } finally {
       setLoading(false);
     }
@@ -282,7 +263,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md shadow-lg"
+        className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md shadow-lg"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
@@ -347,7 +328,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
               opacity: isMenuOpen ? 1 : 0,
             }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-black/95 backdrop-blur-md"
+            className="lg:hidden overflow-hidden bg-gradient-to-r from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md"
           >
             <div className="py-4 space-y-2">
               {navItems.map((item) => (
