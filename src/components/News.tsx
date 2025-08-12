@@ -73,7 +73,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
               title: item.title || 'No title',
               description: item.description?.replace(/<[^>]*>/g, '').substring(0, 200) + '...' || 'No description available',
               url: item.link || '#',
-              urlToImage: item.thumbnail || item.enclosure?.link || `https://images.pexels.com/photos/${8386440 + index}/pexels-photo-${8386440 + index}.jpeg?auto=compress&cs=tinysrgb&w=800`,
+              urlToImage: item.thumbnail || item.enclosure?.link || getTechImage(index),
               publishedAt: item.pubDate || new Date().toISOString(),
               source: { name: data.feed?.title || 'Tech News' },
               category: categorizeNews(item.title || '', item.description || '')
@@ -84,6 +84,23 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         } catch (error) {
           console.warn(`Error fetching from ${rssUrl}:`, error);
         }
+      }
+
+      // Función para obtener imágenes apropiadas de tecnología
+      function getTechImage(index: number): string {
+        const techImages = [
+          'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800', // Computer code
+          'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800', // AI/Technology
+          'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800', // Data/Analytics
+          'https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800', // Technology
+          'https://images.pexels.com/photos/1181271/pexels-photo-1181271.jpeg?auto=compress&cs=tinysrgb&w=800', // Digital
+          'https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg?auto=compress&cs=tinysrgb&w=800', // Tech
+          'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=800', // Code
+          'https://images.pexels.com/photos/1181373/pexels-photo-1181373.jpeg?auto=compress&cs=tinysrgb&w=800', // Programming
+          'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800', // Technology
+          'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800'  // Digital tech
+        ];
+        return techImages[index % techImages.length];
       }
 
       // Función para categorizar noticias
@@ -137,7 +154,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "OpenAI Releases GPT-5 with Revolutionary Reasoning Capabilities",
         description: "The latest AI model from OpenAI demonstrates unprecedented problem-solving abilities and logical reasoning, marking a significant leap in artificial intelligence development.",
         url: "https://openai.com/blog",
-        urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800", // AI/Robot
         publishedAt: new Date(today.getTime() - 1 * 60 * 60 * 1000).toISOString(),
         source: { name: "OpenAI" },
         category: "ai"
@@ -146,7 +163,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "EU Finalizes AI Act Implementation Guidelines for 2025",
         description: "European regulators publish comprehensive guidelines for AI system compliance, focusing on transparency, accountability, and fundamental rights protection.",
         url: "https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence",
-        urlToImage: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", // Legal/Compliance
         publishedAt: new Date(today.getTime() - 3 * 60 * 60 * 1000).toISOString(),
         source: { name: "European Commission" },
         category: "compliance"
@@ -155,7 +172,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "Apple Unveils Next-Generation M4 Pro Chips with AI Acceleration",
         description: "Apple's latest silicon features dedicated AI processing units and improved energy efficiency, setting new standards for mobile computing performance.",
         url: "https://www.apple.com/newsroom/",
-        urlToImage: "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/163100/circuit-circuit-board-resistor-computer-163100.jpeg?auto=compress&cs=tinysrgb&w=800", // Computer chip
         publishedAt: new Date(today.getTime() - 5 * 60 * 60 * 1000).toISOString(),
         source: { name: "Apple" },
         category: "tech"
@@ -164,7 +181,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "Google DeepMind Achieves Breakthrough in Protein Folding Prediction",
         description: "AlphaFold 3 demonstrates remarkable accuracy in predicting complex protein structures, potentially revolutionizing drug discovery and medical research.",
         url: "https://deepmind.google/",
-        urlToImage: "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=800", // DNA/Science
         publishedAt: new Date(today.getTime() - 7 * 60 * 60 * 1000).toISOString(),
         source: { name: "Google DeepMind" },
         category: "ai"
@@ -173,7 +190,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "GDPR Enforcement Reaches Record High with €2.3B in Fines",
         description: "Data protection authorities across Europe impose unprecedented penalties for privacy violations, signaling stricter enforcement of digital rights.",
         url: "https://edpb.europa.eu/",
-        urlToImage: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800", // Security/Privacy
         publishedAt: new Date(today.getTime() - 9 * 60 * 60 * 1000).toISOString(),
         source: { name: "EDPB" },
         category: "compliance"
@@ -182,7 +199,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "Tesla Launches Full Self-Driving Beta with Neural Network v12",
         description: "Tesla's latest autonomous driving system uses end-to-end neural networks, eliminating traditional code-based driving rules for pure AI decision making.",
         url: "https://www.tesla.com/blog",
-        urlToImage: "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/35967/mini-cooper-auto-model-vehicle.jpeg?auto=compress&cs=tinysrgb&w=800", // Autonomous car
         publishedAt: new Date(today.getTime() - 11 * 60 * 60 * 1000).toISOString(),
         source: { name: "Tesla" },
         category: "tech"
@@ -191,7 +208,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "Microsoft Copilot Integration Expands to All Office Applications",
         description: "Microsoft's AI assistant becomes available across the entire Office suite, promising to transform productivity workflows for millions of users worldwide.",
         url: "https://blogs.microsoft.com/",
-        urlToImage: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=800", // Office/Productivity
         publishedAt: new Date(today.getTime() - 13 * 60 * 60 * 1000).toISOString(),
         source: { name: "Microsoft" },
         category: "ai"
@@ -200,7 +217,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "California Passes Comprehensive AI Safety Legislation",
         description: "New state laws require AI companies to implement safety measures and transparency protocols, setting precedent for national AI regulation.",
         url: "https://oag.ca.gov/",
-        urlToImage: "https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800", // Legal documents
         publishedAt: new Date(today.getTime() - 15 * 60 * 60 * 1000).toISOString(),
         source: { name: "California AG" },
         category: "compliance"
@@ -209,7 +226,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
         title: "Meta Announces Llama 3 with Multimodal Capabilities",
         description: "Meta's latest large language model can process text, images, and audio simultaneously, bringing advanced AI capabilities to social media platforms.",
         url: "https://about.meta.com/news/",
-        urlToImage: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800",
+        urlToImage: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800", // AI/Technology
         publishedAt: new Date(today.getTime() - 17 * 60 * 60 * 1000).toISOString(),
         source: { name: "Meta" },
         category: "tech"
@@ -478,7 +495,7 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800";
+                      (e.target as HTMLImageElement).src = "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800";
                     }}
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
