@@ -42,7 +42,6 @@ export const Header = ({ onNavigateToNews }: HeaderProps) => {
     { key: 'nav.home', href: '#home' },
     { key: 'nav.services', href: '#services' },
     { key: 'nav.about', href: '#about' },
-    { key: 'nav.news', href: 'news' },
     { key: 'nav.contact', href: '#contact' },
   ];
 
