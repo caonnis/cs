@@ -32,7 +32,6 @@ export const News = ({ onNavigateToHome }: NewsProps) => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [languageKey, setLanguageKey] = useState(0);
-  const [forceUpdate, setForceUpdate] = useState(0);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   const navItems = [

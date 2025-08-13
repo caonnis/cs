@@ -12,7 +12,6 @@ export const Header = ({ onNavigateToNews }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, currentLanguage } = useLanguage();
-  const [forceUpdate, setForceUpdate] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,21 +21,6 @@ export const Header = ({ onNavigateToNews }: HeaderProps) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Force re-render when language changes
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      setForceUpdate(prev => prev + 1);
-    };
-
-    window.addEventListener('languageChanged', handleLanguageChange);
-    return () => window.removeEventListener('languageChanged', handleLanguageChange);
-  }, []);
-
-  // Re-render when currentLanguage changes
-  useEffect(() => {
-    setForceUpdate(prev => prev + 1);
-  }, [currentLanguage]);
 
   const navItems = [
     { key: 'nav.home', href: '#home' },
