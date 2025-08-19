@@ -11,7 +11,7 @@ interface HeaderProps {
 export const Header = ({ onNavigateToNews }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t, currentLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
