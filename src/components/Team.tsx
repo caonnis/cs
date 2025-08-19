@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Users } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { useLanguage } from '@/hooks/useLanguage';
 
